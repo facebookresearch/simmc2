@@ -12,6 +12,7 @@ The following paper describes in detail the dataset, the collection process, and
 Satwik Kottur*, Seungwhan Moon*, Alborz Geramifard and Babak Damavandi, ["SIMMC 2.0: A Task-oriented Dialog Dataset for Immersive Multimodal Conversations"](https://arxiv.org/pdf/2104.08667.pdf) (2021).
 
 If you want to publish experimental results with our dataset or use the baseline models, please cite the following article:
+
 ```
 @article{kottur2021simmc,
   title={SIMMC 2.0: A Task-oriented Dialog Dataset for Immersive Multimodal Conversations},
@@ -52,6 +53,7 @@ $ git clone https://github.com/facebookresearch/simmc2.git
 ## Overview of the Dataset Repository 
 
 The data are made available in the following files:
+
 ```
 [Main Data]
 - Full dialogs: ./simmc2_dials_dstc10_{train|dev|devtest|test}.json
@@ -107,6 +109,39 @@ For each `{train|dev|devtest}` split, the JSON data is formatted as follows:
   ] // end of a dialogue
 }
 ```
+The scene information file (`{scene_name}_scene.json`) is formatted as follows:
+
+```
+{
+	"scenes": [
+		{
+			"objects": [
+				{
+					"index": <int>, 
+					"unique_id": <int>,
+					"prefab_path": <str>,
+					"bbox": [<int>, <int>, <int>, <int>],
+					"position": [<float>, <float>, <float>, <float>],
+				}
+			],
+			"relationships": {
+				"<relation>": {
+					<obj_id>: <list of objects with relation to obj_id>
+				}
+			}
+		}
+	]
+}
+
+```
+
+`bbox`: `x`, `y`, `height`, `width` (`x` and `y` are of top left corner of the bounding box)  
+Please see `models/utils/visualize_bboxes.py` to better understand these coordinates.   
+`position`: Position in the 3D scene, can be ignored for modeling
+`index`: Index for the instance in the scene
+`unique_id`: Unique index for the instance based on the object
+
+
 The data can be processed with respective data readers / preprocessing scripts for each sub-task (please refer to the respective README documents). Each sub-task will describe which fields can be used as input.
 
 **NOTES**
