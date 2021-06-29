@@ -18,6 +18,7 @@ import os
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
+from tqdm import tqdm as progressbar
 
 
 def draw_bboxes(bboxes, load_path, save_path, verbose=False):
@@ -78,13 +79,19 @@ def main(args):
             ii.rsplit("_", 1)[0] for ii in os.listdir(args["scene_json_root"])
         ]
         scene_names = list(set(scene_names))
+        # Remove explore.py.
+        scene_names.remove("explore.py")
     else:
         scene_names = args["scene_names"]
 
     print(f"""Reading scene JSONS: {args["scene_json_root"]}""")
     print(f"""Reading scene screenshots: {args["screenshot_root"]}""")
-    for scene in scene_names:
+    for scene in progressbar(scene_names):
         json_path = os.path.join(args["scene_json_root"], f"{scene}_scene.json")
+        # Check if file exists, else try with "m_"
+        if not os.path.exists(json_path):
+            json_path = os.path.join(args["scene_json_root"], f"m_{scene}_scene.json")
+            assert os.path.exists(json_path), f"{json_path} not found!"
         with open(json_path, "r") as file_id:
             scene_json = json.load(file_id)
         object_bboxes = scene_json["scenes"][0]["objects"]
