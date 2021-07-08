@@ -52,13 +52,13 @@ $ ./run_preprocess_gpt2.sh
 The shell script above repeats the following for all {train|dev|devtest} splits and both {furniture|fashion} domains.
 
 ```
-$ python -m gpt2_dst.scripts.preprocess_input \
-    --input_path_json={path_dir}/data/simmc-fashion/fashion_train_dials.json \
-    --output_path_predict={path_dir}/mm_dst/gpt2_dst/data/fashion/fashion_train_dials_predict.txt \
-    --output_path_target={path_dir}/mm_dst/gpt2_dst/data/fashion/fashion_train_dials_target.txt \
-    --output_path_special_tokens={path_dir}/mm_dst/gpt2_dst/data/fashion/special_tokens.json
+python -m gpt2_dst.scripts.preprocess_input \
+    --input_path_json="${PATH_DATA_DIR}"/simmc2_dials_train.json \
+    --output_path_predict="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_train_predict.txt \
+    --output_path_target="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_train_target.txt \
     --len_context=2 \
     --use_multimodal_contexts=1 \
+    --output_path_special_tokens="${PATH_DIR}"/gpt2_dst/data/simmc2_special_tokens.json
 ```
 
 2. **Train** the baseline model
@@ -67,25 +67,24 @@ $ python -m gpt2_dst.scripts.preprocess_input \
 $ ./run_train_gpt2.sh
 ```
 
-The shell script above repeats the following for both {furniture|fashion} domains.
+The shell script above repeats the following.
 
 ```
 $ python -m gpt2_dst.scripts.run_language_modeling \
-    --output_dir={path_dir}/save/fashion \
+    --output_dir="${PATH_DIR}"/gpt2_dst/save/model \
     --model_type=gpt2 \
     --model_name_or_path=gpt2 \
     --line_by_line \
-    --add_special_tokens={path_dir}/mm_dst/gpt2_dst/data/fashion/special_tokens.json \
+    --add_special_tokens="${PATH_DIR}"/gpt2_dst/data/simmc2_special_tokens.json \
     --do_train \
-    --train_data_file={path_dir}/mm_dst/gpt2_dst/data/fashion/fashion_train_dials_target.txt \
-    --do_eval \
-    --eval_data_file={path_dir}/mm_dst/gpt2_dst/data/fashion/fashion_dev_dials_target.txt \
-    --num_train_epochs=1 \
+    --train_data_file="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_train_target.txt \
+    --do_eval --eval_all_checkpoints \
+    --eval_data_file="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_dev_target.txt \
+    --num_train_epochs=2 \
     --overwrite_output_dir \
     --per_gpu_train_batch_size=4 \
-    --per_gpu_eval_batch_size=4 \
+    --per_gpu_eval_batch_size=4
     #--no_cuda
-
 ```
 
 3. **Generate** prediction for `devtest` data
@@ -94,22 +93,16 @@ $ python -m gpt2_dst.scripts.run_language_modeling \
 $ ./run_generate_gpt2.sh
 ```
 
-The shell script above repeats the following for both {furniture|fashion} domains.
+The shell script above repeats the following.
 ```
 $ python -m gpt2_dst.scripts.run_generation \
     --model_type=gpt2 \
-    --model_name_or_path={path_dir}/mm_dst/gpt2_dst/save/furniture/ \
+    --model_name_or_path="${PATH_DIR}"/gpt2_dst/save/model/ \
     --num_return_sequences=1 \
     --length=100 \
     --stop_token='<EOS>' \
-    --prompts_from_file={path_dir}/mm_dst/gpt2_dst/data/furniture/furniture_devtest_dials_predict.txt \
-    --path_output={path_dir}/mm_dst/gpt2_dst/results/furniture/furniture_devtest_dials_predicted.txt
-```
-
-Here is an example output:
-```
-System : Yes, here's another one you might like. User : Oh yeah I think my niece would really like that. Does it come in any other colors?  System : I'm sorry I don't have that information. User : Ah well. I like this color. I'd like to go ahead and buy it. Can you add it to my cart please?  => Belief State :
- DA:INFORM:PREFER:JACKET  [ fashion-O_2  = obj ] DA:REQUEST:ADD_TO_CART:JACKET  [ fashion-O_2  = obj ] <EOB>  Of course, you now have this
+    --prompts_from_file="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_devtest_predict.txt \
+    --path_output="${PATH_DIR}"/gpt2_dst/results/simmc2_dials_dstc10_devtest_predicted.txt
 ```
 
 The generation results are saved in the `/mm_dst/results` folder. Change the `path_output` to a desired path accordingly.
@@ -125,10 +118,9 @@ The shell script above repeats the following for both {furniture|fashion} domain
 
 ```
 python -m gpt2_dst.scripts.evaluate \
-    --input_path_target={path_dir}/mm_dst/gpt2_dst/data/furniture/furniture_devtest_dials_target.txt \
-    --input_path_predicted={path_dir}/mm_dst/gpt2_dst/results/furniture/furniture_devtest_dials_predicted.txt \
-    --output_path_report={path_dir}/mm_dst/gpt2_dst/results/furniture/furniture_devtest_dials_report.json
-
+    --input_path_target="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_devtest_target.txt \
+    --input_path_predicted="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_devtest_target.txt \
+    --output_path_report="${PATH_DIR}"/gpt2_dst/results/simmc2_dials_devtest_report.json
 ```
 
 Evaluation reports are saved in the `/mm_dst/results` folder as JSON files.
@@ -143,19 +135,20 @@ Alternatively, we *also* provide an evaluation script that takes as input a JSON
         {
             "dialogue": [
                 {
-                    "belief_state": [
-                        [
-                            {
-                                'act': <str>,
-                                'slots': [
-                                    [
-                                        SLOT_NAME, SLOT_VALUE
-                                    ], ...
-                                ]
-                            },
-                            [End of a frame]
-                            ...
-                        ],
+                    "system_transcript_annotated": [
+                          {
+                              'act': <str>,
+                              'act_attributes': {
+                                  "slot_values": {
+                                      SLOT_NAME: SLOT_VALUE,
+                                      ...
+                                  },
+                                  "request_slots": [ <str> ],
+                                  "memories": [ <int> ] 
+                              }
+                          },
+                          [End of a frame]
+                          ...
                     ]
                 }
                 [End of a turn]
@@ -178,9 +171,9 @@ The shell script above repeats the following for both {furniture|fashion} domain
 
 ```
 python -m utils.evaluate_dst \
-    --input_path_target="${PATH_DATA_DIR}"/simmc_fashion/fashion_devtest_dials.json \
-    --input_path_predicted="${PATH_DIR}"/fashion_devtest_pred_dials.json \
-    --output_path_report="${PATH_DIR}"/fashion_report.json
+    --input_path_target="${PATH_DATA_DIR}"/simmc2_dials_dstc10_devtest_dials.json \
+    --input_path_predicted="${PATH_DIR}"/simmc2_dials_dstc10_devtest_pred_dials.json \
+    --output_path_report="${PATH_DIR}"/simmc2_dials_dstc10_report.json
 ```
 
 You can also run response generation without belief states by using the `no_belief_states` flag
