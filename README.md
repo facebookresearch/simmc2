@@ -92,6 +92,18 @@ A `test-std` set will be released on Sept 28 for the participants who submitted 
 We ask participants to submit their model predictions on the `test-std` set by Oct 1. 
 We will announce the final results and the winners on Oct 8.
 
+### Baseline Results
+
+We provide participants with baselines for all the four tasks to benchmark their models.
+Feel free to use the code to bootstrap your model.
+
+| Subtask | Name | Baseline Results | 
+| :--: | :--: | :--: |
+| #1 | Multimodal Coreference Resolution | [Link][subtask1_results] |
+| #2 | Multimodal Disambiguation | [Link][subtask2_results] |
+| #3 | Multimodal Dialog State Tracking (MM-DST) | [Link][subtask3_results] |
+| #4 | Multimodal Dialog Response Generation & Retrieval | [Link][subtask4_results] |
+
 
 ## Challenge Instructions
 
@@ -130,6 +142,7 @@ If you want to get the latest updates about DSTC10, join the [DSTC mailing list]
 ## Citations
 
 If you want to publish experimental results with our datasets or use the baseline models, please cite the following articles:
+
 ```
 @article{kottur2021simmc,
   title={SIMMC 2.0: A Task-oriented Dialog Dataset for Immersive Multimodal Conversations},
@@ -149,3 +162,7 @@ SIMMC 2.0 is released under [CC-BY-NC-SA-4.0](https://creativecommons.org/licens
 [simmc1]:https://github.com/facebookresearch/simmc
 [simmc2_arxiv]:https://arxiv.org/pdf/2104.08667.pdf
 [simmc_arxiv]:https://arxiv.org/abs/2006.01460
+[subtask1_results]:./model/disambiguate#performance-on-simmc-20
+[subtask2_results]:./model/mm_dst#results
+[subtask3_results]:./model/mm_dst#results
+[subtask4_results]:./model/mm_dst#results
