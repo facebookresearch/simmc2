@@ -99,8 +99,8 @@ Feel free to use the code to bootstrap your model.
 
 | Subtask | Name | Baseline Results | 
 | :--: | :--: | :--: |
-| #1 | Multimodal Coreference Resolution | [Link][subtask1_results] |
-| #2 | Multimodal Disambiguation | [Link][subtask2_results] |
+| #1 | Multimodal Disambiguation | [Link][subtask1_results] |
+| #2 | Multimodal Coreference Resolution | [Link][subtask2_results] |
 | #3 | Multimodal Dialog State Tracking (MM-DST) | [Link][subtask3_results] |
 | #4 | Multimodal Dialog Response Generation & Retrieval | [Link][subtask4_results] |
 
