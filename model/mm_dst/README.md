@@ -197,6 +197,13 @@ Below are the baseline results for the GPT-2 model and Multimodal Transformer Ne
 | GPT2     |   0.366   |
 | [MTN-SIMMC2][mtn_simmc2] | - |
 
+**Subtask #4: Multimodal Dialog Response Generation**  
+
+| Baseline |      BLEU |
+| :------: | :-------: |
+| GPT2     |   0.192   |
+| [MTN-SIMMC2][mtn_simmc2] | 0.217 |
+
 ## Rules for Sub-task #3 Submissions
 * Disallowed input per each turn: `belief_state`, `system_transcript`, `system_transcript_annotated`, `state_graph_1`, `state_graph_2`, and anything from future turns.
 * If you would like to use any other external resources, please consult with the track organizers (simmc@fb.com). Generally, we allow the use of publicly available pre-trained language models, such as BERT, GPT-2, etc.
