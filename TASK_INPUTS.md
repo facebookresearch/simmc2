@@ -10,9 +10,9 @@
 |`system_transcript`<br>(previous turns)|  |  |  |
 |`system_transcript`<br>(current turn) | ✗ | ✗ | ✗ |  ✗<br>(prediction target) |
 |`system_transcript_annotated`<br>(previous turns)| ✗<br>(except mentioned object IDs) | ✗<br>(except mentioned object IDs) | ✗<br>(except mentioned object IDs) | ✗ |
-|`system_transcript_annotated`<br>(current turn)| ✗<br>(prediction target) | ✗<br>(prediction target) | ✗<br>(prediction target) |  |
+|`system_transcript_annotated`<br>(current turn)| ✗ | ✗ | ✗ |  |
 |`transcript`| | |  |
-|`transcript_annotated` | ✗ | ✗ | ✗ | ✗ |
+|`transcript_annotated` | ✗<br>(prediction target) | ✗<br>(prediction target) | ✗<br>(prediction target) | ✗ |
 |`turn_idx`| | | |
 |`disambiguation_label`| ✗ | ✗ | ✗ | ✗ |
 |`mentioned_object_ids`| ✗ | ✗ | ✗ | ✗ |
