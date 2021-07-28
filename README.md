@@ -130,6 +130,15 @@ $ git clone https://github.com/facebookresearch/simmc2.git
 * We will evaluate the participants’ model predictions using the same evaluation script for Phase 1, and announce the results.
 
 
+## Frequently Asked Questions
+1. _Do I need to participate in all the subtracks or can I select a subset of subtracks to participate in?_
+
+* We do plan on announcing winner(s) for each of the four sub-tasks. Teams who submit results for a subset of the tasks will still be evaluated to be considered as sub-task winner(s) for the respective tasks they participated in.
+
+2. _What are the tasks inputs for each of the subtasks?_
+
+* The allowed set of inputs for each task is defined [here](https://github.com/facebookresearch/simmc2/blob/master/TASK_INPUTS.md).
+
 ## Contact
 
 ### Questions related to SIMMC Track, Data, and Baselines
