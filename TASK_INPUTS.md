@@ -25,7 +25,7 @@
 |`relationships`| | | |
 |**Prefab Metadata Files**| | | |
 |`url` (raw image)| | | |
-|Non-visual Metadata<br>(`customerReview`,`color`,`brand`,`price`,`size`,`materials`)|  
+|Non-visual Metadata<br>(`customerReview`,`brand`,`price`,`size`,`materials`)|  
 |Visual Metadata<br>(`assetType`,`color`,`pattern`,`sleeveLength`,`type`) | ✗ | ✗ | ✗ | ✗ |
 
 **Notes**
