@@ -57,7 +57,7 @@ We present four sub-tasks primarily aimed at replicating human-assistant actions
 | Sub-Task #2 | [Multimodal Coreference Resolution](mm_coref) |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------|
 | Goal | To resolve referent objects to thier canonical ID(s) as defined by the catalog. |
-| Input | Current user utterance with objection mentions, Dialog context, Multimodal context |
+| Input | Current user utterance, Dialog context, Multimodal context |
 | Output |  Canonical object IDs |
 | Metrics |  Coref F1 / Precision / Recall |
 
