@@ -114,13 +114,13 @@ The generation results are saved in the `/mm_dst/results` folder. Change the `pa
 $ ./run_evaluate_gpt2.sh
 ```
 
-The shell script above repeats the following for both {furniture|fashion} domains.
+The shell script above runs the following:
 
 ```
 python -m gpt2_dst.scripts.evaluate \
-    --input_path_target="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_devtest_target.txt \
-    --input_path_predicted="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_devtest_predicted.txt \
-    --output_path_report="${PATH_DIR}"/gpt2_dst/results/simmc2_dials_devtest_report.json
+    --input_path_target="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_devtest_target.txt \
+    --input_path_predicted="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_devtest_predicted.txt \
+    --output_path_report="${PATH_DIR}"/gpt2_dst/results/simmc2_dials_dstc10_devtest_report.json
 ```
 
 Evaluation reports are saved in the `/mm_dst/results` folder as JSON files.
@@ -167,7 +167,7 @@ To run this evaluation script:
 $ ./run_evaluate.sh
 ```
 
-The shell script above repeats the following for both {furniture|fashion} domains.
+The shell script above runs the following:
 
 ```
 python -m utils.evaluate_dst \

@@ -273,9 +273,10 @@ def parse_flattened_result(to_parse):
         ]  # End of a dialog
     """
     dialog_act_regex = re.compile(
-        r"([\w:?.?]*)  *\[([^\]]*)\] *\(([^\]]*)\) *\<([^\]]*)\>"
-    )
-    slot_regex = re.compile(r"([A-Za-z0-9_.-:]*)  *= ([^,]*)")
+        r'([\w:?.?]*)  *\[(.*)\] *\(([^\]]*)\) *\<([^\]]*)\>'
+    )    
+    
+    slot_regex = re.compile(r"([A-Za-z0-9_.-:]*)  *= (\[(.*)\]|[^,]*)")
     request_regex = re.compile(r"([A-Za-z0-9_.-:]+)")
     object_regex = re.compile(r"([A-Za-z0-9]+)")
 
@@ -312,3 +313,20 @@ def parse_flattened_result(to_parse):
                     belief.append(d)
 
     return belief
+
+
+if __name__ == '__main__':
+    print('-')
+    to_parse = "=> Belief State : INFORM:GET [ sleeveLength = short, availableSizes = ['XXL', 'S', 'L'], pattern = leafy design ] (availableSizes, pattern) < 86, 57 > <EOB>"
+    print(to_parse)
+    print(parse_flattened_result(to_parse))
+
+    print('-')
+    to_parse = "=> Belief State : INFORM:GET [ sleeveLength = short, availableSizes = ['XXL', 'S', 'L'] ] (availableSizes) < 86, 57 > <EOB>"
+    print(to_parse)
+    print(parse_flattened_result(to_parse))
+
+    print('-')
+    to_parse = "=> Belief State : INFORM:GET [ sleeveLength = short, pattern = leafy ] (availableSizes) < 86, 57 > <EOB>"
+    print(to_parse)
+    print(parse_flattened_result(to_parse))
