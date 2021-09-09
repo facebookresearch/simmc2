@@ -144,7 +144,7 @@ Alternatively, we *also* provide an evaluation script that takes as input a JSON
                                       ...
                                   },
                                   "request_slots": [ <str> ],
-                                  "memories": [ <int> ] 
+                                  "objects": [ <int> ] 
                               }
                           },
                           [End of a frame]
