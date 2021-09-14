@@ -6,3 +6,5 @@ data/simmc2_scene_images_dstc10_public_part1.zip filter=lfs diff=lfs merge=lfs -
 data/simmc2_scene_images_dstc10_public_part2.zip filter=lfs diff=lfs merge=lfs -text
 data/fashion_prefab_metadata_all.json filter=lfs diff=lfs merge=lfs -text
 data/furniture_prefab_metadata_all.json filter=lfs diff=lfs merge=lfs -text
+data/simmc2_dials_dstc10_dev_retrieval_candidates.json filter=lfs diff=lfs merge=lfs -text
+data/simmc2_dials_dstc10_devtest_retrieval_candidates.json filter=lfs diff=lfs merge=lfs -text

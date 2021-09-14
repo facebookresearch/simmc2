@@ -48,6 +48,8 @@ def convert_json_to_flattened(
     len_context=2,
     use_multimodal_contexts=True,
     use_belief_states=True,
+    input_path_retrieval=None,
+    output_path_retrieval=None,
     input_path_special_tokens="",
     output_path_special_tokens="",
 ):
@@ -58,6 +60,20 @@ def convert_json_to_flattened(
 
     with open(input_path_json, "r") as f_in:
         data = json.load(f_in)["dialogue_data"]
+
+    # If input_path_retrieval is not None, also encode retrieval options.
+    if input_path_retrieval is not None:
+        with open(input_path_retrieval, "r") as file_id:
+            retrieval_options = json.load(file_id)
+        format_retrieval_options = True
+        options_pool = retrieval_options["system_transcript_pool"]
+        options_dict = {
+            ii["dialogue_idx"]: ii
+            for ii in retrieval_options["retrieval_candidates"]
+        }
+        retrieval_targets = []
+    else:
+        format_retrieval_options = False
 
     predicts = []
     targets = []
@@ -84,11 +100,13 @@ def convert_json_to_flattened(
 
     for _, dialog in enumerate(data):
 
+        domain = dialog["domain"]
+        dialog_id = dialog["dialogue_idx"]
         prev_asst_uttr = None
         prev_turn = None
         lst_context = []
 
-        for turn in dialog[FIELDNAME_DIALOG]:
+        for turn_id, turn in enumerate(dialog[FIELDNAME_DIALOG]):
             user_uttr = turn[FIELDNAME_USER_UTTR].replace("\n", " ").strip()
             user_belief = turn[FIELDNAME_BELIEF_STATE]
             asst_uttr = turn[FIELDNAME_ASST_UTTR].replace("\n", " ").strip()
@@ -172,6 +190,8 @@ def convert_json_to_flattened(
                     END_OF_SENTENCE=END_OF_SENTENCE,
                 )
                 targets.append(target)
+
+                # NOTE: Retrieval options w/ belief states is not implemented.
             else:
                 # Format the main input
                 predict = TEMPLATE_PREDICT_NOBELIEF.format(
@@ -187,6 +207,20 @@ def convert_json_to_flattened(
                     START_OF_RESPONSE=START_OF_RESPONSE,
                 )
                 targets.append(target)
+
+                # Add retrieval options is necessary.
+                if format_retrieval_options:
+                    turn_options = (
+                        options_dict[dialog_id]["retrieval_candidates"][turn_id]
+                    )
+                    for option_ind in turn_options["retrieval_candidates"]:
+                        retrieval_target = TEMPLATE_TARGET_NOBELIEF.format(
+                            context=context,
+                            response=options_pool[domain][option_ind],
+                            END_OF_SENTENCE=END_OF_SENTENCE,
+                            START_OF_RESPONSE=START_OF_RESPONSE,
+                        )
+                        retrieval_targets.append(retrieval_target)
 
     # Create a directory if it does not exist
     directory = os.path.dirname(output_path_predict)
@@ -205,6 +239,15 @@ def convert_json_to_flattened(
     with open(output_path_target, "w") as f_target:
         Y = "\n".join(targets)
         f_target.write(Y)
+
+    # Write retrieval candidates if necessary.
+    if format_retrieval_options:
+        # Create a directory if it does not exist
+        directory = os.path.dirname(output_path_retrieval)
+        if not os.path.exists(directory):
+            os.makedirs(directory, exist_ok=True)
+        with open(output_path_retrieval, "w") as file_id:
+            file_id.write("\n".join(retrieval_targets))
 
     if output_path_special_tokens != "":
         # Create a directory if it does not exist

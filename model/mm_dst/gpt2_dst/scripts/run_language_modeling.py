@@ -75,7 +75,7 @@ class TextDataset(Dataset):
         assert os.path.isfile(file_path)
 
         block_size = block_size - (
-            tokenizer.max_len - tokenizer.max_len_single_sentence
+            tokenizer.model_max_length - tokenizer.max_len_single_sentence
         )
 
         self.examples = []
@@ -948,10 +948,10 @@ def main():
         logger.info(f"All special tokens: {tokenizer.all_special_tokens}")
 
     if args.block_size <= 0:
-        args.block_size = tokenizer.max_len
+        args.block_size = tokenizer.model_max_length
         # Our input block size will be the max possible for the model
     else:
-        args.block_size = min(args.block_size, tokenizer.max_len)
+        args.block_size = min(args.block_size, tokenizer.model_max_length)
 
     if args.model_name_or_path:
         model = AutoModelWithLMHead.from_pretrained(
