@@ -18,6 +18,7 @@ For this challenge, we release a new Immersive SIMMC 2.0 dataset in the shopping
 
 ### Latest News
 
+* **[Sept 14, 2021]** Retrieval candidates for `dev` and `devtest` released.
 * **[June 14, 2021]** Challenge announcement. Training / development datasets (SIMMC v2.0) are released.
 
 
@@ -26,7 +27,7 @@ For this challenge, we release a new Immersive SIMMC 2.0 dataset in the shopping
 * [Task Description Paper][simmc2_arxiv]
 * [Challenge Registration](https://docs.google.com/forms/d/e/1FAIpQLSe9CgrlygYciIZH_pK8133fbp1kqigTB6JIP7utfNFx_xSm6A/viewform)
 * [Data Formats](data/README.md)
-* **Baseline Details**: Will be added soon!
+* Baseline Details & Results: [Subtask1][subtask1_results], [Subtask 2, 3, 4][subtask2_results]
 * [Challenge Instructions](#challenge-instructions)
 * [Submission Instructions](SUBMISSION_INSTRUCTIONS.md)
 
