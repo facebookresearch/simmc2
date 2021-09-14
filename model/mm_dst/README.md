@@ -197,12 +197,22 @@ Below are the baseline results for the GPT-2 model and Multimodal Transformer Ne
 | GPT2     |   0.366   |
 | [MTN-SIMMC2][mtn_simmc2] | - |
 
-**Subtask #4: Multimodal Dialog Response Generation**  
+**Subtask #4: Multimodal Dialog Response Generation** 
+
+**Generation** 
 
 | Baseline |      BLEU |
 | :------: | :-------: |
 | GPT2     |   0.192   |
 | [MTN-SIMMC2][mtn_simmc2] | 0.217 |
+
+**Retrieval**  
+
+
+| Baseline |    MRR    |  R@1 | R@5 | R@10 | Mean Rank |
+| :------: | :-------: | :---: | :-------: | :------: | :-------: |
+| Random   |   0.052   |   0.010   |   0.050   |   0.100   |   50.0   |
+| GPT2     |   0.088   |   0.026   |   0.107   |   0.184   |   38.0   |
 
 ## Rules for Sub-task #3 Submissions
 * Disallowed input per each turn: `belief_state`, `system_transcript`, `system_transcript_annotated`, `state_graph_1`, `state_graph_2`, and anything from future turns.
