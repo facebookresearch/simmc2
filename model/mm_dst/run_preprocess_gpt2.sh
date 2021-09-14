@@ -13,7 +13,6 @@ python3 -m gpt2_dst.scripts.preprocess_input \
     --input_path_json="${PATH_DATA_DIR}"/simmc2_dials_dstc10_train.json \
     --output_path_predict="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_train_predict.txt \
     --output_path_target="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_train_target.txt \
-    --no_belief_states \
     --len_context=2 \
     --use_multimodal_contexts=1 \
     --output_path_special_tokens="${PATH_DIR}"/gpt2_dst/data/simmc2_special_tokens.json
@@ -23,9 +22,6 @@ python3 -m gpt2_dst.scripts.preprocess_input \
     --input_path_json="${PATH_DATA_DIR}"/simmc2_dials_dstc10_dev.json \
     --output_path_predict="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_dev_predict.txt \
     --output_path_target="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_dev_target.txt \
-    --input_path_retrieval="${PATH_DATA_DIR}"/simmc2_dials_dstc10_dev_retrieval_candidates.json \
-    --output_path_retrieval="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_dev_retrieval.txt \
-    --no_belief_states \
     --len_context=2 \
     --use_multimodal_contexts=1 \
     --input_path_special_tokens="${PATH_DIR}"/gpt2_dst/data/simmc2_special_tokens.json \
@@ -36,9 +32,6 @@ python3 -m gpt2_dst.scripts.preprocess_input \
     --input_path_json="${PATH_DATA_DIR}"/simmc2_dials_dstc10_devtest.json \
     --output_path_predict="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_devtest_predict.txt \
     --output_path_target="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_devtest_target.txt \
-    --input_path_retrieval="${PATH_DATA_DIR}"/simmc2_dials_dstc10_devtest_retrieval_candidates.json \
-    --output_path_retrieval="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_devtest_retrieval.txt \
-    --no_belief_states \
     --len_context=2 \
     --use_multimodal_contexts=1 \
     --input_path_special_tokens="${PATH_DIR}"/gpt2_dst/data/simmc2_special_tokens.json \
