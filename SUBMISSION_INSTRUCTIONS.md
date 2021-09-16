@@ -52,6 +52,57 @@ dstc10-simmc-teststd-pred-subtask-4-generation.json
 dstc10-simmc-teststd-pred-subtask-4-retrieval.json
 ```
 
+The formats are as follows:
+
+```
+<Subtask 1>
+[
+    "dialog_id": <dialog_id>,
+    "predictions": [
+        {
+            "turn_id": <turn_id>,
+            "disambiguation_label": <boolean>,
+        }
+        ...
+    ]
+    ...
+]
+
+
+<Subtask 2 & 3>
+Follow either original data format or line-by-line evaluation.
+
+
+<Subtask 4 Generation>
+[
+    "dialog_id": <dialog_id>,
+    "predictions": [
+        {
+            "turn_id": <turn_id>,
+            "response": <str; model output>,
+        }
+        ...
+    ]
+    ...
+]
+
+
+<Subtask 4 Retrieval>
+[
+    "dialog_id": <dialog_id>,
+    "retrieval_candidates": [
+        {
+            "turn_id": <turn_id>,
+            "candidate_scores": [
+                <list of 100 floats>
+            ]
+        }
+        ...
+    ]
+    ...
+]
+```
+
 The SIMMC organizers will then evaluate them internally using the following scripts:
 
 ```
