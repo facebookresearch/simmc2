@@ -31,14 +31,20 @@ def main(args):
         # Reformat into simple strings with positive and negative labels.
         # (dialog string, label)
         disambiguate_data = []
-        for dialog_id, dialog_datum in enumerate(dialogs["dialogue_data"]):
+        for dialog_ind, dialog_datum in enumerate(dialogs["dialogue_data"]):
             history = []
-            for turn_datum in dialog_datum["dialogue"]:
+            for turn_ind, turn_datum in enumerate(dialog_datum["dialogue"]):
                 history.append(turn_datum["transcript"])
 
                 label = turn_datum.get("disambiguation_label", None)
                 if label is not None:
-                    disambiguate_data.append((copy.deepcopy(history), label))
+                    new_datum = {
+                        "dialog_id": dialog_datum["dialogue_idx"],
+                        "turn_id": turn_ind,
+                        "input_text": copy.deepcopy(history),
+                        "disambiguation_label_gt": label,
+                    }
+                    disambiguate_data.append(new_datum)
                 history.append(turn_datum["system_transcript"])
         print(f"# instances [{split}]: {len(disambiguate_data)}")
         save_path = os.path.join(

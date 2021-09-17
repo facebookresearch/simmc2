@@ -12,6 +12,9 @@ Author(s): Satwik Kottur
 
 from __future__ import absolute_import, division, print_function, unicode_literals
 import argparse
+import collections
+import json
+import os
 
 import torch
 import torch.nn as nn
@@ -26,13 +29,34 @@ from dataloader import Dataloader
 from disambiguator import Disambiguator
 
 
-def evaluate_model(model, loader, batch_size):
+def evaluate_model(model, loader, batch_size, save_path=None):
     num_matches = 0
+    results = collections.defaultdict(list)
     with torch.no_grad():
         for batch in progressbar(loader.get_entire_batch(batch_size)):
             output = model(batch)
             predictions = torch.argmax(output, dim=1)
             num_matches += (predictions == batch["gt_label"]).sum().item()
+
+            # Save results if need be.
+            if save_path:
+                for ii in range(predictions.shape[0]):
+                    new_instance = {
+                        "turn_id": batch["turn_id"][ii],
+                        "disambiguation_label": predictions[ii].cpu().item(),
+                    }
+                    results[batch["dialog_id"][ii]].append(new_instance)
+
+    # Restructure results JSON and save.
+    if save_path:
+        results = [
+            {"dialog_id": dialog_id, "predictions": predictions,}
+            for dialog_id, predictions in results.items()
+        ]
+        print(f"Saving: {save_path}")
+        with open(save_path, "w") as file_id:
+            json.dump(results, file_id)
+
     accuracy = num_matches / loader.num_instances * 100
     return accuracy
 
@@ -91,7 +115,16 @@ def main(args):
             model.eval()
             accuracy = evaluate_model(model, val_loader, args["batch_size"] * 5)
             print("Accuracy [dev]: {}".format(accuracy))
-            accuracy = evaluate_model(model, test_loader, args["batch_size"] * 5)
+            # Save devtest results.
+            if args["result_save_path"]:
+                save_path = os.path.join(
+                    args["result_save_path"], f"results_devtest_{num_iters}.json"
+                )
+            else:
+                save_path = None
+            accuracy = evaluate_model(
+                model, test_loader, args["batch_size"] * 5, save_path
+            )
             print("Accuracy [devtest]: {}".format(accuracy))
             model.train()
 
@@ -106,6 +139,9 @@ if __name__ == "__main__":
     parser.add_argument("--dev_file", required=True, help="Path to the dev file")
     parser.add_argument(
         "--devtest_file", required=True, help="Path to the devtest file"
+    )
+    parser.add_argument(
+        "--result_save_path", default=None, help="Path to save devtest results"
     )
     parser.add_argument(
         "--max_turns", type=int, default=3, help="Number of turns in history"
