@@ -56,8 +56,8 @@ $ python train_model.py \
 	--train_file="../../data/simmc2_disambiguate_dstc10_train.json" \
 	--dev_file="../../data/simmc2_disambiguate_dstc10_dev.json" \
 	--devtest_file="../../data/simmc2_disambiguate_dstc10_devtest.json" \
+    --result_save_path="results/" \
 	--use_gpu --batch_size=8 --learning_rate=2e-5 --max_turns=5
-
 ```
 
 ## Performance on SIMMC 2.0

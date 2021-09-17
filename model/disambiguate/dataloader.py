@@ -42,9 +42,12 @@ class Dataloader:
     def get_indexed_data(self, indices):
         text_labels = []
         text_inputs = []
+        dialog_ids = []
+        turn_ids = []
         for index in indices:
             # Add <USER> and <SYS> tokens.
-            dialog = self._raw_data[index][0]
+            dialog_datum = self._raw_data[index]
+            dialog = self._raw_data[index]["input_text"]
             for turn_id, turn in enumerate(dialog):
                 if turn_id % 2 == 0:
                     dialog[turn_id] = "<USER> " + turn
@@ -52,12 +55,11 @@ class Dataloader:
                     dialog[turn_id] = "<SYS> " + turn
             text = " ".join(dialog[-self.num_utterances :])
             text_inputs.append(text)
-            text_labels.append(self._raw_data[index][1])
+            text_labels.append(dialog_datum["disambiguation_label_gt"])
+            dialog_ids.append(dialog_datum["dialog_id"])
+            turn_ids.append(dialog_datum["turn_id"])
         encoded_inputs = self._tokenizer(
-            text_inputs,
-            return_tensors="pt",
-            padding=True,
-            truncation=True,
+            text_inputs, return_tensors="pt", padding=True, truncation=True,
         )
         if self._args["use_gpu"]:
             encoded_inputs = {key: val.cuda() for key, val in encoded_inputs.items()}
@@ -65,5 +67,7 @@ class Dataloader:
         batch = {
             "text_in": encoded_inputs,
             "gt_label": self.device.LongTensor(text_labels),
+            "dialog_id": dialog_ids,
+            "turn_id": turn_ids,
         }
         return batch
