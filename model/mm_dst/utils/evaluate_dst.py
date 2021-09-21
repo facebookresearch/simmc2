@@ -24,20 +24,20 @@ def evaluate_from_json(d_true, d_pred):
         {
             "dialogue": [
                 {
-                    "belief_state": [
-                        [
-                            {
-                                'act': <str>,
-                                'slots': [
-                                    [
-                                        SLOT_NAME, SLOT_VALUE
-                                    ], ...
-                                ]
+                    "transcript_annotated":  {
+                        'act': <str>,
+                        'act_attributes': {
+                            'slot_values': {
+                                SLOT_NAME: SLOT_VALUE,
+                                ...
                             },
-                            [End of a frame]
-                            ...
-                        ],
-                    ]
+                            'request_slots': [
+                                SLOT_NAME, ...
+                            ],
+                            'objects': [ <int> ]
+                        }
+                    },
+                    ...
                 }
                 [End of a turn]
                 ...
@@ -54,20 +54,30 @@ def evaluate_from_json(d_true, d_pred):
         # Iterate through each dialog
         dialog_true = d_true[i]["dialogue"]
         dialog_pred = d_pred[i]["dialogue"]
-        dialogue_idx = d_true[i]["dialogue_idx"]
+
+        # ** Assumes dialogue_idx and turn_idx are ordered
+        # exactly the same for `dialog_true` and `dialog_pred`
+        _ = d_true[i]["dialogue_idx"]
 
         for j in range(len(dialog_true)):
             # Iterate through each turn
-            turn_true = dialog_true[j]["belief_state"]
-            turn_pred = dialog_pred[j]["belief_state"]
-
-            turn_true["turn_idx"] = j
-            turn_true["dialogue_idx"] = dialogue_idx
+            turn_true = reformat_turn(dialog_true[j]["transcript_annotated"])
+            turn_pred = reformat_turn(dialog_pred[j]["transcript_annotated"])
 
             d_true_flattened.append(turn_true)
             d_pred_flattened.append(turn_pred)
 
     return evaluate_from_flat_list(d_true_flattened, d_pred_flattened)
+
+
+def reformat_turn(t):
+    frame = {
+        'act': t['act'],
+        'slots': [[s,v] for s, v in t['act_attributes']['slot_values'].items()],
+        'request_slots': t['act_attributes']['request_slots'],
+        'objects': t['act_attributes']['objects'],
+    }
+    return [frame]
 
 
 def evaluate_from_flat_list(d_true, d_pred):
@@ -81,8 +91,11 @@ def evaluate_from_flat_list(d_true, d_pred):
                 'slots': [
                     [
                         SLOT_NAME, SLOT_VALUE
-                    ], ...
-                ]
+                    ],
+                    ...
+                ],
+                'request_slots': [ SLOT_NAME, ... ],
+                'objects': [ <int> ]
             },
             [End of a frame]
             ...
