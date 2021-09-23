@@ -90,10 +90,10 @@ Follow either original data format or line-by-line evaluation.
 <Subtask 4 Retrieval>
 [
     "dialog_id": <dialog_id>,
-    "retrieval_candidates": [
+    "candidate_scores": [
         {
             "turn_id": <turn_id>,
-            "candidate_scores": [
+            "scores": [
                 <list of 100 floats>
             ]
         }
@@ -136,6 +136,12 @@ $ python tools/retrieval_evaluation.py \
     --model_score_path={PATH_TO_MODEL_CANDIDATE_SCORES} \
     --single_round_evaluation    
 ```
+
+**NOTE:** For subtask 1 (multimodal disambiguation), please predict the results
+at turns with `disambiguation_label` key.
+For `test-std`, we will set this key to `None` to indicate the disambiguation 
+turn(s).
+
 
 ## Submission Instructions and Timeline
 
