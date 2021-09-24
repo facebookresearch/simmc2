@@ -18,7 +18,7 @@ For this challenge, we release a new Immersive SIMMC 2.0 dataset in the shopping
 
 ### Latest News
 
-* **[Sept 24, 2021]** Deadlines have been pushed to accommodate for a slight change in the evaluation script.
+* **[Sept 24, 2021]** Submission deadlines have been pushed to accommodate for a [slight change](https://github.com/facebookresearch/simmc2/commit/741e6d32dc354b7c17de7a1b5ec639343f4286d6) in the DST evaluation script. Please see the [Submission Instructions](SUBMISSION_INSTRUCTIONS.md) for more details on the dates.
 * **[Sept 14, 2021]** Retrieval candidates for `dev` and `devtest` released.
 * **[June 14, 2021]** Challenge announcement. Training / development datasets (SIMMC v2.0) are released.
 
