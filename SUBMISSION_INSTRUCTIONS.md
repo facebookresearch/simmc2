@@ -147,6 +147,8 @@ turn(s).
 
 **UPDATE (Sept 24, 2021)**: Please note that we have changed the deadlines as following:
 
+**NOTE**: All deadlines are 11:59PM UTC-12:00 ("anywhere on Earth"), unless otherwise noted.
+
 <table>
   <tbody>
     <tr>
