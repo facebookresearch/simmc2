@@ -35,6 +35,8 @@ For this challenge, we release a new Immersive SIMMC 2.0 dataset in the shopping
 
 ## Timeline
 
+**NOTE**: All deadlines are 11:59PM UTC-12:00 ("anywhere on Earth"), unless otherwise noted.
+
 | **Date** | **Milestone** |
 | :--: | :-- |
 | June 14, 2021 | Training & development data released |
