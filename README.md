@@ -18,6 +18,7 @@ For this challenge, we release a new Immersive SIMMC 2.0 dataset in the shopping
 
 ### Latest News
 
+* **[Sept 24, 2021]** Deadlines have been pushed to accommodate for a slight change in the evaluation script.
 * **[Sept 14, 2021]** Retrieval candidates for `dev` and `devtest` released.
 * **[June 14, 2021]** Challenge announcement. Training / development datasets (SIMMC v2.0) are released.
 
@@ -37,9 +38,9 @@ For this challenge, we release a new Immersive SIMMC 2.0 dataset in the shopping
 | **Date** | **Milestone** |
 | :--: | :-- |
 | June 14, 2021 | Training & development data released |
-| Sept 24, 2021  | Test-Std data released, End of Challenge Phase 1 |
-| Oct 1, 2021 | Entry submission deadline, End of Challenge Phase 2 |
-| Oct 8, 2021 | Final results announced |
+| ~~Sept 24~~ Oct 1, 2021  | Test-Std data released, End of Challenge Phase 1 |
+| ~~Oct 1~~ Oct 8, 2021 | Entry submission deadline, End of Challenge Phase 2 |
+| ~~Oct 8~~ Oct 15, 2021 | Final results announced |
 
 
 ## Track Description
@@ -86,12 +87,12 @@ For the DSTC10 SIMMC Track, we will do a two phase evaluation as follows.
 
 **Challenge Period 1**:
 Participants will evaluate the model performance on the provided `devtest` set.
-At the end of Challenge Period 1 (Sept 24), we ask participants to submit their model prediction results and a link to their code repository.
+At the end of Challenge Period 1 (~~Sept 24~~ Oct 1), we ask participants to submit their model prediction results and a link to their code repository.
 
 **Challenge Period 2**:
-A `test-std` set will be released on Sept 28 for the participants who submitted the results for the Challenge Period 1.
-We ask participants to submit their model predictions on the `test-std` set by Oct 1. 
-We will announce the final results and the winners on Oct 8.
+A `test-std` set will be released on Oct 1 for the participants who submitted the results for the Challenge Period 1.
+We ask participants to submit their model predictions on the `test-std` set by ~~Oct 1~~ Oct 8. 
+We will announce the final results and the winners on ~~Oct 8~~ Oct 15.
 
 ### Baseline Results
 
