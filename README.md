@@ -40,9 +40,9 @@ For this challenge, we release a new Immersive SIMMC 2.0 dataset in the shopping
 | **Date** | **Milestone** |
 | :--: | :-- |
 | June 14, 2021 | Training & development data released |
-| ~~Sept 24~~ *Oct 1*, 2021  | Test-Std data released, End of Challenge Phase 1 |
-| ~~Oct 1~~ *Oct 8*, 2021 | Entry submission deadline, End of Challenge Phase 2 |
-| ~~Oct 8~~ *By Oct 15*, 2021 | Final results announced |
+| ~~Sept 24~~ ***Oct 1***, 2021  | Test-Std data released, End of Challenge Phase 1 |
+| ~~Oct 1~~ ***Oct 8***, 2021 | Entry submission deadline, End of Challenge Phase 2 |
+| ~~Oct 8~~ ***By Oct 15***, 2021 | Final results announced |
 
 
 ## Track Description
