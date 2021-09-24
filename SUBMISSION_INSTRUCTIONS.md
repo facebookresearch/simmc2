@@ -145,26 +145,28 @@ turn(s).
 
 ## Submission Instructions and Timeline
 
+**UPDATE (Sept 24, 2021)**: Please note that we have changed the deadlines as following:
+
 <table>
   <tbody>
     <tr>
-      <td rowspan=3><ins>Before</ins> Sept 24th 2021</td>
+      <td rowspan=3><ins>Before</ins> Oct 1st, 2021</td>
       <td rowspan=3>Each Team</td>
       <td>Each participating team should create a repository, e.g. in github.com, that can be made public under a permissive open source license (MIT License preferred). Repository doesn’t need to be publicly viewable at that time.</td>
     </tr>
     <tr>
-      <td>Before Sept 24th <a href='https://git-scm.com/book/en/v2/Git-Basics-Tagging'>tag a repository commit</a> that contains both runable code and model parameter files that are the team’s entries for all sub-tasks attempted.</td>
+      <td>Before Oct 1st <a href='https://git-scm.com/book/en/v2/Git-Basics-Tagging'>tag a repository commit</a> that contains both runable code and model parameter files that are the team’s entries for all sub-tasks attempted.</td>
     </tr>
     <tr>
       <td>Tag commit with `dstc10-simmc-entry`.</td>
     </tr>
     <tr>
-      <td>Sept 24th 2021</td>
+      <td>Oct 1st 2021</td>
       <td>SIMMC Organizers</td>
       <td>Test-Std data released (during US Pacific coast working hours).</td>
     </tr>
     <tr>
-      <td rowspan=2><ins>Before</ins> Oct 1st 2021</td>
+      <td rowspan=2><ins>Before</ins> Oct 8th 2021</td>
       <td rowspan=2>Each Team</td>
       <td>Generate test data predictions using the code & the developed model. If there were any changes to the code & model since the Challenge Period 1, tag the new version with `dstc10-simmc-final-entry`.</td>
     </tr>
@@ -178,7 +180,7 @@ turn(s).
       </td>
     </tr>
     <tr>    
-      <td rowspan=2>By Oct 1st 2021</td>
+      <td rowspan=2>By Oct 8th 2021</td>
       <td rowspan=2>Each Team</td>
       <td>Make the team repository public under a permissive Open Source license (e.g. MIT license) to be considered as a (potential) official winner for the SIMMC 2.0 challenge.</td>
     </tr>
@@ -186,17 +188,17 @@ turn(s).
       <td>Email the SIMMC Organizers a link to the repository at simmc@fb.com</td>
     </tr>
     <tr>
-      <td>Oct 1st - Oct 8th 2021</td>
+      <td>Oct 8th - Oct 15th 2021</td>
       <td>SIMMC Organizers</td>
       <td>SIMMC organizers to validate sub-task results.</td>
     </tr>
     <tr>
-      <td>Oct 8th 2021</td>
+      <td>By Oct 15th 2021</td>
       <td>SIMMC Organizers</td>
       <td>Publish anonymized team rankings on the SIMMC track github and email each team with their anonymized team identity.</td>
     </tr>
     <tr>
-      <td>Post Oct 8th 2021</td>
+      <td>Post Oct 15th 2021</td>
       <td>SIMMC Organizers</td>
       <td>Our plan is to write up a challenge summary paper. In this we may conduct error analysis of the results and may look to extend, e.g. possibly with human scoring, the submitted results.</td>
     </tr>
