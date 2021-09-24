@@ -209,10 +209,47 @@ def evaluate_frame(true_frame, pred_frame, strict=True):
     count_dict["n_true_acts"] += "act" in true_frame
     count_dict["n_pred_acts"] += "act" in pred_frame
 
-    # Compare Slots
-    true_frame_slot_values = {f"{k}={v}" for k, v in true_frame.get("slots", [])}
-    pred_frame_slot_values = {f"{k}={v}" for k, v in pred_frame.get("slots", [])}
-    # print(true_frame_slot_values)
+    # (1) Compare Slots
+    #true_frame_slot_values = {f"{k}={v}" for k, v in true_frame.get("slots", [])}
+    #pred_frame_slot_values = {f"{k}={v}" for k, v in pred_frame.get("slots", [])}
+
+    true_frame_slot_values = set()
+    pred_frame_slot_values = set()
+
+    for k, v in true_frame.get("slots", []):
+        if k in set(['availableSizes']):
+            # For availableSizes, we expect that the type is <list>.
+            # Otherwise, try converting it to a <list>.
+            if type(v) == str:
+                try:
+                    v = list(eval(v))
+                except:
+                    v = [v]
+
+            elif type(v) == tuple or type(v) == set:
+                v = list(v)
+
+            # Sort the elements to get consistent ordering.
+            # For slots with a list of elements, all elements must be captured.
+            if type(v) == list:
+                v.sort()
+
+        true_frame_slot_values.add(f"{k}={v}")
+
+    for k, v in pred_frame.get("slots", []):
+        if k in set(['availableSizes']):
+            if type(v) == str:
+                try:
+                    v = list(eval(v))
+                except:
+                    v = [v]
+
+            elif type(v) == tuple or type(v) == set:
+                v = list(v)
+            if type(v) == list:
+                v.sort()
+
+        pred_frame_slot_values.add(f"{k}={v}")
 
     count_dict["n_true_slots"] += len(true_frame_slot_values)
     count_dict["n_pred_slots"] += len(pred_frame_slot_values)
@@ -224,13 +261,14 @@ def evaluate_frame(true_frame, pred_frame, strict=True):
             true_frame_slot_values.intersection(pred_frame_slot_values)
         )
 
+    # Debug only
     # if len(true_frame_slot_values.intersection(pred_frame_slot_values)) != len(pred_frame_slot_values):
     # print(true_frame_slot_values)
     # print(pred_frame_slot_values)
     # print(len(true_frame_slot_values.intersection(pred_frame_slot_values)) == len(pred_frame_slot_values))
     # print('--')
 
-    # Compare Request slots
+    # (2) Compare Request slots
     true_frame_request_slot_values = {rs for rs in true_frame.get("request_slots", [])}
     pred_frame_request_slot_values = {rs for rs in pred_frame.get("request_slots", [])}
     # print(true_frame_request_slot_values)
@@ -245,7 +283,7 @@ def evaluate_frame(true_frame, pred_frame, strict=True):
             true_frame_request_slot_values.intersection(pred_frame_request_slot_values)
         )
 
-    # Compare Objects
+    # (3) Compare Objects
     true_frame_object_values = {
         object_id for object_id in true_frame.get("objects", [])
     }
@@ -264,7 +302,7 @@ def evaluate_frame(true_frame, pred_frame, strict=True):
             true_frame_object_values.intersection(pred_frame_object_values)
         )
 
-    # Joint
+    # (4) Joint
     count_dict["n_correct_beliefs"] += (
         b_correct_act
         and true_frame_slot_values == pred_frame_slot_values

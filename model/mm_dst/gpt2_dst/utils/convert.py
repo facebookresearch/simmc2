@@ -350,7 +350,14 @@ def parse_flattened_result(to_parse):
                     d["request_slots"].append(request_slot.group(1).strip())
 
                 for object_id in object_regex.finditer(dialog_act.group(4)):
-                    d["objects"].append(object_id.group(1).strip())
+                    str_object_id = object_id.group(1).strip()
+
+                    try:
+                        # Object ID should always be <int>.
+                        int_object_id = int(str_object_id)
+                        d["objects"].append(int_object_id)
+                    except:
+                        pass
 
                 if d != {}:
                     belief.append(d)
