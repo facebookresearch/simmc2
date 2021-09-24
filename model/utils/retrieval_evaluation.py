@@ -4,10 +4,10 @@ Expected format.
 
 [
     "dialog_id": <dialog_id>,
-    "retrieval_candidates": [
+    "candidates_scores": [
         {
             "turn_id": <turn_id>,
-            "candidate_scores": [
+            "scores": [
                 <list of 100 floats>
             ]
         }
