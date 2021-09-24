@@ -38,9 +38,9 @@ For this challenge, we release a new Immersive SIMMC 2.0 dataset in the shopping
 | **Date** | **Milestone** |
 | :--: | :-- |
 | June 14, 2021 | Training & development data released |
-| ~~Sept 24~~ Oct 1, 2021  | Test-Std data released, End of Challenge Phase 1 |
-| ~~Oct 1~~ Oct 8, 2021 | Entry submission deadline, End of Challenge Phase 2 |
-| ~~Oct 8~~ Oct 15, 2021 | Final results announced |
+| ~~Sept 24~~ *Oct 1*, 2021  | Test-Std data released, End of Challenge Phase 1 |
+| ~~Oct 1~~ *Oct 8*, 2021 | Entry submission deadline, End of Challenge Phase 2 |
+| ~~Oct 8~~ *By Oct 15*, 2021 | Final results announced |
 
 
 ## Track Description
@@ -125,7 +125,7 @@ $ git clone https://github.com/facebookresearch/simmc2.git
 
 ### (3) Reporting Results for Challenge Phase 1
 * Submit your model prediction results on the `devtest` set, following the [submission instructions](./SUBMISSION_INSTRUCTIONS.md). 
-* We will release the `test-std` set (with ground-truth labels hidden) on Sept 24.
+* We will release the `test-std` set (with ground-truth labels hidden) on Oct 1.
 
 ### (4) Reporting Results for Challenge Phase 2
 * Submit your model prediction results on the `test-std` set, following the [submission instructions](./SUBMISSION_INSTRUCTIONS.md). 
