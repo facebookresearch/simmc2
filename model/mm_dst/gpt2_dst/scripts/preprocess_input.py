@@ -52,6 +52,14 @@ if __name__ == "__main__":
         default=True,
         help="determine whether to use belief state for each turn",
     )
+    parser.add_argument(
+        "--no_target",
+        dest="output_target",
+        action="store_false",
+        default=True,
+        help="determine whether to output a formatted output for Target",                
+    )
+
     # Options for retrieval evaluation.
     parser.add_argument(
         "--input_path_retrieval", help="input path to the retrieval candidates",
@@ -85,6 +93,7 @@ if __name__ == "__main__":
         len_context=len_context,
         use_multimodal_contexts=use_multimodal_contexts,
         use_belief_states=args.use_belief_states,
+        output_target=args.output_target,
         input_path_retrieval=input_path_retrieval,
         output_path_retrieval=output_path_retrieval,
     )

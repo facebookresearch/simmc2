@@ -48,6 +48,7 @@ def convert_json_to_flattened(
     len_context=2,
     use_multimodal_contexts=True,
     use_belief_states=True,
+    output_target=True,
     input_path_retrieval=None,
     output_path_retrieval=None,
     input_path_special_tokens="",
@@ -107,9 +108,9 @@ def convert_json_to_flattened(
         lst_context = []
 
         for turn_id, turn in enumerate(dialog[FIELDNAME_DIALOG]):
-            user_uttr = turn[FIELDNAME_USER_UTTR].replace("\n", " ").strip()
-            user_belief = turn[FIELDNAME_BELIEF_STATE]
-            asst_uttr = turn[FIELDNAME_ASST_UTTR].replace("\n", " ").strip()
+            user_uttr = turn.get(FIELDNAME_USER_UTTR, "").replace("\n", " ").strip()
+            user_belief = turn.get(FIELDNAME_BELIEF_STATE, {})
+            asst_uttr = turn.get(FIELDNAME_ASST_UTTR, "").replace("\n", " ").strip()
 
             # Format main input context
             context = ""
@@ -143,20 +144,20 @@ def convert_json_to_flattened(
                 # for bs_per_frame in user_belief:
                 str_belief_state_per_frame = (
                     "{act} [ {slot_values} ] ({request_slots}) < {objects} >".format(
-                        act=user_belief["act"].strip(),
+                        act=user_belief.get("act", "").strip(),
                         slot_values=", ".join(
                             [
                                 f"{k.strip()} = {str(v).strip()}"
-                                for k, v in user_belief["act_attributes"][
-                                    "slot_values"
-                                ].items()
+                                for k, v in user_belief.get("act_attributes", {}).get(
+                                    "slot_values", {}
+                                ).items()
                             ]
                         ),
                         request_slots=", ".join(
-                            user_belief["act_attributes"]["request_slots"]
+                            user_belief.get("act_attributes", {}).get("request_slots", [])
                         ),
                         objects=", ".join(
-                            [str(o) for o in user_belief["act_attributes"]["objects"]]
+                            [str(o) for o in user_belief.get("act_attributes", {}).get("objects", [])]
                         ),
                     )
                 )
@@ -164,8 +165,8 @@ def convert_json_to_flattened(
 
                 # Track OOVs
                 if output_path_special_tokens != "":
-                    oov.add(user_belief["act"])
-                    for slot_name in user_belief["act_attributes"]["slot_values"]:
+                    oov.add(user_belief.get("act", ""))
+                    for slot_name in user_belief.get("act_attributes", {}).get("slot_values", {}):
                         oov.add(str(slot_name))
                         # slot_name, slot_value = kv[0].strip(), kv[1].strip()
                         # oov.add(slot_name)
@@ -181,15 +182,16 @@ def convert_json_to_flattened(
                 predicts.append(predict)
 
                 # Format the main output
-                target = TEMPLATE_TARGET.format(
-                    context=context,
-                    START_BELIEF_STATE=START_BELIEF_STATE,
-                    belief_state=str_belief_state,
-                    END_OF_BELIEF=END_OF_BELIEF,
-                    response=asst_uttr,
-                    END_OF_SENTENCE=END_OF_SENTENCE,
-                )
-                targets.append(target)
+                if output_target:
+                    target = TEMPLATE_TARGET.format(
+                        context=context,
+                        START_BELIEF_STATE=START_BELIEF_STATE,
+                        belief_state=str_belief_state,
+                        END_OF_BELIEF=END_OF_BELIEF,
+                        response=asst_uttr,
+                        END_OF_SENTENCE=END_OF_SENTENCE,
+                    )
+                    targets.append(target)
 
                 # NOTE: Retrieval options w/ belief states is not implemented.
             else:
@@ -200,13 +202,14 @@ def convert_json_to_flattened(
                 predicts.append(predict)
 
                 # Format the main output
-                target = TEMPLATE_TARGET_NOBELIEF.format(
-                    context=context,
-                    response=asst_uttr,
-                    END_OF_SENTENCE=END_OF_SENTENCE,
-                    START_OF_RESPONSE=START_OF_RESPONSE,
-                )
-                targets.append(target)
+                if output_target:
+                    target = TEMPLATE_TARGET_NOBELIEF.format(
+                        context=context,
+                        response=asst_uttr,
+                        END_OF_SENTENCE=END_OF_SENTENCE,
+                        START_OF_RESPONSE=START_OF_RESPONSE,
+                    )
+                    targets.append(target)
 
                 # Add retrieval options is necessary.
                 if format_retrieval_options:
@@ -236,9 +239,10 @@ def convert_json_to_flattened(
         X = "\n".join(predicts)
         f_predict.write(X)
 
-    with open(output_path_target, "w") as f_target:
-        Y = "\n".join(targets)
-        f_target.write(Y)
+    if output_target:
+        with open(output_path_target, "w") as f_target:
+            Y = "\n".join(targets)
+            f_target.write(Y)
 
     # Write retrieval candidates if necessary.
     if format_retrieval_options:
