@@ -8,3 +8,7 @@ data/fashion_prefab_metadata_all.json filter=lfs diff=lfs merge=lfs -text
 data/furniture_prefab_metadata_all.json filter=lfs diff=lfs merge=lfs -text
 data/simmc2_dials_dstc10_dev_retrieval_candidates.json filter=lfs diff=lfs merge=lfs -text
 data/simmc2_dials_dstc10_devtest_retrieval_candidates.json filter=lfs diff=lfs merge=lfs -text
+data/simmc2_dials_dstc10_teststd_public.json filter=lfs diff=lfs merge=lfs -text
+data/simmc2_dials_dstc10_teststd_retrieval_candidates_public.json filter=lfs diff=lfs merge=lfs -text
+data/simmc2_scene_images_dstc10_teststd.zip filter=lfs diff=lfs merge=lfs -text
+data/simmc2_scene_jsons_dstc10_teststd.zip filter=lfs diff=lfs merge=lfs -text

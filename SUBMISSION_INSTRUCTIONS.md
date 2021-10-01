@@ -141,8 +141,10 @@ $ python tools/retrieval_evaluation.py \
 
 **NOTE:** For subtask 1 (multimodal disambiguation), please predict the results
 at turns with `disambiguation_label` key.
-For `test-std`, we will set this key to `None` to indicate the disambiguation 
+For `teststd`, we will set this key to `None` to indicate the disambiguation 
 turn(s).
+The disambiguation turns might not necessarily be the last turns of the provided
+dialog file for `teststd`.
 
 
 ## Submission Instructions and Timeline
