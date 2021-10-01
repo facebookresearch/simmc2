@@ -3,7 +3,7 @@
 * The guideline below shows the input fields that are allowed (default) and disallowed (marked as 'X') at **inference time**, for each subtask.
 * Participants are free to use any of the fields below during **training** though as additional supervision signals, and *e.g.* at the inference time use the reconstructed / predicted values instead.
 
-**NOTE**: In general, at inference time (e.g. for turn `i`), participants are not allowed to use any of the ground-truth information from its future turns (e.g. turn `i+1`). For instance, for a coreference resolution task at turn `i`, models shouldn't directly make use of the mentioned object IDs from turn `i+1` and on -- which would essentially be regarded as "peeking into the future" and thus unfair/invalid. 
+**NOTE**: In general, at inference time for a given turn, participants are not allowed to use any of the ground-truth information from its future turns. For instance, for a coreference resolution task at turn `i`, models shouldn't directly make use of the mentioned object IDs from its direct Assistant response turn at `i` or any information from turn `i+1` and on -- which would essentially be regarded as "peeking into the future" and thus unfair/invalid. 
 
 
 | Key |  Subtask #1 </br>(Multimodal Disambiguation) | Subtask #2 <br>(Multimodal Coreference Resolution) | Subtask #3 <br> (MM-DST) | Subtask #4 <br> (Response Generation) | 
