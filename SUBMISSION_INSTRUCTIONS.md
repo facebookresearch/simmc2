@@ -194,7 +194,7 @@ dialog file for `teststd`.
       </td>
     </tr>
     <tr>    
-      <td rowspan=2>By Oct 8th 2021</td>
+      <td rowspan=2><ins>Before</ins> Oct 8th 2021</td>
       <td rowspan=2>Each Team</td>
       <td>Make the team repository public under a permissive Open Source license (e.g. MIT license) to be considered as a (potential) official winner for the SIMMC 2.0 challenge.</td>
     </tr>
