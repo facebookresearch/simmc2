@@ -11,6 +11,8 @@ For subtask 2, evaluation is on coref resolution based on user utterances from `
 For subtask 3, evaluation is on dialog state prediction based on user utterances from `1` through `K`.
 For subtask 4, evaluation is on the assistant utterance generation / retrieval for the `K`th round.
 
+**NOTE**: In general, at inference time (e.g. for turn `i`), participants are not allowed to use any of the ground-truth information from its future turns (e.g. turn `i+1`). For instance, for a coreference resolution task at turn `i`, models shouldn't directly make use of the mentioned object IDs from turn `i+1` and on -- which would essentially be regarded as "peeking into the future" and thus unfair/invalid. 
+
 
 ## Evaluation Criteria
 
