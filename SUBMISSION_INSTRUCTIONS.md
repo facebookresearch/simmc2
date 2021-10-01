@@ -4,14 +4,22 @@ Below we describe how the participants can submit their results, and how the win
 
 ## Evaluation Dataset
 
-Final evaluation for the SIMMC2.0 DSTC10 track will be on the `test-std` split, different from the `devtest` split. Each test instance in `test-std` contains only `K` number of rounds (not necessarily the entire dialog), where we release the user utterances from `1` to `K` rounds, and system utterances from `1` to `K-1` utterances. Please refer to [this table](./TASK_INPUTS.md) that lists the set of allowed inputs for each subtask.
+Final evaluation for the SIMMC2.0 DSTC10 track will be on the `test-std` split, different from the `devtest` split. Use the following files for the final evaluation:
+```
+data/simmc2_dials_dstc10_teststd_public.json
+data/simmc2_dials_dstc10_teststd_retrieval_candidates_public.json
+data/simmc2_scene_images_dstc10_teststd.zip
+data/simmc2_scene_jsons_dstc10_teststd.zip
+```
+
+Each test instance in `test-std` contains only `K` number of rounds (not necessarily the entire dialog), where we release the user utterances from `1` to `K` rounds, and system utterances from `1` to `K-1` utterances. Please refer to [this table](./TASK_INPUTS.md) that lists the set of allowed inputs for each subtask.
 
 For subtask 1, evaluation is on disambiguation prediction based on user utterances for the `K`th round.
 For subtask 2, evaluation is on coref resolution based on user utterances from `1` through `K`.
 For subtask 3, evaluation is on dialog state prediction based on user utterances from `1` through `K`.
 For subtask 4, evaluation is on the assistant utterance generation / retrieval for the `K`th round.
 
-**NOTE**: In general, at inference time for a given turn, participants are not allowed to use any of the ground-truth information from its future turns. For instance, for a coreference resolution task at turn `i`, models shouldn't directly make use of the mentioned object IDs from its direct Assistant response turn at `i` or any information from turn `i+1` and on -- which would essentially be regarded as "peeking into the future" and thus unfair/invalid. 
+**NOTE**: In general, at inference time for a given turn, participants are not allowed to use any of the ground-truth information from its future turns. For instance, for a coreference resolution task at turn `i`, models shouldn't directly make use of the mentioned object IDs from its direct Assistant response turn at `i` or any information from turn `i+1` and on -- which would essentially be regarded as "**peeking into the future**" and thus **unfair/invalid**. 
 
 
 ## Evaluation Criteria
