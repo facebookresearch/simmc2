@@ -19,7 +19,8 @@ For subtask 2, evaluation is on coref resolution based on user utterances from `
 For subtask 3, evaluation is on dialog state prediction based on user utterances from `1` through `K`.
 For subtask 4, evaluation is on the assistant utterance generation / retrieval for the `K`th round.
 
-**NOTE**: In general, at inference time for a given turn, participants are not allowed to use any of the ground-truth information from its future turns. For instance, for a coreference resolution task at turn `i`, models shouldn't directly make use of the mentioned object IDs from its direct Assistant response turn at `i` or any information from turn `i+1` and on -- which would essentially be regarded as "**peeking into the future**" and thus **unfair/invalid**. 
+**NOTE**: 
+In general, at inference time for a given turn, participants are not allowed to use any of the ground-truth information from its future turns. For instance, for a coreference resolution task at turn `i`, models shouldn't directly make use of the mentioned object IDs from its direct Assistant response turn at `i` or any information from turn `i+1` and on -- which would essentially be regarded as "**peeking into the future**" and thus **unfair/invalid**. 
 
 
 ## Evaluation Criteria
@@ -41,7 +42,11 @@ Rules to select the winner for each subtask (and categories) are given below:
 
 * In case of multiple candidates even after running through the list of metrics in the priority order, all of them will be declared as "**joint subtask winners**".
 
-**NOTE**: Only entries that are able to open-sourced their code will be considered for the final evaluation. In all other cases, we can report the devtest and test-std performances on our result table but cannot declare them as official winners of any subtask.
+**NOTE**:
+
+* Only entries that are able to open-sourced their code will be considered for the final evaluation. In all other cases, we can report the devtest and test-std performances on our result table but cannot declare them as official winners of any subtask.
+* **Multiple Submissions:** Similar to other challenges, we are allowing multiple submissions per team if the models' architectures are technically different, or a substantially different training scheme was used to train each model. In these cases, we will evaluate each model independently. If the only difference is, for example, different random seeds, or randomized starting points then we would ask that participants select and submit only one entry for that modeling approach. Overall, we would prefer each team to limit their total number of submissions to say 4 different approaches.
+
 
 
 ## Submission Format
