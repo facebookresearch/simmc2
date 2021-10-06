@@ -144,6 +144,10 @@ $ git clone https://github.com/facebookresearch/simmc2.git
 
 * The allowed set of inputs for each task is defined [here](https://github.com/facebookresearch/simmc2/blob/master/TASK_INPUTS.md).
 
+3. _Can we make multiple submissions?_
+
+* Similar to other challenges, we are allowing multiple submissions per team if the models' architectures are technically different, or a substantially different training scheme was used to train each model. In these cases, we will evaluate each model independently. If the only difference is, for example, different random seeds, or randomized starting points then we would ask that participants select and submit only one entry for that modeling approach. Overall, we would prefer each team to limit their total number of submissions to say 4 different approaches.
+
 ## Contact
 
 ### Questions related to SIMMC Track, Data, and Baselines
