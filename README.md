@@ -18,6 +18,7 @@ For this challenge, we release a new Immersive SIMMC 2.0 dataset in the shopping
 
 ### Latest News
 
+* **[Oct 15, 2021]** The challenge results will be announced by Oct 18 (Mon). Stay tuned!
 * **[Oct 1, 2021]** [Test-Std set for the final evaluation](https://github.com/facebookresearch/simmc2/commit/8d23c4879dd873df311b6c49c0674896537b6087) is released. Please follow the [submission instructions carefully](https://github.com/facebookresearch/simmc2/blob/master/SUBMISSION_INSTRUCTIONS.md) and contact us if you have any questions.
 * **[Sept 24, 2021]** Submission deadlines have been pushed to accommodate for a [slight change](https://github.com/facebookresearch/simmc2/commit/741e6d32dc354b7c17de7a1b5ec639343f4286d6) in the DST evaluation script. Please see the [Submission Instructions](SUBMISSION_INSTRUCTIONS.md) for more details on the dates.
 * **[Sept 14, 2021]** Retrieval candidates for `dev` and `devtest` released.
@@ -43,7 +44,7 @@ For this challenge, we release a new Immersive SIMMC 2.0 dataset in the shopping
 | June 14, 2021 | Training & development data released |
 | ~~Sept 24~~ ***Oct 1***, 2021  | Test-Std data released, End of Challenge Phase 1 |
 | ~~Oct 1~~ ***Oct 8***, 2021 | Entry submission deadline, End of Challenge Phase 2 |
-| ~~Oct 8~~ ***By Oct 15***, 2021 | Final results announced |
+| ~~Oct 15~~ ***By Oct 18***, 2021 | Final results announced |
 
 
 ## Track Description
@@ -95,7 +96,7 @@ At the end of Challenge Period 1 (~~Sept 24~~ Oct 1), we ask participants to sub
 **Challenge Period 2**:
 A `test-std` set will be released on Oct 1 for the participants who submitted the results for the Challenge Period 1.
 We ask participants to submit their model predictions on the `test-std` set by ~~Oct 1~~ Oct 8. 
-We will announce the final results and the winners on ~~Oct 8~~ Oct 15.
+We will announce the final results and the winners on ~~Oct 15~~ Oct 18.
 
 ### Baseline Results
 
