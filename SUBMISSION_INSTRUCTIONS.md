@@ -207,17 +207,17 @@ dialog file for `teststd`.
       <td>Email the SIMMC Organizers a link to the repository at simmc@fb.com</td>
     </tr>
     <tr>
-      <td>Oct 8th - Oct 15th 2021</td>
+      <td>Oct 8th - Oct 18th 2021</td>
       <td>SIMMC Organizers</td>
       <td>SIMMC organizers to validate sub-task results.</td>
     </tr>
     <tr>
-      <td>By Oct 15th 2021</td>
+      <td>By Oct 18th 2021</td>
       <td>SIMMC Organizers</td>
       <td>Publish anonymized team rankings on the SIMMC track github and email each team with their anonymized team identity.</td>
     </tr>
     <tr>
-      <td>Post Oct 15th 2021</td>
+      <td>Post Oct 18th 2021</td>
       <td>SIMMC Organizers</td>
       <td>Our plan is to write up a challenge summary paper. In this we may conduct error analysis of the results and may look to extend, e.g. possibly with human scoring, the submitted results.</td>
     </tr>
