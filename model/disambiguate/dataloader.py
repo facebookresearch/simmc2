@@ -18,9 +18,10 @@ import torch
 
 
 class Dataloader:
-    def __init__(self, tokenizer, load_path, args):
+    def __init__(self, tokenizer, load_path, args, hidden_labels=False):
         self._tokenizer = tokenizer
         self._args = args
+        self._hidden_labels = hidden_labels
         print("Loading: {}".format(load_path))
         with open(load_path, "r") as file_id:
             self._raw_data = json.load(file_id)
@@ -63,6 +64,9 @@ class Dataloader:
         )
         if self._args["use_gpu"]:
             encoded_inputs = {key: val.cuda() for key, val in encoded_inputs.items()}
+        if self._hidden_labels:
+            # Reset all the text_labels to 0.
+            text_labels = [0 for ii in text_labels]
         # Pack the batch.
         batch = {
             "text_in": encoded_inputs,

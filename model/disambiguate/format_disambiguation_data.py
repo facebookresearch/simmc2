@@ -18,7 +18,7 @@ import json
 import os
 
 
-SPLITS = ["train", "dev", "devtest"]
+SPLITS = ["train", "dev", "devtest", "teststd"]
 
 
 def main(args):
@@ -31,13 +31,13 @@ def main(args):
         # Reformat into simple strings with positive and negative labels.
         # (dialog string, label)
         disambiguate_data = []
-        for dialog_ind, dialog_datum in enumerate(dialogs["dialogue_data"]):
+        for dialog_id, dialog_datum in enumerate(dialogs["dialogue_data"]):
             history = []
             for turn_ind, turn_datum in enumerate(dialog_datum["dialogue"]):
                 history.append(turn_datum["transcript"])
 
-                label = turn_datum.get("disambiguation_label", None)
-                if label is not None:
+                if "disambiguation_label" in turn_datum:
+                    label = turn_datum["disambiguation_label"]
                     new_datum = {
                         "dialog_id": dialog_datum["dialogue_idx"],
                         "turn_id": turn_ind,
@@ -45,7 +45,9 @@ def main(args):
                         "disambiguation_label_gt": label,
                     }
                     disambiguate_data.append(new_datum)
-                history.append(turn_datum["system_transcript"])
+                # Ignore if system_transcript is not found (last round teststd).
+                if turn_datum.get("system_transcript", None):
+                    history.append(turn_datum["system_transcript"])
         print(f"# instances [{split}]: {len(disambiguate_data)}")
         save_path = os.path.join(
             args["disambiguate_save_path"], f"simmc2_disambiguate_dstc10_{split}.json"
@@ -60,9 +62,16 @@ if __name__ == "__main__":
     parser.add_argument(
         "--simmc_train_json", default=None, help="Path to SIMMC train file"
     )
-    parser.add_argument("--simmc_dev_json", default=None, help="Path to SIMMC dev file")
+    parser.add_argument(
+        "--simmc_dev_json", default=None, help="Path to SIMMC dev file"
+    )
     parser.add_argument(
         "--simmc_devtest_json", default=None, help="Path to SIMMC devtest file"
+    )
+    parser.add_argument(
+        "--simmc_teststd_json",
+        default=None,
+        help="Path to SIMMC teststd file (public)"
     )
     parser.add_argument(
         "--disambiguate_save_path",
