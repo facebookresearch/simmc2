@@ -16,6 +16,10 @@ Overall, the track received 16 model entries across the world. Below are the ful
 <img src="./final_results.png" width="800" alt="Final Results of the SIMMC 2.0 Challenge" align="center"> 
 </figure>
 
+Note:
+* Open-source permission is pending for Team 2.
+* Due to the file formatting issue, we were not able to evaluate Team 6's task 4-2 at the time of the challenge. 
+
 Below is the full list of the participants and the links to their repositories (if released public).
 
 | Team ID |              Org              |
