@@ -29,14 +29,15 @@ from dataloader import Dataloader
 from disambiguator import Disambiguator
 
 
-def evaluate_model(model, loader, batch_size, save_path=None):
+def evaluate_model(model, loader, batch_size, save_path=None, hidden_test=False):
     num_matches = 0
     results = collections.defaultdict(list)
     with torch.no_grad():
         for batch in progressbar(loader.get_entire_batch(batch_size)):
             output = model(batch)
             predictions = torch.argmax(output, dim=1)
-            num_matches += (predictions == batch["gt_label"]).sum().item()
+            if not hidden_test:
+                num_matches += (predictions == batch["gt_label"]).sum().item()
 
             # Save results if need be.
             if save_path:
@@ -72,8 +73,10 @@ def main(args):
     # Dataloader.
     train_loader = Dataloader(tokenizer, args["train_file"], args)
     val_loader = Dataloader(tokenizer, args["dev_file"], args)
-    test_loader = Dataloader(tokenizer, args["devtest_file"], args)
-    # Model.
+    devtest_loader = Dataloader(tokenizer, args["devtest_file"], args)
+    teststd_loader = Dataloader(
+        tokenizer, args["teststd_file"], args, hidden_labels=True
+    )
     model = Disambiguator(tokenizer, args)
 
     model.train()
@@ -88,9 +91,11 @@ def main(args):
         int(train_loader.num_instances / args["batch_size"] * args["num_epochs"]) + 1
     )
     num_iters_epoch = train_loader.num_instances // args["batch_size"]
+    num_iters_epoch_float = train_loader.num_instances / args["batch_size"]
+    next_eval_iter = 0
     num_iters = 0
+    best_performance = {"dev": 0.}
     total_loss = None
-    # batch = train_loader.get_random_batch(args["batch_size"])
     while True:
         epoch = num_iters / (float(train_loader.num_instances) / args["batch_size"])
 
@@ -104,31 +109,57 @@ def main(args):
             total_loss = loss.item()
 
         if num_iters % 100 == 0:
-            print("[Ep: {:.2f}][Loss: {:.2f}]".format(epoch, total_loss))
+            print(f"[Ep: {epoch:.2f}][Loss: {total_loss:.2f}]")
 
         loss.backward()
         optimizer.step()
         model.zero_grad()
 
         # Evaluate_model every epoch.
-        if num_iters % 1000 == 0:
+        if num_iters == next_eval_iter:
             model.eval()
+            print("Evaluating ..")
+            # Get dev results.
             accuracy = evaluate_model(model, val_loader, args["batch_size"] * 5)
-            print("Accuracy [dev]: {}".format(accuracy))
-            # Save devtest results.
-            if args["result_save_path"]:
-                save_path = os.path.join(
-                    args["result_save_path"], f"results_devtest_{num_iters}.json"
+            print(f"Accuracy [dev]: {accuracy}")
+
+            # Evaluate on devtest and teststd if better dev performance.
+            if best_performance["dev"] < accuracy:
+                best_performance["dev"] = accuracy
+                best_performance["iter_id"] = num_iters
+                best_performance["epoch"] = epoch
+
+                # Get devtest results.
+                if args["result_save_path"]:
+                    save_path = os.path.join(
+                        args["result_save_path"], f"results_devtest_{num_iters}.json"
+                    )
+                else:
+                    save_path = None
+                accuracy = evaluate_model(
+                    model, devtest_loader, args["batch_size"] * 5, save_path
                 )
-            else:
-                save_path = None
-            accuracy = evaluate_model(
-                model, test_loader, args["batch_size"] * 5, save_path
-            )
-            print("Accuracy [devtest]: {}".format(accuracy))
+                best_performance["devtest"] = accuracy
+                # Check if performance is the best.
+                print(f"Accuracy [devtest]: {accuracy}")
+
+                # Get teststd predictions.
+                if args["result_save_path"]:
+                    save_path = os.path.join(
+                        args["result_save_path"], f"results_teststd_{num_iters}.json"
+                    )
+                else:
+                    save_path = None
+                accuracy = evaluate_model(
+                    model, teststd_loader, args["batch_size"] * 5, save_path, hidden_test=True
+                )
+                best_performance["teststd"] = accuracy
+                print(f"Accuracy [teststd]: {accuracy}")
+                print(f"Current best performance: {best_performance}")
             model.train()
 
         num_iters += 1
+        next_eval_iter = int(int(epoch + 1) * num_iters_epoch_float)
         if epoch > args["num_epochs"]:
             break
 
@@ -139,6 +170,9 @@ if __name__ == "__main__":
     parser.add_argument("--dev_file", required=True, help="Path to the dev file")
     parser.add_argument(
         "--devtest_file", required=True, help="Path to the devtest file"
+    )
+    parser.add_argument(
+        "--teststd_file", required=True, help="Path to the public teststd file"
     )
     parser.add_argument(
         "--result_save_path", default=None, help="Path to save devtest results"
