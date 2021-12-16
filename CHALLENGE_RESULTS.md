@@ -10,7 +10,7 @@ We are excited to announce the results of the Situated and Interactive Multimoda
 | #4-1: Assistant Response Generation           | Team 5 (QS Goal Diggers), Team 10 (Heriot-Watt University) | Team 4 (KAIST, ETRI, Samsung Research), Team 8 (Kakao Enterprise)                                  |
 | #4-2: Assistant Response Retrieval            | Team 4 (KAIST, ETRI, Samsung Research)                      | Team 3 (I2R A-STAR)                                                                                |
 
-Overall, the track received 16 model entries across the world. Below are the full results as of Oct 25, 2021.
+Overall, the track received 16 model entries across the world. Below are the full results as of ~~Oct 25, 2021~~ Dec 16, 2021.
 
 <figure>
 <img src="./final_results.png" width="800" alt="Final Results of the SIMMC 2.0 Challenge" align="center"> 
