@@ -114,11 +114,20 @@ If you want to get the latest updates about DSTC10, join the [DSTC mailing list]
 If you want to publish experimental results with our datasets or use the baseline models, please cite the following articles:
 
 ```
-@article{kottur2021simmc,
-  title={SIMMC 2.0: A Task-oriented Dialog Dataset for Immersive Multimodal Conversations},
-  author={Kottur, Satwik and Moon, Seungwhan and Geramifard, Alborz and Damavandi, Babak},
-  journal={arXiv preprint arXiv:2104.08667},
-  year={2021}
+@inproceedings{kottur-etal-2021-simmc,
+    title = "{SIMMC} 2.0: A Task-oriented Dialog Dataset for Immersive Multimodal Conversations",
+    author = "Kottur, Satwik  and
+      Moon, Seungwhan  and
+      Geramifard, Alborz  and
+      Damavandi, Babak",
+    booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2021",
+    address = "Online and Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.emnlp-main.401",
+    doi = "10.18653/v1/2021.emnlp-main.401",
+    pages = "4903--4912",
 }
 ```
 **NOTE**: The [paper][simmc2_arxiv] (EMNLP 2021) above describes in detail the datasets, the collection process, and some of the baselines we provide in this challenge. 
