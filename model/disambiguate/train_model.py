@@ -11,6 +11,7 @@ Author(s): Satwik Kottur
 """
 
 from __future__ import absolute_import, division, print_function, unicode_literals
+
 import argparse
 import collections
 import json
@@ -18,40 +19,37 @@ import os
 
 import torch
 import torch.nn as nn
-from transformers import (
-    GPT2Tokenizer,
-    get_linear_schedule_with_warmup,
-    AdamW,
-)
-from tqdm import tqdm as progressbar
-
+import transformers
 from dataloader import Dataloader
 from disambiguator import Disambiguator
+from tqdm import tqdm as progressbar
 
 
 def evaluate_model(model, loader, batch_size, save_path=None, hidden_test=False):
     num_matches = 0
     results = collections.defaultdict(list)
-    with torch.no_grad():
-        for batch in progressbar(loader.get_entire_batch(batch_size)):
-            output = model(batch)
-            predictions = torch.argmax(output, dim=1)
-            if not hidden_test:
-                num_matches += (predictions == batch["gt_label"]).sum().item()
+    for batch in progressbar(loader.get_entire_batch(batch_size)):
+        output = model(batch)
+        predictions = torch.argmax(output, dim=1)
+        if not hidden_test:
+            num_matches += int((predictions == batch["gt_label"]).sum())
 
-            # Save results if need be.
-            if save_path:
-                for ii in range(predictions.shape[0]):
-                    new_instance = {
-                        "turn_id": batch["turn_id"][ii],
-                        "disambiguation_label": predictions[ii].cpu().item(),
-                    }
-                    results[batch["dialog_id"][ii]].append(new_instance)
+        # Save results if need be.
+        if save_path:
+            for ii in range(predictions.shape[0]):
+                new_instance = {
+                    "turn_id": batch["turn_id"][ii],
+                    "disambiguation_label": predictions[ii].cpu().item(),
+                }
+                results[batch["dialog_id"][ii]].append(new_instance)
 
     # Restructure results JSON and save.
     if save_path:
         results = [
-            {"dialog_id": dialog_id, "predictions": predictions,}
+            {
+                "dialog_id": dialog_id,
+                "predictions": predictions,
+            }
             for dialog_id, predictions in results.items()
         ]
         print(f"Saving: {save_path}")
@@ -63,12 +61,15 @@ def evaluate_model(model, loader, batch_size, save_path=None, hidden_test=False)
 
 
 def main(args):
-    tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-    tokenizer.padding_side = "left"
-    # Define PAD Token = EOS Token = 50256
-    tokenizer.pad_token = tokenizer.eos_token
-    num_added_tokenss = tokenizer.add_special_tokens(
-        {"additional_special_tokens": ["<USER>", "SYS>"]}
+    if args["backbone"] == "gpt2":
+        tokenizer = transformers.GPT2Tokenizer.from_pretrained("gpt2")
+        tokenizer.padding_side = "left"
+        # Define PAD Token = EOS Token = 50256
+        tokenizer.pad_token = tokenizer.eos_token
+    else:
+        tokenizer = transformers.BertTokenizer.from_pretrained("bert-base-uncased")
+    num_added_tokens = tokenizer.add_special_tokens(
+        {"additional_special_tokens": ["<USER>", "<SYS>"]}
     )
     # Dataloader.
     train_loader = Dataloader(tokenizer, args["train_file"], args)
@@ -82,8 +83,10 @@ def main(args):
     model.train()
     # loss function.
     criterion = nn.CrossEntropyLoss()
-    # Prepare optimizer and schedule (linear warmup and decay)
-    optimizer = AdamW(
+    if args["use_gpu"]:
+        criterion = criterion.cuda()
+    # Prepare optimizer and schedule (linear warmup and decay).
+    optimizer = transformers.AdamW(
         model.parameters(), lr=args["learning_rate"], eps=args["adam_epsilon"]
     )
 
@@ -94,33 +97,33 @@ def main(args):
     num_iters_epoch_float = train_loader.num_instances / args["batch_size"]
     next_eval_iter = 0
     num_iters = 0
-    best_performance = {"dev": 0.}
+    best_performance = {"dev": 0.0}
     total_loss = None
     while True:
-        epoch = num_iters / (float(train_loader.num_instances) / args["batch_size"])
+        model.zero_grad()
 
+        epoch = num_iters / (float(train_loader.num_instances) / args["batch_size"])
         batch = train_loader.get_random_batch(args["batch_size"])
         output = model(batch)
         loss = criterion(output, batch["gt_label"])
+        loss.backward()
+        optimizer.step()
 
+        loss_float = float(loss.float().item())
         if total_loss:
-            total_loss = 0.95 * total_loss + 0.05 * loss.item()
+            total_loss = 0.95 * total_loss + 0.05 * loss_float
         else:
-            total_loss = loss.item()
+            total_loss = loss_float
 
         if num_iters % 100 == 0:
             print(f"[Ep: {epoch:.2f}][Loss: {total_loss:.2f}]")
-
-        loss.backward()
-        optimizer.step()
-        model.zero_grad()
 
         # Evaluate_model every epoch.
         if num_iters == next_eval_iter:
             model.eval()
             print("Evaluating ..")
             # Get dev results.
-            accuracy = evaluate_model(model, val_loader, args["batch_size"] * 5)
+            accuracy = evaluate_model(model, val_loader, args["batch_size"])
             print(f"Accuracy [dev]: {accuracy}")
 
             # Evaluate on devtest and teststd if better dev performance.
@@ -136,9 +139,10 @@ def main(args):
                     )
                 else:
                     save_path = None
-                accuracy = evaluate_model(
-                    model, devtest_loader, args["batch_size"] * 5, save_path
-                )
+                with torch.no_grad():
+                    accuracy = evaluate_model(
+                        model, devtest_loader, args["batch_size"], save_path
+                    )
                 best_performance["devtest"] = accuracy
                 # Check if performance is the best.
                 print(f"Accuracy [devtest]: {accuracy}")
@@ -151,7 +155,11 @@ def main(args):
                 else:
                     save_path = None
                 accuracy = evaluate_model(
-                    model, teststd_loader, args["batch_size"] * 5, save_path, hidden_test=True
+                    model,
+                    teststd_loader,
+                    args["batch_size"] * 5,
+                    save_path,
+                    hidden_test=True,
                 )
                 best_performance["teststd"] = accuracy
                 print(f"Accuracy [teststd]: {accuracy}")
@@ -178,7 +186,7 @@ if __name__ == "__main__":
         "--result_save_path", default=None, help="Path to save devtest results"
     )
     parser.add_argument(
-        "--max_turns", type=int, default=3, help="Number of turns in history"
+        "--max_turns", type=int, default=5, help="Number of turns in history"
     )
     parser.add_argument("--batch_size", type=int, default=128, help="Batch Size")
     parser.add_argument(
@@ -195,6 +203,13 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--adam_epsilon", type=float, default=1e-8, help="Eps for Adam optimizer"
+    )
+    parser.add_argument(
+        "--backbone",
+        required=True,
+        choices=["gpt2", "bert"],
+        default="bert",
+        help="Backbone transformer architecture to train",
     )
     parser.add_argument("--weight_decay", type=float, default=0.0, help="Weight decay")
     parser.add_argument("--use_gpu", dest="use_gpu", action="store_true", default=False)
