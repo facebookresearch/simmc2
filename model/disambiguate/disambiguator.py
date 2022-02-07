@@ -11,26 +11,39 @@ Author(s): Satwik Kottur
 """
 
 from __future__ import absolute_import, division, print_function, unicode_literals
+
 import argparse
 
-from transformers import GPT2Config, GPT2ForSequenceClassification
 import torch.nn as nn
+import transformers
 
 
 class Disambiguator(nn.Module):
     def __init__(self, tokenizer, args):
         super(Disambiguator, self).__init__()
-        model_config = GPT2Config.from_pretrained(
-            pretrained_model_name_or_path="gpt2", num_labels=2
-        )
-        self.lm = GPT2ForSequenceClassification(model_config)
+        self._args = args
+
+        if args["backbone"] == "gpt2":
+            self.classifier = (
+                transformers.GPT2ForSequenceClassification.from_pretrained(
+                    "gpt2", num_labels=2
+                )
+            )
+            self.classifier.config.pad_token_id = self.classifier.config.eos_token_id
+        elif args["backbone"] == "bert":
+            self.classifier = (
+                transformers.BertForSequenceClassification.from_pretrained(
+                    "bert-base-uncased", num_labels=2
+                )
+            )
+        else:
+            raise NotImplementedError(f"""Invalid backbone: {args["backbone"]}""")
         # Fix model padding token id.
-        self.lm.resize_token_embeddings(len(tokenizer))
-        self.lm.config.pad_token_id = self.lm.config.eos_token_id
+        self.classifier.resize_token_embeddings(len(tokenizer))
 
         if args["use_gpu"]:
-            self.lm.cuda()
+            self.classifier.cuda()
 
     def forward(self, batch):
-        model_out = self.lm(**batch["text_in"])
+        model_out = self.classifier(**batch["text_in"])
         return model_out["logits"]

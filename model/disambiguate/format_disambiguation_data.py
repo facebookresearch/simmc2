@@ -62,16 +62,12 @@ if __name__ == "__main__":
     parser.add_argument(
         "--simmc_train_json", default=None, help="Path to SIMMC train file"
     )
-    parser.add_argument(
-        "--simmc_dev_json", default=None, help="Path to SIMMC dev file"
-    )
+    parser.add_argument("--simmc_dev_json", default=None, help="Path to SIMMC dev file")
     parser.add_argument(
         "--simmc_devtest_json", default=None, help="Path to SIMMC devtest file"
     )
     parser.add_argument(
-        "--simmc_teststd_json",
-        default=None,
-        help="Path to SIMMC teststd file (public)"
+        "--simmc_teststd_json", default=None, help="Path to SIMMC teststd file (public)"
     )
     parser.add_argument(
         "--disambiguate_save_path",

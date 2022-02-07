@@ -13,6 +13,7 @@ Author(s): Satwik Kottur
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import json
+
 import numpy as np
 import torch
 
@@ -59,9 +60,15 @@ class Dataloader:
             text_labels.append(dialog_datum["disambiguation_label_gt"])
             dialog_ids.append(dialog_datum["dialog_id"])
             turn_ids.append(dialog_datum["turn_id"])
+
         encoded_inputs = self._tokenizer(
-            text_inputs, return_tensors="pt", padding=True, truncation=True,
+            text_inputs,
+            padding=True,
+            max_length=self._args["max_length"],
+            return_tensors="pt",
+            truncation=True,
         )
+        encoded_inputs = {key: val.detach() for key, val in encoded_inputs.items()}
         if self._args["use_gpu"]:
             encoded_inputs = {key: val.cuda() for key, val in encoded_inputs.items()}
         if self._hidden_labels:
