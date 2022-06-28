@@ -1,6 +1,6 @@
-# The Third Situated Interactive MultiModal Conversations (SIMMC 2.1) Challenge 2021
+# The Third Situated Interactive MultiModal Conversations (SIMMC 2.1) Challenge 2022
 
-Welcome to the Third Situated Interactive Multimodal Conversations (SIMMC 2.1) Track page for [DSTC11][dstc11] 2021.
+Welcome to the Third Situated Interactive Multimodal Conversations (SIMMC 2.1) Track page for [DSTC11][dstc11] 2022.
 
 The SIMMC challenge aims to lay the foundations for the real-world assistant agents that can handle multimodal inputs, and perform multimodal actions.
 Specifically, we focus on the **task-oriented** dialogs that encompass a **situated** multimodal user context in the form of a co-observed & immersive virtual reality (VR) environment.
