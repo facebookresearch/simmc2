@@ -1,7 +1,6 @@
-# SIMMC 2.0 Challenge 2021 | Sub-Task #2: Multimodal Coference Resolution | Sub-Task #3: Multimodal Dialog State Tracking (MM-DST)
+# SIMMC 2.1 Challenge 2022 (DSTC 11) | Sub-Task #1: Ambiguous Candidate Identification | Sub-Task #2: Multimodal Coference Resolution | Sub-Task #3: Multimodal Dialog State Tracking (MM-DST)
 
-
-This directory contains the code and the scripts for running the baseline models for Sub-Task #3: Multimodal DST.
+This directory contains the code and the scripts for running the baseline models.
 
 The Multimodal Dialog State Tracking (MM-DST) task involves systematically tracking the attributes of dialog act labels cumulative across multiple turns.
 Multimodal belief states at each turn should encode sufficient information for handling user utterances in the downstream dialog components (e.g. Dialog Policy).
@@ -9,7 +8,7 @@ Multimodal belief states at each turn should encode sufficient information for h
 Please check the [task input](./TASK_INPUTS.md) file for a full description of inputs
 for each subtask.
 
-For more details on the task definition and the baseline models we provide, please refer to our SIMMC 2.0 paper:
+For more details on the task definition and the baseline models we provide, please refer to our SIMMC 2 paper:
 
 ```
 @article{kottur2021simmc,
@@ -53,9 +52,9 @@ The shell script above repeats the following for all {train|dev|devtest} splits 
 
 ```
 python -m gpt2_dst.scripts.preprocess_input \
-    --input_path_json="${PATH_DATA_DIR}"/simmc2_dials_train.json \
-    --output_path_predict="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_train_predict.txt \
-    --output_path_target="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_train_target.txt \
+    --input_path_json="${PATH_DATA_DIR}"/simmc2.1_dials_dstc11_train.json \
+    --output_path_predict="${PATH_DIR}"/gpt2_dst/data/simmc2.1_dials_dstc11_train_predict.txt \
+    --output_path_target="${PATH_DIR}"/gpt2_dst/data/simmc2.1_dials_dstc11_train_target.txt \
     --len_context=2 \
     --use_multimodal_contexts=1 \
     --output_path_special_tokens="${PATH_DIR}"/gpt2_dst/data/simmc2_special_tokens.json
@@ -77,9 +76,9 @@ $ python -m gpt2_dst.scripts.run_language_modeling \
     --line_by_line \
     --add_special_tokens="${PATH_DIR}"/gpt2_dst/data/simmc2_special_tokens.json \
     --do_train \
-    --train_data_file="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_train_target.txt \
+    --train_data_file="${PATH_DIR}"/gpt2_dst/data/simmc2.1_dials_dstc11_train_target.txt \
     --do_eval --eval_all_checkpoints \
-    --eval_data_file="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_dev_target.txt \
+    --eval_data_file="${PATH_DIR}"/gpt2_dst/data/simmc2.1_dials_dstc11_dev_target.txt \
     --num_train_epochs=2 \
     --overwrite_output_dir \
     --per_gpu_train_batch_size=4 \
@@ -101,8 +100,8 @@ $ python -m gpt2_dst.scripts.run_generation \
     --num_return_sequences=1 \
     --length=100 \
     --stop_token='<EOS>' \
-    --prompts_from_file="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_devtest_predict.txt \
-    --path_output="${PATH_DIR}"/gpt2_dst/results/simmc2_dials_dstc10_devtest_predicted.txt
+    --prompts_from_file="${PATH_DIR}"/gpt2_dst/data/simmc2.1_dials_dstc11_devtest_predict.txt \
+    --path_output="${PATH_DIR}"/gpt2_dst/results/simmc2.1_dials_dstc11_devtest_predicted.txt
 ```
 
 The generation results are saved in the `/mm_dst/results` folder. Change the `path_output` to a desired path accordingly.
@@ -118,9 +117,9 @@ The shell script above runs the following:
 
 ```
 python -m gpt2_dst.scripts.evaluate \
-    --input_path_target="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_devtest_target.txt \
-    --input_path_predicted="${PATH_DIR}"/gpt2_dst/data/simmc2_dials_dstc10_devtest_predicted.txt \
-    --output_path_report="${PATH_DIR}"/gpt2_dst/results/simmc2_dials_dstc10_devtest_report.json
+    --input_path_target="${PATH_DIR}"/gpt2_dst/data/simmc2.1_dials_dstc11_devtest_target.txt \
+    --input_path_predicted="${PATH_DIR}"/gpt2_dst/data/simmc2.1_dials_dstc11_devtest_predicted.txt \
+    --output_path_report="${PATH_DIR}"/gpt2_dst/results/simmc2.1_dials_dstc11_devtest_report.json
 ```
 
 Evaluation reports are saved in the `/mm_dst/results` folder as JSON files.
@@ -171,9 +170,9 @@ The shell script above runs the following:
 
 ```
 python -m utils.evaluate_dst \
-    --input_path_target="${PATH_DATA_DIR}"/simmc2_dials_dstc10_devtest_dials.json \
-    --input_path_predicted="${PATH_DIR}"/simmc2_dials_dstc10_devtest_pred_dials.json \
-    --output_path_report="${PATH_DIR}"/simmc2_dials_dstc10_report.json
+    --input_path_target="${PATH_DATA_DIR}"/simmc2.1_dials_dstc11_devtest_dials.json \
+    --input_path_predicted="${PATH_DIR}"/simmc2.1_dials_dstc11_devtest_pred_dials.json \
+    --output_path_report="${PATH_DIR}"/simmc2.1_dials_dstc11_report.json
 ```
 
 You can also run response generation without belief states by using the `no_belief_states` flag
@@ -181,14 +180,9 @@ while preparing the data.
 
 ## Results
 
-Below are the baseline results for the GPT-2 model and Multimodal Transformer Network (MTN) adapted to SIMMC 2.0 ([here][mtn_simmc2]).
+Below are the baseline results for the GPT-2 model and Multimodal Transformer Network (MTN) adapted to SIMMC 2.0 ([here][mtn_simmc2]). 
 
-**Subtask #3: Multimodal Dialog State Tracking**
-
-| Baseline | Dialog Act F1 | Slot F1 | Request Slot F1 | Joint Accuracy |
-| :------: | :-----------: | :-----: | :-------------: | :------------: |
-| GPT2     | 0.945         | 0.817   | 0.896           | 0.446          |
-| [MTN-SIMMC2][mtn_simmc2] | 0.934 | 0.748 | 0.854     | 0.283          |
+We will soon update the numbers for the new version of the dataset (SIMMC 2.1) and report it here.
 
 **Subtask #2: Multimodal Coreference Resolution**
 
@@ -196,6 +190,13 @@ Below are the baseline results for the GPT-2 model and Multimodal Transformer Ne
 | :------: | :-------: |
 | GPT2     |   0.366   |
 | [MTN-SIMMC2][mtn_simmc2] | - |
+
+**Subtask #3: Multimodal Dialog State Tracking**
+
+| Baseline | Dialog Act F1 | Slot F1 | Request Slot F1 | Joint Accuracy |
+| :------: | :-----------: | :-----: | :-------------: | :------------: |
+| GPT2     | 0.945         | 0.817   | 0.896           | 0.446          |
+| [MTN-SIMMC2][mtn_simmc2] | 0.934 | 0.748 | 0.854     | 0.283          |
 
 **Subtask #4: Multimodal Dialog Response Generation** 
 
@@ -206,13 +207,6 @@ Below are the baseline results for the GPT-2 model and Multimodal Transformer Ne
 | GPT2     |   0.192   |
 | [MTN-SIMMC2][mtn_simmc2] | 0.217 |
 
-**Retrieval**  
-
-
-| Baseline |    MRR    |  R@1 | R@5 | R@10 | Mean Rank |
-| :------: | :-------: | :---: | :-------: | :------: | :-------: |
-| Random   |   0.052   |   0.010   |   0.050   |   0.100   |   50.0   |
-| GPT2     |   0.088   |   0.026   |   0.107   |   0.184   |   38.0   |
 
 ## Rules for Sub-task #3 Submissions
 * Disallowed input per each turn: `belief_state`, `system_transcript`, `system_transcript_annotated`, `state_graph_1`, `state_graph_2`, and anything from future turns.

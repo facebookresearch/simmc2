@@ -1,55 +1,46 @@
-# The Second Situated Interactive MultiModal Conversations (SIMMC 2.0) Challenge 2021
+# The Third Situated Interactive MultiModal Conversations (SIMMC 2.1) Challenge 2021
 
-Welcome to the Second Situated Interactive Multimodal Conversations (SIMMC 2.0) Track page for [DSTC10][dstc10] 2021.
+Welcome to the Third Situated Interactive Multimodal Conversations (SIMMC 2.1) Track page for [DSTC11][dstc11] 2021.
 
 The SIMMC challenge aims to lay the foundations for the real-world assistant agents that can handle multimodal inputs, and perform multimodal actions.
-Similar to the [First SIMMC challenge][simmc1] (as part of DSTC9), we focus on the **task-oriented** dialogs that encompass a **situated** multimodal user context in the form of a co-observed & immersive virtual reality (VR) environment.
+Specifically, we focus on the **task-oriented** dialogs that encompass a **situated** multimodal user context in the form of a co-observed & immersive virtual reality (VR) environment.
 The conversational context is **dynamically** updated on each turn based on the user actions (e.g. via verbal interactions, navigation within the scene).
-For this challenge, we release a new Immersive SIMMC 2.0 dataset in the shopping domains: furniture and fashion.   
 
-The challenge ended successfully in October 2021. The challenge saw a total of 16 model entries from 10 teams across the world (university & industry), setting a new state-of-the-art in 3 subtasks (see the full results and their repositories [here](CHALLENGE_RESULTS.md)).
+The [Second SIMMC challenge][simmc2.0] ended successfully, receiving a number of new state-of-the-art models in the novel multimodal dialog task.
+Building upon the success of the previous editions of the SIMMC challenges, we propose a third edition of the SIMMC challenge for the community to tackle and continue the effort towards building a successful multimodal assistant agent.
 
-**Organizers**: Seungwhan Moon, Satwik Kottur, Paul A. Crook, Ahmad Beirami, Babak Damavandi, Alborz Geramifard
+In this edition of the challenge, we specifically focus on the key challenge of fine-grained visual disambiguation, which adds an important skill to assistant agents studied in the previous SIMMC challenge. To accommodate for this challenge, we provide the improved version of the of the dataset, SIMMC 2.1, where we augment the SIMMC 2.0 dataset with additional annotations (i.e. identification of all possible referent candidates given ambiguous mentions) and corresponding re-paraphrases to support the study and modeling of visual disambiguation (SIMMC 2.1).
+
+**Organizers**: Seungwhan Moon, Satwik Kottur, Babak Damavandi, Alborz Geramifard
 
 <figure>
-<img src="./overview.png" width="400" alt="Example from SIMMC" align="center"> 
-<figcaption><i>Example from SIMMC-Furniture Dataset</i></figcaption> 
+<img src="./overview-simmc21.png" width="400" alt="Illustration of the SIMMC 2.1 Dataset" align="center"> 
+<figcaption><i>Illustration of the SIMMC 2.1 Dataset</i></figcaption> 
 </figure>
-
 
 
 ### Latest News
 
-* **[Oct 26, 2021]** The official challenge results are announced [here](CHALLENGE_RESULTS.md). The old challenge README page is archived [here](CHALLENGE_README_ARCHIVE.md)
-* **[Oct 18, 2021]** The official challenge results were sent to each team. We will soon announce the full results on this GitHub page.
-* **[Oct 15, 2021]** The challenge results will be announced by Oct 18 (Mon). Stay tuned!
-* **[Oct 1, 2021]** [Test-Std set for the final evaluation](https://github.com/facebookresearch/simmc2/commit/8d23c4879dd873df311b6c49c0674896537b6087) is released. Please follow the [submission instructions carefully](https://github.com/facebookresearch/simmc2/blob/master/SUBMISSION_INSTRUCTIONS.md) and contact us if you have any questions.
-* **[Sept 24, 2021]** Submission deadlines have been pushed to accommodate for a [slight change](https://github.com/facebookresearch/simmc2/commit/741e6d32dc354b7c17de7a1b5ec639343f4286d6) in the DST evaluation script. Please see the [Submission Instructions](SUBMISSION_INSTRUCTIONS.md) for more details on the dates.
-* **[Sept 14, 2021]** Retrieval candidates for `dev` and `devtest` released.
-* **[June 14, 2021]** Challenge announcement. Training / development datasets (SIMMC v2.0) are released.
+* **[June 28, 2022]** DSTC11-SIMMC2.1 Challenge announcement. Training / development datasets (SIMMC v2.1) are released.
 
 
 ## Important Links
 
 * [Task Description Paper][simmc2_arxiv] (EMNLP 2021)
 * [Data Formats](data/README.md)
-* Baseline Details & Results: [Subtask1][subtask1_results], [Subtask 2, 3, 4][subtask2_results]
-* [DSTC10 SIMMC 2.0 Results & Models](CHALLENGE_RESULTS.md)
-* [DSTC10 SIMMC 2.0 Challenge README (Archive)](CHALLENGE_README_ARCHIVE.md)
-
 
 ## Track Description
 
 ### Tasks and Metrics
 
-We present four sub-tasks primarily aimed at replicating human-assistant actions in order to enable rich and interactive shopping scenarios.
+For this edition of the challenge, we focus on four sub-tasks primarily aimed at replicating human-assistant actions in order to enable rich and interactive shopping scenarios.
 
-| Sub-Task #1 | [Multimodal Disambiguation](model/disambiguate) |
+| Sub-Task #1 | [Ambiguous ](model/mm_dst) |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------|
-| Goal | To classify if the assistant should disambiguate in the next turn |
+| Goal | Given ambiguous object mentions, to resolve referent objects to thier canonical ID(s). |
 | Input | Current user utterance, Dialog context, Multimodal context |
-| Output |  Binary label |
-| Metrics |  Binary classification accuracy |
+| Output |  Canonical object IDs |
+| Metrics | Object Identification F1 / Precision / Recall |
 
 | Sub-Task #2 | [Multimodal Coreference Resolution](model/mm_dst) |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------|
@@ -65,12 +56,12 @@ We present four sub-tasks primarily aimed at replicating human-assistant actions
 | Output | Belief state for current user utterance |
 | Metrics | Slot F1, Intent F1 |
 
-| Sub-Task #4 | [Multimodal Dialog Response Generation & Retrieval](model/mm_dst)  |
+| Sub-Task #4 | [Multimodal Dialog Response Generation](model/mm_dst)  |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------|
-| Goal | To generate Assistant responses or retrieve from a candidate pool  |
+| Goal | To generate Assistant responses  |
 | Input | Current user utterance, Dialog context, Multimodal context, (Ground-truth API Calls) |
 | Output | Assistant response utterance |
-| Metrics | Generation: BLEU-4, Retrieval: MRR, R@1, R@5, R@10, Mean Rank |
+| Metrics | BLEU-4 |
 
 
 Please check the [task input](./TASK_INPUTS.md) file for a full description of inputs
@@ -78,15 +69,15 @@ for each subtask.
 
 ### Baseline Results
 
-We provide the baselines for all the four tasks to benchmark their models.
+We will provide the baselines for all the four tasks to benchmark their models.
 Feel free to use the code to bootstrap your model.
 
 | Subtask | Name | Baseline Results | 
 | :--: | :--: | :--: |
-| #1 | Multimodal Disambiguation | [Link][subtask1_results] |
+| #1 | Ambiguous Candidate Identification | [Link][subtask1_results] |
 | #2 | Multimodal Coreference Resolution | [Link][subtask2_results] |
 | #3 | Multimodal Dialog State Tracking (MM-DST) | [Link][subtask3_results] |
-| #4 | Multimodal Dialog Response Generation & Retrieval | [Link][subtask4_results] |
+| #4 | Multimodal Dialog Response Generation | [Link][subtask4_results] |
 
 
 ## How to Download Datasets and Code
@@ -97,7 +88,7 @@ $ git lfs install
 $ git clone https://github.com/facebookresearch/simmc2.git
 ```
 
-* Also please feel free to check out other open-sourced repositories for the SIMMC 2.0 challenge [here](CHALLENGE_RESULTS.md).
+* Also please feel free to check out other open-sourced repositories from the previous SIMMC 2.0 challenge [here](CHALLENGE_RESULTS.md).
  
 
 ## Contact
@@ -134,9 +125,10 @@ If you want to publish experimental results with our datasets or use the baselin
 
 ## License
 
-SIMMC 2.0 is released under [CC-BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode), see [LICENSE](LICENSE) for details.
+SIMMC 2 is released under [CC-BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode), see [LICENSE](LICENSE) for details.
 
 
+[dstc11]:https://dstc11.dstc.community/
 [dstc10]:https://sites.google.com/dstc.community/dstc10/home
 [simmc1]:https://github.com/facebookresearch/simmc
 [simmc2_arxiv]:https://arxiv.org/pdf/2104.08667.pdf
@@ -145,3 +137,4 @@ SIMMC 2.0 is released under [CC-BY-NC-SA-4.0](https://creativecommons.org/licens
 [subtask2_results]:./model/mm_dst#results
 [subtask3_results]:./model/mm_dst#results
 [subtask4_results]:./model/mm_dst#results
+[simmc2.0]:./dstc10/CHALLENGE_RESULTS.md
