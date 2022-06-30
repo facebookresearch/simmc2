@@ -1,4 +1,4 @@
-# SIMMC 2.1 Challenge 2022 (DSTC 11) | Sub-Task #1: Ambiguous Candidate Identification | Sub-Task #2: Multimodal Coference Resolution | Sub-Task #3: Multimodal Dialog State Tracking (MM-DST)
+# SIMMC 2.1 Challenge 2022 (DSTC 11)
 
 This directory contains the code and the scripts for running the baseline models.
 
@@ -7,6 +7,8 @@ Multimodal belief states at each turn should encode sufficient information for h
 
 Please check the [task input](./TASK_INPUTS.md) file for a full description of inputs
 for each subtask.
+
+If you would like to use any other external resources, please consult with the track organizers (simmc@fb.com). Generally, we allow the use of publicly available pre-trained language models, such as BERT, GPT-2, etc.
 
 For more details on the task definition and the baseline models we provide, please refer to our SIMMC 2 paper:
 
@@ -134,7 +136,7 @@ Alternatively, we *also* provide an evaluation script that takes as input a JSON
         {
             "dialogue": [
                 {
-                    "system_transcript_annotated": [
+                    "transcript_annotated": [
                           {
                               'act': <str>,
                               'act_attributes': {
@@ -143,7 +145,8 @@ Alternatively, we *also* provide an evaluation script that takes as input a JSON
                                       ...
                                   },
                                   "request_slots": [ <str> ],
-                                  "objects": [ <int> ] 
+                                  "objects": [ <int> ],
+                                  "disambiguation_candidates": [ <int> ],                                  
                               }
                           },
                           [End of a frame]
@@ -207,10 +210,6 @@ We will soon update the numbers for the new version of the dataset (SIMMC 2.1) a
 | GPT2     |   0.192   |
 | [MTN-SIMMC2][mtn_simmc2] | 0.217 |
 
-
-## Rules for Sub-task #3 Submissions
-* Disallowed input per each turn: `belief_state`, `system_transcript`, `system_transcript_annotated`, `state_graph_1`, `state_graph_2`, and anything from future turns.
-* If you would like to use any other external resources, please consult with the track organizers (simmc@fb.com). Generally, we allow the use of publicly available pre-trained language models, such as BERT, GPT-2, etc.
 
 [dstc9]:https://sites.google.com/dstc.community/dstc9/home
 [simmc_arxiv]:https://arxiv.org/abs/2006.01460
