@@ -63,7 +63,6 @@ def evaluate_model(model, loader, batch_size, save_path=None, hidden_test=False)
 def main(args):
     if args["backbone"] == "gpt2":
         tokenizer = transformers.GPT2Tokenizer.from_pretrained("gpt2")
-        tokenizer.padding_side = "left"
         # Define PAD Token = EOS Token = 50256
         tokenizer.pad_token = tokenizer.eos_token
     else:
@@ -71,6 +70,8 @@ def main(args):
     num_added_tokens = tokenizer.add_special_tokens(
         {"additional_special_tokens": ["<USER>", "<SYS>"]}
     )
+    tokenizer.truncation_side = "left"
+    
     # Dataloader.
     train_loader = Dataloader(tokenizer, args["train_file"], args)
     val_loader = Dataloader(tokenizer, args["dev_file"], args)
