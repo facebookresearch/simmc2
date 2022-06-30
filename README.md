@@ -35,7 +35,7 @@ In this edition of the challenge, we specifically focus on the key challenge of 
 
 For this edition of the challenge, we focus on four sub-tasks primarily aimed at replicating human-assistant actions in order to enable rich and interactive shopping scenarios.
 
-| Sub-Task #1 | [Ambiguous ](model/mm_dst) |
+| Sub-Task #1 | [Ambiguous Canaidate Identification](model/mm_dst) |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------|
 | Goal | Given ambiguous object mentions, to resolve referent objects to thier canonical ID(s). |
 | Input | Current user utterance, Dialog context, Multimodal context |
