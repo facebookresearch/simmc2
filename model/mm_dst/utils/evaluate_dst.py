@@ -34,7 +34,8 @@ def evaluate_from_json(d_true, d_pred):
                             'request_slots': [
                                 SLOT_NAME, ...
                             ],
-                            'objects': [ <int> ]
+                            'objects': [ <int> ],
+                            'disambiguation_candidates': [ <int> ]
                         }
                     },
                     ...
@@ -76,6 +77,7 @@ def reformat_turn(t):
         'slots': [[s,v] for s, v in t['act_attributes']['slot_values'].items()],
         'request_slots': t['act_attributes']['request_slots'],
         'objects': t['act_attributes']['objects'],
+        'disamb_candidates': t.get('disambiguation_candidates', [])
     }
     return [frame]
 
@@ -95,7 +97,8 @@ def evaluate_from_flat_list(d_true, d_pred):
                     ...
                 ],
                 'request_slots': [ SLOT_NAME, ... ],
-                'objects': [ <int> ]
+                'objects': [ <int> ],
+                'disambiguation_candidates': [ <int> ]
             },
             [End of a frame]
             ...
@@ -139,6 +142,12 @@ def evaluate_from_flat_list(d_true, d_pred):
         n_pred=c["n_pred_objects"],
     )
 
+    disamb_candidate_rec, disamb_candidate_prec, disamb_candidate_f1 = rec_prec_f1(
+        n_correct=c["n_correct_disamb_candidates"],
+        n_true=c["n_true_disamb_candidates"],
+        n_pred=c["n_pred_disamb_candidates"],
+    )    
+
     # Calculate std err
     act_f1_stderr = d_f1(c["n_true_acts"], c["n_pred_acts"], c["n_correct_acts"])
     slot_f1_stderr = d_f1(c["n_true_slots"], c["n_pred_slots"], c["n_correct_slots"])
@@ -148,8 +157,15 @@ def evaluate_from_flat_list(d_true, d_pred):
         c["n_correct_request_slots"],
     )
     object_f1_stderr = d_f1(
-        c["n_true_objects"], c["n_pred_objects"], c["n_correct_objects"]
+        c["n_true_objects"],
+        c["n_pred_objects"],
+        c["n_correct_objects"]
     )
+    disamb_candidate_f1_stderr = d_f1(
+        c["n_true_disamb_candidates"],
+        c["n_pred_disamb_candidates"],
+        c["n_correct_disamb_candidates"]
+    )    
 
     return {
         "joint_accuracy": joint_accuracy,
@@ -169,6 +185,10 @@ def evaluate_from_flat_list(d_true, d_pred):
         "object_prec": object_prec,
         "object_f1": object_f1,
         "object_f1_stderr": object_f1_stderr,
+        "disamb_candidate_rec": disamb_candidate_rec,
+        "disamb_candidate_prec": disamb_candidate_prec,
+        "disamb_candidate_f1": disamb_candidate_f1,
+        "disamb_candidate_f1_stderr": disamb_candidate_f1_stderr,        
     }
 
 
@@ -302,7 +322,26 @@ def evaluate_frame(true_frame, pred_frame, strict=True):
             true_frame_object_values.intersection(pred_frame_object_values)
         )
 
-    # (4) Joint
+    # (4) Compare Disambiguation Objects
+    true_frame_disamb_candidate_values = {
+        disamb_candidate_id for disamb_candidate_id in true_frame.get("disamb_candidates", [])
+    }
+    pred_frame_disamb_candidate_values = {
+        disamb_candidate_id for disamb_candidate_id in pred_frame.get("disamb_candidates", [])
+    }
+    # print(true_frame_disamb_candidate_values)
+
+    count_dict["n_true_disamb_candidates"] += len(true_frame_disamb_candidate_values)
+    count_dict["n_pred_disamb_candidates"] += len(pred_frame_disamb_candidate_values)
+
+    if strict and not b_correct_act:
+        pass
+    else:
+        count_dict["n_correct_disamb_candidates"] += len(
+            true_frame_disamb_candidate_values.intersection(pred_frame_disamb_candidate_values)
+        )
+
+    # (5) Joint
     count_dict["n_correct_beliefs"] += (
         b_correct_act
         and true_frame_slot_values == pred_frame_slot_values
@@ -365,6 +404,9 @@ def initialize_count_dict():
         "n_true_objects": 0.0,
         "n_pred_objects": 0.0,
         "n_correct_objects": 0.0,
+        "n_true_disamb_candidates": 0.0,
+        "n_pred_disamb_candidates": 0.0,
+        "n_correct_disamb_candidates": 0.0,        
         "n_correct_beliefs": 0.0,
     }
     return copy.deepcopy(c)

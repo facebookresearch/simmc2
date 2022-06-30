@@ -1,0 +1,3267 @@
+{
+    "dialogue_data": [
+        {
+            "dialogue": [
+                {
+                    "turn_idx": 0,
+                    "system_transcript": "What do you think of the grey pair on the left?",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans",
+                                "pattern": "plain"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                29
+                            ]
+                        }
+                    },
+                    "transcript": "Do you have any plain jeans?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans",
+                                "pattern": "plain"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 1,
+                    "system_transcript": "There's a maroon one on the wall on the right, and a brown one and a grey one on the rack.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "dress"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                42,
+                                14,
+                                36
+                            ]
+                        }
+                    },
+                    "transcript": "Sorry, I misspoke. Can you show me dresses instead?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "dress"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 2,
+                    "system_transcript": "Which one do you mean?",
+                    "system_transcript_annotated": {
+                        "act": "REQUEST:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "What's the dress rated?",
+                    "transcript_annotated": {
+                        "act": "ASK:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "customerReview"
+                            ],
+                            "objects": []
+                        },
+                        "disambiguation_label": 1,
+                        "disambiguation_candidates": [
+                            36
+                        ],
+                        "disambiguation_candidates_raw": [
+                            36
+                        ]
+                    }
+                },
+                {
+                    "turn_idx": 3,
+                    "system_transcript": "That dress has a high rating at 4.3.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "Object ID: 36": {
+                                    "customerReview": 4.3
+                                }
+                            },
+                            "request_slots": [
+                                "customerReview"
+                            ],
+                            "objects": [
+                                36
+                            ]
+                        }
+                    },
+                    "transcript": "The grey one on the hanging rack.",
+                    "transcript_annotated": {
+                        "act": "INFORM:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "customerReview"
+                            ],
+                            "objects": [
+                                36
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 4,
+                    "system_transcript": "I'm sorry. I don't have any floral dresses right now.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "pattern": "floral",
+                                "type": "dress"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "I was kind of looking for something more floral.",
+                    "transcript_annotated": {
+                        "act": "INFORM:REFINE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "pattern": "floral",
+                                "type": "dress"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 5,
+                    "system_transcript": "I'm sorry. I don't have any blouses like that from New Fashion.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "blouse",
+                                "pattern": "vertical design",
+                                "brand": "New Fashion"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "How about something with a pattern that will make me look taller? A blouse from New Fashion maybe?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "blouse",
+                                "pattern": "vertical design",
+                                "brand": "New Fashion"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 6,
+                    "system_transcript": "I have a grey one and a brown one on the table over there.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "shirt"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                21,
+                                26
+                            ]
+                        }
+                    },
+                    "transcript": "Do you have any good shirts at all?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "shirt"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 7,
+                    "system_transcript": "Okay. I'll add it to the cart for you.",
+                    "system_transcript_annotated": {
+                        "act": "CONFIRM:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                26
+                            ]
+                        }
+                    },
+                    "transcript": "That brown one should work for me.",
+                    "transcript_annotated": {
+                        "act": "REQUEST:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                26
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 8,
+                    "system_transcript": "I don't have anything from that brand right now.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "brand": "The Vegan Baker",
+                                "type": "shirt"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "What do you have from The Vegan Baker?",
+                    "transcript_annotated": {
+                        "act": "INFORM:REFINE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "brand": "The Vegan Baker",
+                                "type": "shirt"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 9,
+                    "system_transcript": "Which one do you mean?",
+                    "system_transcript_annotated": {
+                        "act": "REQUEST:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "What can you tell me about that sleeveless dress? How much is it? Do you have my size?",
+                    "transcript_annotated": {
+                        "act": "ASK:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "availableSizes",
+                                "price"
+                            ],
+                            "objects": []
+                        },
+                        "disambiguation_label": 1,
+                        "disambiguation_candidates": [
+                            33,
+                            34,
+                            36
+                        ],
+                        "disambiguation_candidates_raw": [
+                            33,
+                            34,
+                            36
+                        ]
+                    }
+                }
+            ],
+            "dialogue_idx": 11564,
+            "domain": "fashion",
+            "mentioned_object_ids": [
+                36,
+                42,
+                14,
+                21,
+                23,
+                26,
+                29
+            ],
+            "scene_ids": {
+                "0": "m_cloth_store_1416238_woman_3_8",
+                "6": "m_cloth_store_1416238_woman_3_0"
+            }
+        },
+        {
+            "dialogue": [
+                {
+                    "turn_idx": 0,
+                    "system_transcript": "I do! How do you feel about these? I have a black coat on the back of the front floor rack, another black coat on the upper right, and a brown coat towards the far end of the left wall.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "coat"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                38,
+                                59,
+                                10
+                            ]
+                        }
+                    },
+                    "transcript": "I need a new coat, do you have something that would match the rest of my closet?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "coat"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 1,
+                    "system_transcript": "Of course! The brown coat is shown in size XL and the black one in size L.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:COMPARE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "Object ID: 59": {
+                                    "size": "XL"
+                                },
+                                "Object ID: 10": {
+                                    "size": "L"
+                                }
+                            },
+                            "request_slots": [
+                                "size"
+                            ],
+                            "objects": [
+                                59,
+                                10
+                            ]
+                        }
+                    },
+                    "transcript": "Those look promising! Could you compare sizing on that brown coat and the black coat on the wall?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:COMPARE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "size"
+                            ],
+                            "objects": [
+                                59,
+                                10
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 2,
+                    "system_transcript": "Of course! Take a look at these. I have some grey jeans on the bottom right, another pair of grey jeans on the left wall, second from the left, and a pair of dark blue jeans to the right of those.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                29,
+                                62,
+                                63
+                            ]
+                        }
+                    },
+                    "transcript": "Alright, thanks so much! Could you also recommend some jeans to match my closet?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 3,
+                    "system_transcript": "Ok, I'll go ahead and stick that in your cart for you.",
+                    "system_transcript_annotated": {
+                        "act": "CONFIRM:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                10
+                            ]
+                        }
+                    },
+                    "transcript": "I'll think about those, but for now I'll just grab that black coat on the wall.",
+                    "transcript_annotated": {
+                        "act": "REQUEST:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                10
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 4,
+                    "system_transcript": "Of course! I've updated the amount in your cart.",
+                    "system_transcript_annotated": {
+                        "act": "CONFIRM:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                10
+                            ]
+                        }
+                    },
+                    "transcript": "On second thought, make that two.",
+                    "transcript_annotated": {
+                        "act": "REQUEST:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                10
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 5,
+                    "system_transcript": "I'm afraid that is the only black coat at the moment.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "coat",
+                                "color": "black"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                10
+                            ]
+                        }
+                    },
+                    "transcript": "Are there any other black coats you could recommend?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "coat",
+                                "color": "black"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 6,
+                    "system_transcript": "Sure thing, I'll add a third one to your cart.",
+                    "system_transcript_annotated": {
+                        "act": "CONFIRM:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                10
+                            ]
+                        }
+                    },
+                    "transcript": "Alright, I'll take a third one then.",
+                    "transcript_annotated": {
+                        "act": "REQUEST:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                10
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 7,
+                    "system_transcript": "Sure! How do you feel about these? There's a black jacket in the second cubby from the left and a brown jacket in the next cubby to the right.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jacket",
+                                "pattern": "plain",
+                                "customerReview": "good"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                5,
+                                8
+                            ]
+                        }
+                    },
+                    "transcript": "What about a plain but well-rated jacket?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jacket",
+                                "pattern": "plain",
+                                "customerReview": "good"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 8,
+                    "system_transcript": "Which jeans do you mean?",
+                    "system_transcript_annotated": {
+                        "act": "REQUEST:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "Those are alright, but I'm not sure. What's the brand and ratings on that pair of jeans?",
+                    "transcript_annotated": {
+                        "act": "ASK:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "brand",
+                                "customerReview"
+                            ],
+                            "objects": []
+                        },
+                        "disambiguation_label": 1,
+                        "disambiguation_candidates": [
+                            29,
+                            32,
+                            37,
+                            76
+                        ],
+                        "disambiguation_candidates_raw": [
+                            29,
+                            32,
+                            37,
+                            76
+                        ]
+                    }
+                }
+            ],
+            "dialogue_idx": 11074,
+            "domain": "fashion",
+            "mentioned_object_ids": [
+                5,
+                38,
+                8,
+                10,
+                59,
+                29,
+                62,
+                63
+            ],
+            "scene_ids": {
+                "0": "m_cloth_store_1416238_woman_3_2",
+                "5": "m_cloth_store_1416238_woman_3_3"
+            }
+        },
+        {
+            "dialogue": [
+                {
+                    "turn_idx": 0,
+                    "system_transcript": "I have these three pair on the bottom, what do you think?",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans",
+                                "size": "XS"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                62,
+                                63,
+                                65
+                            ]
+                        }
+                    },
+                    "transcript": "Do you have any size XS jeans?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans",
+                                "size": "XS"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 1,
+                    "system_transcript": "Sorry, No results came back from that search.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "pattern": "denim",
+                                "customerReview": "good",
+                                "type": "jeans",
+                                "size": "XS"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "What else do you have in denim with good ratings?",
+                    "transcript_annotated": {
+                        "act": "INFORM:REFINE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "pattern": "denim",
+                                "customerReview": "good",
+                                "type": "jeans",
+                                "size": "XS"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 2,
+                    "system_transcript": "Sorry, which one?",
+                    "system_transcript_annotated": {
+                        "act": "REQUEST:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "What size is the pair on the bottom and who makes it?",
+                    "transcript_annotated": {
+                        "act": "ASK:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "size",
+                                "brand"
+                            ],
+                            "objects": []
+                        },
+                        "disambiguation_label": 1,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": [
+                            29,
+                            32,
+                            37,
+                            76
+                        ]
+                    }
+                },
+                {
+                    "turn_idx": 3,
+                    "system_transcript": "It's a size L,  from Cats Are Great.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "Object ID: 65": {
+                                    "size": "L",
+                                    "brand": "Cats Are Great"
+                                }
+                            },
+                            "request_slots": [
+                                "size",
+                                "brand"
+                            ],
+                            "objects": [
+                                65
+                            ]
+                        }
+                    },
+                    "transcript": "The jeans on the left.",
+                    "transcript_annotated": {
+                        "act": "INFORM:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "size",
+                                "brand"
+                            ],
+                            "objects": [
+                                65
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 4,
+                    "system_transcript": "I'm sorry, we don't.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "Those two in the center row, the print one and the brown one, do you have something like them with short sleeves?",
+                    "transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "sleeveLength": "short",
+                                "availableSizes": [
+                                    "XXL",
+                                    "S",
+                                    "L"
+                                ],
+                                "pattern": "leafy design",
+                                "type": "blouse"
+                            },
+                            "request_slots": [
+                                "availableSizes",
+                                "pattern"
+                            ],
+                            "objects": [
+                                86,
+                                57
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 5,
+                    "system_transcript": "I'll make sure those are in your cart.",
+                    "system_transcript_annotated": {
+                        "act": "CONFIRM:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                59,
+                                86
+                            ]
+                        }
+                    },
+                    "transcript": "Let me get the brown coat and the black blouse in the third cubicle then.",
+                    "transcript_annotated": {
+                        "act": "REQUEST:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                59,
+                                86
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 6,
+                    "system_transcript": "I'm sorry, I don't see any.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans",
+                                "price": "cheap"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "I need some cheap jeans.",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans",
+                                "price": "cheap"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                }
+            ],
+            "dialogue_idx": 11980,
+            "domain": "fashion",
+            "mentioned_object_ids": [
+                65,
+                34,
+                49,
+                86,
+                57,
+                59,
+                62,
+                63
+            ],
+            "scene_ids": {
+                "0": "m_cloth_store_1416238_woman_3_4",
+                "6": "m_cloth_store_1416238_woman_3_7"
+            }
+        },
+        {
+            "dialogue": [
+                {
+                    "turn_idx": 0,
+                    "system_transcript": "Do you like the grey pair in the second cubby or the dark blue pair next to it? They are both jeans.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                63,
+                                62
+                            ]
+                        }
+                    },
+                    "transcript": "I need a new pair of jeans.",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 1,
+                    "system_transcript": "I'm sorry, I don't have anything like that. Can I get you something different?",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "I'd like to see options with a similar pricing and sizing as those two pairs but in small and denim.",
+                    "transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "size": "S",
+                                "pattern": "denim",
+                                "price": 184.99,
+                                "availableSizes": [
+                                    "XL",
+                                    "S",
+                                    "XS",
+                                    "XXL",
+                                    "M"
+                                ],
+                                "type": "jeans"
+                            },
+                            "request_slots": [
+                                "price",
+                                "availableSizes"
+                            ],
+                            "objects": [
+                                62,
+                                63
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 2,
+                    "system_transcript": "Ok. I'll put that pair in your cart for you.",
+                    "system_transcript_annotated": {
+                        "act": "CONFIRM:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                62
+                            ]
+                        }
+                    },
+                    "transcript": "I'd like to buy the grey pair I think.",
+                    "transcript_annotated": {
+                        "act": "REQUEST:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                62
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 3,
+                    "system_transcript": "Which ones?",
+                    "system_transcript_annotated": {
+                        "act": "REQUEST:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "Can you tell me the price and brand of the pants on the bottom?",
+                    "transcript_annotated": {
+                        "act": "ASK:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "brand",
+                                "price"
+                            ],
+                            "objects": []
+                        },
+                        "disambiguation_label": 1,
+                        "disambiguation_candidates": [
+                            61,
+                            62,
+                            63,
+                            87
+                        ],
+                        "disambiguation_candidates_raw": [
+                            61,
+                            62,
+                            63,
+                            65,
+                            87
+                        ]
+                    }
+                },
+                {
+                    "turn_idx": 4,
+                    "system_transcript": "This pair is made by Cats Are Great and costs $164.99.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "Object ID: 62": {
+                                    "brand": "Cats Are Great",
+                                    "price": 164.99
+                                }
+                            },
+                            "request_slots": [
+                                "brand",
+                                "price"
+                            ],
+                            "objects": [
+                                62
+                            ]
+                        }
+                    },
+                    "transcript": "The grey pair of jeans.",
+                    "transcript_annotated": {
+                        "act": "INFORM:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "brand",
+                                "price"
+                            ],
+                            "objects": [
+                                62
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 5,
+                    "system_transcript": "I have the grey pair in the very far right cubby.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "trousers"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                87
+                            ]
+                        }
+                    },
+                    "transcript": "Can you suggest pants to match my clothes?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "trousers"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 6,
+                    "system_transcript": "I'm sorry, I don't have anything like that. Can I get you something different.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "hoodie",
+                                "price": "affordable"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "How about some affordable hoodies?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "hoodie",
+                                "price": "affordable"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 7,
+                    "system_transcript": "Ok. I'll put that additional pair in your cart for you.",
+                    "system_transcript_annotated": {
+                        "act": "CONFIRM:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                62
+                            ]
+                        }
+                    },
+                    "transcript": "I'd like to buy another pair of those grey jeans.",
+                    "transcript_annotated": {
+                        "act": "REQUEST:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                62
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 8,
+                    "system_transcript": "That grey pair, the blue pair next to it, and the grey pair all the way to the left are what I have like that.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                62,
+                                63,
+                                65
+                            ]
+                        }
+                    },
+                    "transcript": "I'd like to see other options like it.",
+                    "transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                62
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 9,
+                    "system_transcript": "I'm sorry, that's all I have for jeans.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "What else can you show me?",
+                    "transcript_annotated": {
+                        "act": "INFORM:REFINE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                }
+            ],
+            "dialogue_idx": 11827,
+            "domain": "fashion",
+            "mentioned_object_ids": [
+                65,
+                87,
+                62,
+                63
+            ],
+            "scene_ids": {
+                "0": "m_cloth_store_1416238_woman_3_6",
+                "6": "m_cloth_store_1416238_woman_3_4"
+            }
+        },
+        {
+            "dialogue": [
+                {
+                    "turn_idx": 0,
+                    "system_transcript": "How do you feel about this brown one here on the front floor rack, and the brown one in front of it? They are both hoodies.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "hoodie"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                47,
+                                50
+                            ]
+                        }
+                    },
+                    "transcript": "I'm interested in a hoodie.",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "hoodie"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 1,
+                    "system_transcript": "Which item do you mean?",
+                    "system_transcript_annotated": {
+                        "act": "REQUEST:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "How mucuh does it cost?",
+                    "transcript_annotated": {
+                        "act": "ASK:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "price"
+                            ],
+                            "objects": []
+                        },
+                        "disambiguation_label": 1,
+                        "disambiguation_candidates": [
+                            0,
+                            1,
+                            2,
+                            10,
+                            11,
+                            12,
+                            13,
+                            14,
+                            15,
+                            16,
+                            17,
+                            18,
+                            19,
+                            20,
+                            21,
+                            22,
+                            23,
+                            24,
+                            25,
+                            26,
+                            27,
+                            28,
+                            29,
+                            30,
+                            31,
+                            33,
+                            34,
+                            35,
+                            36,
+                            38,
+                            39,
+                            40,
+                            41,
+                            42,
+                            43,
+                            44,
+                            45,
+                            46,
+                            47,
+                            48,
+                            49,
+                            50,
+                            51
+                        ],
+                        "disambiguation_candidates_raw": [
+                            "all",
+                            "items"
+                        ]
+                    }
+                },
+                {
+                    "turn_idx": 2,
+                    "system_transcript": "It is priced at 124.99.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "Object ID: 36": {
+                                    "price": 124.99
+                                }
+                            },
+                            "request_slots": [
+                                "price"
+                            ],
+                            "objects": [
+                                36
+                            ]
+                        }
+                    },
+                    "transcript": "I meant the grey dress on the back floor rack.",
+                    "transcript_annotated": {
+                        "act": "INFORM:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "price"
+                            ],
+                            "objects": [
+                                36
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 3,
+                    "system_transcript": "Sorry, I don't see any other hoodies.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "hoodie"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "Anything else for my search?",
+                    "transcript_annotated": {
+                        "act": "INFORM:REFINE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "hoodie"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 4,
+                    "system_transcript": "Sure, I added that blouse to your cart.",
+                    "system_transcript_annotated": {
+                        "act": "CONFIRM:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                0
+                            ]
+                        }
+                    },
+                    "transcript": "Could you add the red, white blouse from the top right wall rack on the left wall to my cart?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                0
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 5,
+                    "system_transcript": "Sure, I went ahead and added those items to your cart for you.",
+                    "system_transcript_annotated": {
+                        "act": "CONFIRM:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                0,
+                                50
+                            ]
+                        }
+                    },
+                    "transcript": "Could you add another one of that blouse, and the brown hoodie in the front of the front floor rack to my cart as well?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                0,
+                                50
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 6,
+                    "system_transcript": "Take a look at this grey one on the center-left top shelf of the wardrobe, the black one on the right top shelf, and the black one on the front floor rack.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "coat",
+                                "size": "L"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                4,
+                                10,
+                                38
+                            ]
+                        }
+                    },
+                    "transcript": "I'm interested in a large coat?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "coat",
+                                "size": "L"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 7,
+                    "system_transcript": "The black coat on the floor rack has good customer reviews.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                38
+                            ]
+                        }
+                    },
+                    "transcript": "I'd like something similar to the grey coat and the black coat on the floor rack, in terms of brand and pattern but with good customer reviews.",
+                    "transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "customerReview": "good",
+                                "brand": "North Lodge",
+                                "pattern": "plain",
+                                "type": "coat"
+                            },
+                            "request_slots": [
+                                "brand",
+                                "pattern"
+                            ],
+                            "objects": [
+                                4,
+                                38
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 8,
+                    "system_transcript": "What do you think of this grey pair on the bottom right shelf, this dark dark blue pair on the bottom left shelf, and this grey pair to the right of them?",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                29,
+                                37,
+                                76
+                            ]
+                        }
+                    },
+                    "transcript": "Do you have any good jeans?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 9,
+                    "system_transcript": "Sure, I'll add that item to your cart for you.",
+                    "system_transcript_annotated": {
+                        "act": "CONFIRM:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                38
+                            ]
+                        }
+                    },
+                    "transcript": "Can you add the black coat from the floor rack to my cart?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                38
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                }
+            ],
+            "dialogue_idx": 11319,
+            "domain": "fashion",
+            "mentioned_object_ids": [
+                0,
+                4,
+                36,
+                37,
+                38,
+                10,
+                76,
+                47,
+                50,
+                29
+            ],
+            "scene_ids": {
+                "0": "m_cloth_store_1416238_woman_3_8",
+                "6": "m_cloth_store_1416238_woman_3_7"
+            }
+        },
+        {
+            "dialogue": [
+                {
+                    "turn_idx": 0,
+                    "system_transcript": "I think you might be thrilled with either of the multicolored, long-sleeved maroon tops on the left or the light grey tank top near them.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "blouse"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                3,
+                                6,
+                                84
+                            ]
+                        }
+                    },
+                    "transcript": "Can you help me pick out a decent top?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "blouse"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 1,
+                    "system_transcript": "The blouse immediately to the right is nearly identical. You might also want the grey and white polka dotted tank a little to the right.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                3,
+                                84,
+                                7
+                            ]
+                        }
+                    },
+                    "transcript": "Is there anything else sort of like that long-sleeved festive one on the far left?",
+                    "transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "blouse"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                84
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 2,
+                    "system_transcript": "Which items are you interested in learning more about?",
+                    "system_transcript_annotated": {
+                        "act": "REQUEST:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "I can't really tell them apart. Can we look at the size of the black shirt instead?",
+                    "transcript_annotated": {
+                        "act": "ASK:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "availableSizes",
+                                "customerReview"
+                            ],
+                            "objects": []
+                        },
+                        "disambiguation_label": 1,
+                        "disambiguation_candidates": [
+                            4,
+                            5,
+                            10
+                        ],
+                        "disambiguation_candidates_raw": [
+                            4,
+                            5,
+                            10
+                        ]
+                    }
+                },
+                {
+                    "turn_idx": 3,
+                    "system_transcript": "Both of those tops are offered in small, large, extra large, and extra extra large, and they both carry a customer rating of 3.8.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "Object ID: 3": {
+                                    "availableSizes": [
+                                        "XXL",
+                                        "S",
+                                        "XL",
+                                        "L"
+                                    ],
+                                    "customerReview": 3.8
+                                },
+                                "Object ID: 84": {
+                                    "availableSizes": [
+                                        "XXL",
+                                        "S",
+                                        "XL",
+                                        "L"
+                                    ],
+                                    "customerReview": 3.8
+                                }
+                            },
+                            "request_slots": [
+                                "availableSizes",
+                                "customerReview"
+                            ],
+                            "objects": [
+                                3,
+                                84
+                            ]
+                        }
+                    },
+                    "transcript": "Those first two tops on the far left.",
+                    "transcript_annotated": {
+                        "act": "INFORM:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "availableSizes",
+                                "customerReview"
+                            ],
+                            "objects": [
+                                3,
+                                84
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 4,
+                    "system_transcript": "The long-sleeved blouse is rated more highly. It has a 3.8, in comparison to the light grey tank's rating of 2.9. The blouse on the left is also available in more sizes. It comes in small, large, extra large, and extra extra large, while the grey tank is only available in medium at this time. While the tank features a solid pattern in a nice light grey color, the top on the left features a holiday pattern in a maroon, white, and blue color scheme. The brands of these shirts also differ. The tank is made by Brain Puzzles, while the long-sleeved blouse is made by Global Voyager. The actual sizes of these pieces are also different. The tank is a medium, while the long-sleeved top is a small. Last but not least, these shirts are both priced at $39.99.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:COMPARE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "Object ID: 6": {
+                                    "assetType": "blouse_hanging",
+                                    "customerReview": 2.9,
+                                    "availableSizes": [
+                                        "M"
+                                    ],
+                                    "color": "light grey",
+                                    "pattern": "plain",
+                                    "brand": "Brain Puzzles",
+                                    "sleeveLength": "short",
+                                    "type": "blouse",
+                                    "price": 39.99,
+                                    "size": "M"
+                                },
+                                "Object ID: 84": {
+                                    "assetType": "blouse_hanging",
+                                    "customerReview": 3.8,
+                                    "availableSizes": [
+                                        "XXL",
+                                        "S",
+                                        "XL",
+                                        "L"
+                                    ],
+                                    "color": "maroon, white, blue",
+                                    "pattern": "holiday",
+                                    "brand": "Global Voyager",
+                                    "sleeveLength": "long",
+                                    "type": "blouse",
+                                    "price": 39.99,
+                                    "size": "S"
+                                }
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                6,
+                                84
+                            ]
+                        }
+                    },
+                    "transcript": "I think I feel ever so slightly inclined towards the one on the far left. How does one compare to the solid light grey tank?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:COMPARE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                6,
+                                84
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 5,
+                    "system_transcript": "Certainly! That grey tank will be in your cart momentarily.",
+                    "system_transcript_annotated": {
+                        "act": "CONFIRM:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                6
+                            ]
+                        }
+                    },
+                    "transcript": "I think I'll go with that shorter sleeved light grey one. Would you add that to my cart please?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                6
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 6,
+                    "system_transcript": "Do you like these two brown hoodies on the rack up front to the left or the green one in the back left?",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "hoodie"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                58,
+                                50,
+                                47
+                            ]
+                        }
+                    },
+                    "transcript": "Now can you help me find a nice hoodie?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "hoodie"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                }
+            ],
+            "dialogue_idx": 11090,
+            "domain": "fashion",
+            "mentioned_object_ids": [
+                3,
+                6,
+                7,
+                75,
+                47,
+                50,
+                84,
+                58
+            ],
+            "scene_ids": {
+                "0": "m_cloth_store_1416238_woman_3_3",
+                "6": "m_cloth_store_1416238_woman_3_2"
+            }
+        },
+        {
+            "dialogue": [
+                {
+                    "turn_idx": 0,
+                    "system_transcript": "How do you like this green one?",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "hoodie",
+                                "customerReview": "good",
+                                "pattern": "plain"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                58
+                            ]
+                        }
+                    },
+                    "transcript": "Can you show me plain hoodies with good reviews?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "hoodie",
+                                "customerReview": "good",
+                                "pattern": "plain"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 1,
+                    "system_transcript": "Sure, I'll add it.",
+                    "system_transcript_annotated": {
+                        "act": "CONFIRM:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                55
+                            ]
+                        }
+                    },
+                    "transcript": "Add the black and white blouse to my cart.",
+                    "transcript_annotated": {
+                        "act": "REQUEST:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                55
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 2,
+                    "system_transcript": "Sorry, I don't have anything like what you're looking for.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "color": "brown",
+                                "brand": "Downtown Consignment",
+                                "type": "hoodie",
+                                "customerReview": "good",
+                                "pattern": "plain"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "Narrow down my search to brown items from Downtown Consignment.",
+                    "transcript_annotated": {
+                        "act": "INFORM:REFINE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "color": "brown",
+                                "brand": "Downtown Consignment",
+                                "type": "hoodie",
+                                "customerReview": "good",
+                                "pattern": "plain"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 3,
+                    "system_transcript": "Which hoodie?",
+                    "system_transcript_annotated": {
+                        "act": "REQUEST:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "What's the rating of the other hoodie?",
+                    "transcript_annotated": {
+                        "act": "ASK:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "customerReview",
+                                "availableSizes"
+                            ],
+                            "objects": []
+                        },
+                        "disambiguation_label": 1,
+                        "disambiguation_candidates": [
+                            58
+                        ],
+                        "disambiguation_candidates_raw": [
+                            "all",
+                            "hoodie"
+                        ]
+                    }
+                },
+                {
+                    "turn_idx": 4,
+                    "system_transcript": "It has a 2.8 rating and is available in S, M, and L.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "Object ID: 58": {
+                                    "customerReview": 2.8,
+                                    "availableSizes": [
+                                        "L",
+                                        "S",
+                                        "M"
+                                    ]
+                                }
+                            },
+                            "request_slots": [
+                                "customerReview",
+                                "availableSizes"
+                            ],
+                            "objects": [
+                                58
+                            ]
+                        }
+                    },
+                    "transcript": "The green one on the top right.",
+                    "transcript_annotated": {
+                        "act": "INFORM:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "customerReview",
+                                "availableSizes"
+                            ],
+                            "objects": [
+                                58
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 5,
+                    "system_transcript": "I'll add it now.",
+                    "system_transcript_annotated": {
+                        "act": "CONFIRM:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                58
+                            ]
+                        }
+                    },
+                    "transcript": "Add that one to my cart.",
+                    "transcript_annotated": {
+                        "act": "REQUEST:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                58
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 6,
+                    "system_transcript": "I have a gray and white one, a maroon, white, and blue one, and a white and black one.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "blouse",
+                                "customerReview": "good"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                7,
+                                84,
+                                9
+                            ]
+                        }
+                    },
+                    "transcript": "Can you show me well rated blouses?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "blouse",
+                                "customerReview": "good"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                }
+            ],
+            "dialogue_idx": 11684,
+            "domain": "fashion",
+            "mentioned_object_ids": [
+                6,
+                7,
+                9,
+                84,
+                55,
+                58
+            ],
+            "scene_ids": {
+                "0": "m_cloth_store_1416238_woman_3_4",
+                "6": "m_cloth_store_1416238_woman_3_3"
+            }
+        },
+        {
+            "dialogue": [
+                {
+                    "turn_idx": 0,
+                    "system_transcript": "Sure, what do you think of the light grey jacket hanging up high at the back left?",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jacket"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                39
+                            ]
+                        }
+                    },
+                    "transcript": "Hello, do you have any jackets for me to look at?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jacket"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 1,
+                    "system_transcript": "Sorry, I don't  have anything similar to that.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "Do you have anything with a similar size range to the black sweater beside the light grey jacket?",
+                    "transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "availableSizes": [
+                                    "L",
+                                    "XL",
+                                    "M",
+                                    "XS"
+                                ],
+                                "type": "sweater"
+                            },
+                            "request_slots": [
+                                "availableSizes"
+                            ],
+                            "objects": [
+                                41
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 2,
+                    "system_transcript": "The black one?",
+                    "system_transcript_annotated": {
+                        "act": "REQUEST:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "What sizes does the sweater come in?",
+                    "transcript_annotated": {
+                        "act": "ASK:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "size"
+                            ],
+                            "objects": []
+                        },
+                        "disambiguation_label": 1,
+                        "disambiguation_candidates": [
+                            41
+                        ],
+                        "disambiguation_candidates_raw": [
+                            41
+                        ]
+                    }
+                },
+                {
+                    "turn_idx": 3,
+                    "system_transcript": "It's a size XL.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "Object ID: 41": {
+                                    "size": "XL"
+                                }
+                            },
+                            "request_slots": [
+                                "size"
+                            ],
+                            "objects": [
+                                41
+                            ]
+                        }
+                    },
+                    "transcript": "Yes exactly.",
+                    "transcript_annotated": {
+                        "act": "INFORM:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "size"
+                            ],
+                            "objects": [
+                                41
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 4,
+                    "system_transcript": "I don't have anything from them at the moment.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "brand": "Pedals & Gears",
+                                "availableSizes": [
+                                    "L",
+                                    "XL",
+                                    "M",
+                                    "XS"
+                                ],
+                                "type": "sweater"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "Do you have anything from Pedals & Gears?",
+                    "transcript_annotated": {
+                        "act": "INFORM:REFINE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "brand": "Pedals & Gears",
+                                "availableSizes": [
+                                    "L",
+                                    "XL",
+                                    "M",
+                                    "XS"
+                                ],
+                                "type": "sweater"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 5,
+                    "system_transcript": "I don't at the moment.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "pattern": "vertical design",
+                                "availableSizes": [
+                                    "L",
+                                    "XL",
+                                    "M",
+                                    "XS"
+                                ],
+                                "type": "sweater"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "Do you have anything with a vertical design pattern?",
+                    "transcript_annotated": {
+                        "act": "INFORM:REFINE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "pattern": "vertical design",
+                                "availableSizes": [
+                                    "L",
+                                    "XL",
+                                    "M",
+                                    "XS"
+                                ],
+                                "type": "sweater"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 6,
+                    "system_transcript": "I don't have any right now.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "joggers",
+                                "price": "affordable",
+                                "color": "dark green"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "Are there any affordable joggers in a dark green color?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "joggers",
+                                "price": "affordable",
+                                "color": "dark green"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 7,
+                    "system_transcript": "Sorry, nothing I have currently matches that description.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "pattern": "spots",
+                                "size": "XL",
+                                "type": "joggers",
+                                "price": "affordable",
+                                "color": "dark green"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "Do you have anything with a spotted pattern in size XL?",
+                    "transcript_annotated": {
+                        "act": "INFORM:REFINE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "pattern": "spots",
+                                "size": "XL",
+                                "type": "joggers",
+                                "price": "affordable",
+                                "color": "dark green"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 8,
+                    "system_transcript": "The brown coat under the blue shoe boxes on the right fits that description.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "coat",
+                                "customerReview": "good",
+                                "size": "XL"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                59
+                            ]
+                        }
+                    },
+                    "transcript": "What about coats with good reviews in size XL?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "coat",
+                                "customerReview": "good",
+                                "size": "XL"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 9,
+                    "system_transcript": "Sure, they're actually both from Cats Are Great and a size L.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:COMPARE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "Object ID: 62": {
+                                    "brand": "Cats Are Great",
+                                    "size": "L"
+                                },
+                                "Object ID: 65": {
+                                    "brand": "Cats Are Great",
+                                    "size": "L"
+                                }
+                            },
+                            "request_slots": [
+                                "brand",
+                                "size"
+                            ],
+                            "objects": [
+                                62,
+                                65
+                            ]
+                        }
+                    },
+                    "transcript": "Can you compare the brand and size of the two pairs of grey jeans?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:COMPARE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "brand",
+                                "size"
+                            ],
+                            "objects": [
+                                62,
+                                65
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                }
+            ],
+            "dialogue_idx": 11324,
+            "domain": "fashion",
+            "mentioned_object_ids": [
+                65,
+                39,
+                41,
+                59,
+                62
+            ],
+            "scene_ids": {
+                "0": "m_cloth_store_1416238_woman_3_11",
+                "6": "m_cloth_store_1416238_woman_3_4"
+            }
+        },
+        {
+            "dialogue": [
+                {
+                    "turn_idx": 0,
+                    "system_transcript": "We have this black and white one in the middle of the shelf display, the red and white one at the top left of the wall display, and this white and grey one below it.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "blouse",
+                                "sleeveLength": "long"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                9,
+                                0,
+                                11
+                            ]
+                        }
+                    },
+                    "transcript": "Do you have any long-sleeved blouses?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "blouse",
+                                "sleeveLength": "long"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 1,
+                    "system_transcript": "We also have this maroon white and blue blouse at the left of the shelf display.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "blouse",
+                                "sleeveLength": "long"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                3
+                            ]
+                        }
+                    },
+                    "transcript": "Do you have other blouses?",
+                    "transcript_annotated": {
+                        "act": "INFORM:REFINE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "blouse",
+                                "sleeveLength": "long"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 2,
+                    "system_transcript": "I can't find anything that matches.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "I'd like something like the maroon, white and blue blouse in size range and pattern.",
+                    "transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "availableSizes": [
+                                    "XXL",
+                                    "S",
+                                    "XL",
+                                    "L"
+                                ],
+                                "pattern": "holiday",
+                                "type": "blouse"
+                            },
+                            "request_slots": [
+                                "availableSizes",
+                                "pattern"
+                            ],
+                            "objects": [
+                                3
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 3,
+                    "system_transcript": "I've got this grey dress, that dark brown one and this brown one on that display rack.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "dress"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                25,
+                                14,
+                                35
+                            ]
+                        }
+                    },
+                    "transcript": "Do you have any dresses?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "dress"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 4,
+                    "system_transcript": "Sure thing.",
+                    "system_transcript_annotated": {
+                        "act": "CONFIRM:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                25
+                            ]
+                        }
+                    },
+                    "transcript": "Can you add that grey dress to my cart?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:ADD_TO_CART",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": [
+                                25
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 5,
+                    "system_transcript": "Here's a grey pair at the bottom of the shelf display.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "trousers",
+                                "customerReview": "good"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                45
+                            ]
+                        }
+                    },
+                    "transcript": "I need a trousers with a good rating as well.",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "trousers",
+                                "customerReview": "good"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 6,
+                    "system_transcript": "I can't find any jackets that match.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jacket",
+                                "price": "expensive"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "Can you find me an expensive jacket?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jacket",
+                                "price": "expensive"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 7,
+                    "system_transcript": "Which dress are you referring to?",
+                    "system_transcript_annotated": {
+                        "act": "REQUEST:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "What's the brand and size range for that dress?",
+                    "transcript_annotated": {
+                        "act": "ASK:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "brand",
+                                "availableSizes"
+                            ],
+                            "objects": []
+                        },
+                        "disambiguation_label": 1,
+                        "disambiguation_candidates": [
+                            42,
+                            43,
+                            44
+                        ],
+                        "disambiguation_candidates_raw": [
+                            "all",
+                            "dress"
+                        ]
+                    }
+                },
+                {
+                    "turn_idx": 8,
+                    "system_transcript": "It's from Yogi Fit and is available in XS, XL, S, XXL, L, and M.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "Object ID: 25": {
+                                    "brand": "Yogi Fit",
+                                    "availableSizes": [
+                                        "XS",
+                                        "XL",
+                                        "S",
+                                        "XXL",
+                                        "L",
+                                        "M"
+                                    ]
+                                }
+                            },
+                            "request_slots": [
+                                "brand",
+                                "availableSizes"
+                            ],
+                            "objects": [
+                                25
+                            ]
+                        }
+                    },
+                    "transcript": "I mean the grey dress on the display rack.",
+                    "transcript_annotated": {
+                        "act": "INFORM:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "brand",
+                                "availableSizes"
+                            ],
+                            "objects": [
+                                25
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                }
+            ],
+            "dialogue_idx": 11325,
+            "domain": "fashion",
+            "mentioned_object_ids": [
+                0,
+                3,
+                35,
+                9,
+                11,
+                45,
+                14,
+                25
+            ],
+            "scene_ids": {
+                "0": "m_cloth_store_1416238_woman_3_0",
+                "5": "m_cloth_store_1416238_woman_3_11"
+            }
+        },
+        {
+            "dialogue": [
+                {
+                    "turn_idx": 0,
+                    "system_transcript": "What do you think of the maroon, white, and blue blouse on the left, the white and black on the right, or the grey and white in the middle?",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "blouse"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                84,
+                                9,
+                                7
+                            ]
+                        }
+                    },
+                    "transcript": "Can you recommend a blouse that goes with my style?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "blouse"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 1,
+                    "system_transcript": "I also have another maroon, white, and blue blouse and a light grey in the middle of the shelf.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "blouse"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                3,
+                                6
+                            ]
+                        }
+                    },
+                    "transcript": "Any other suggestions?",
+                    "transcript_annotated": {
+                        "act": "INFORM:REFINE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "blouse"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 2,
+                    "system_transcript": "I have three pairs of jeans, one in dark blue and two in grey.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans",
+                                "size": "XS"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                76,
+                                37,
+                                29
+                            ]
+                        }
+                    },
+                    "transcript": "Do you have any XS jeans?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans",
+                                "size": "XS"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 3,
+                    "system_transcript": "The former comes in XXL, S, XL, and L. The latter is available in M, L, XS, and XL.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:COMPARE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "Object ID: 3": {
+                                    "availableSizes": [
+                                        "XXL",
+                                        "S",
+                                        "XL",
+                                        "L"
+                                    ]
+                                },
+                                "Object ID: 7": {
+                                    "availableSizes": [
+                                        "M",
+                                        "L",
+                                        "XS",
+                                        "XL"
+                                    ]
+                                }
+                            },
+                            "request_slots": [
+                                "availableSizes"
+                            ],
+                            "objects": [
+                                3,
+                                7
+                            ]
+                        }
+                    },
+                    "transcript": "What can you tell me about the available sizes of maroon, white, and blue blouse in the middle and the grey and white?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:COMPARE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "availableSizes"
+                            ],
+                            "objects": [
+                                3,
+                                7
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 4,
+                    "system_transcript": "The black costs 139.99 and comes in L, XXL, XS, and M. The grey costs 59.99 and is available in L, XS, and XXL.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:COMPARE",
+                        "act_attributes": {
+                            "slot_values": {
+                                "Object ID: 10": {
+                                    "availableSizes": [
+                                        "L",
+                                        "XXL",
+                                        "XS",
+                                        "M"
+                                    ],
+                                    "price": 139.99
+                                },
+                                "Object ID: 4": {
+                                    "availableSizes": [
+                                        "L",
+                                        "XS",
+                                        "XXL"
+                                    ],
+                                    "price": 59.99
+                                }
+                            },
+                            "request_slots": [
+                                "availableSizes",
+                                "price"
+                            ],
+                            "objects": [
+                                10,
+                                4
+                            ]
+                        }
+                    },
+                    "transcript": "Can you tell me the cost and available sizes of the black cost on the right and the grey on the left?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:COMPARE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "availableSizes",
+                                "price"
+                            ],
+                            "objects": [
+                                10,
+                                4
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 5,
+                    "system_transcript": "I have a grey pair of jeans on the left and a dark blue beside them.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                62,
+                                63
+                            ]
+                        }
+                    },
+                    "transcript": "Can I see some jeans?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "jeans"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 6,
+                    "system_transcript": "Which blouses do you mean?",
+                    "system_transcript_annotated": {
+                        "act": "REQUEST:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [],
+                            "objects": []
+                        }
+                    },
+                    "transcript": "Tell me about those two blouses",
+                    "transcript_annotated": {
+                        "act": "ASK:GET",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "availableSizes",
+                                "customerReview"
+                            ],
+                            "objects": []
+                        },
+                        "disambiguation_label": 1,
+                        "disambiguation_candidates": [
+                            56,
+                            57,
+                            85,
+                            86
+                        ],
+                        "disambiguation_candidates_raw": [
+                            "all",
+                            "blouse"
+                        ]
+                    }
+                },
+                {
+                    "turn_idx": 7,
+                    "system_transcript": "The former has a 3.8 rating and is available in XXL, S, XL, and L. The latter has a 2.9 rating and is only available in M.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "Object ID: 3": {
+                                    "availableSizes": [
+                                        "XXL",
+                                        "S",
+                                        "XL",
+                                        "L"
+                                    ],
+                                    "customerReview": 3.8
+                                },
+                                "Object ID: 6": {
+                                    "availableSizes": [
+                                        "M"
+                                    ],
+                                    "customerReview": 2.9
+                                }
+                            },
+                            "request_slots": [
+                                "availableSizes",
+                                "customerReview"
+                            ],
+                            "objects": [
+                                3,
+                                6
+                            ]
+                        }
+                    },
+                    "transcript": "The maroon, white, and blue blouse and the light grey, both in the center shelf.",
+                    "transcript_annotated": {
+                        "act": "INFORM:DISAMBIGUATE",
+                        "act_attributes": {
+                            "slot_values": {},
+                            "request_slots": [
+                                "availableSizes",
+                                "customerReview"
+                            ],
+                            "objects": [
+                                3,
+                                6
+                            ]
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                },
+                {
+                    "turn_idx": 8,
+                    "system_transcript": "I have one pair of grey pants on the bottom right.",
+                    "system_transcript_annotated": {
+                        "act": "INFORM:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "trousers",
+                                "color": "grey"
+                            },
+                            "request_slots": [],
+                            "objects": [
+                                87
+                            ]
+                        }
+                    },
+                    "transcript": "Do you have any grey pants?",
+                    "transcript_annotated": {
+                        "act": "REQUEST:GET",
+                        "act_attributes": {
+                            "slot_values": {
+                                "type": "trousers",
+                                "color": "grey"
+                            },
+                            "request_slots": [],
+                            "objects": []
+                        },
+                        "disambiguation_label": 0,
+                        "disambiguation_candidates": [],
+                        "disambiguation_candidates_raw": []
+                    }
+                }
+            ],
+            "dialogue_idx": 11584,
+            "domain": "fashion",
+            "mentioned_object_ids": [
+                3,
+                4,
+                37,
+                6,
+                7,
+                9,
+                10,
+                76,
+                84,
+                87,
+                29,
+                62,
+                63
+            ],
+            "scene_ids": {
+                "0": "m_cloth_store_1416238_woman_3_3",
+                "5": "m_cloth_store_1416238_woman_3_9"
+            }
+        }
+    ],
+    "split": "mini",
+    "year": "2022",
+    "domain": "fashion/furniture",
+    "version": "simmc_2.1_dstc11"
+}
