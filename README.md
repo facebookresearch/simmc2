@@ -9,7 +9,7 @@ The conversational context is **dynamically** updated on each turn based on the 
 The [Second SIMMC challenge][simmc2.0] ended successfully, receiving a number of new state-of-the-art models in the novel multimodal dialog task.
 Building upon the success of the previous editions of the SIMMC challenges, we propose a third edition of the SIMMC challenge for the community to tackle and continue the effort towards building a successful multimodal assistant agent.
 
-In this edition of the challenge, we specifically focus on the key challenge of fine-grained visual disambiguation, which adds an important skill to assistant agents studied in the previous SIMMC challenge. To accommodate for this challenge, we provide the improved version of the of the dataset, SIMMC 2.1, where we augment the SIMMC 2.0 dataset with additional annotations (i.e. identification of all possible referent candidates given ambiguous mentions) and corresponding re-paraphrases to support the study and modeling of visual disambiguation (SIMMC 2.1).
+In this edition of the challenge, we specifically focus on the key challenge of *fine-grained visual disambiguation*, which adds an important skill to assistant agents studied in the previous SIMMC challenge. To accommodate for this challenge, we provide the improved version of the of the dataset, SIMMC 2.1, where we augment the SIMMC 2.0 dataset with additional annotations (i.e. identification of all possible referent candidates given ambiguous mentions) and corresponding re-paraphrases to support the study and modeling of visual disambiguation (SIMMC 2.1).
 
 **Organizers**: Seungwhan Moon, Satwik Kottur, Babak Damavandi, Alborz Geramifard
 
@@ -26,6 +26,7 @@ In this edition of the challenge, we specifically focus on the key challenge of 
 
 ## Important Links
 
+* [SIMMC 2.1 Challenge Proposal][simmc2.1_proposal] (DSTC11)
 * [Task Description Paper][simmc2_arxiv] (EMNLP 2021)
 * [Data Formats](data/README.md)
 
@@ -35,7 +36,9 @@ In this edition of the challenge, we specifically focus on the key challenge of 
 
 For this edition of the challenge, we focus on four sub-tasks primarily aimed at replicating human-assistant actions in order to enable rich and interactive shopping scenarios.
 
-| Sub-Task #1 | [Ambiguous ](model/mm_dst) |
+For more detailed information on the new SIMMC 2.1 dataset and the instructions, please refer to the [DSTC11 challenge proposal document][simmc2.1_proposal].
+
+| Sub-Task #1 | [Ambiguous Canaidate Identification (New)](model/mm_dst) |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------|
 | Goal | Given ambiguous object mentions, to resolve referent objects to thier canonical ID(s). |
 | Input | Current user utterance, Dialog context, Multimodal context |
@@ -138,3 +141,4 @@ SIMMC 2 is released under [CC-BY-NC-SA-4.0](https://creativecommons.org/licenses
 [subtask3_results]:./model/mm_dst#results
 [subtask4_results]:./model/mm_dst#results
 [simmc2.0]:./dstc10/CHALLENGE_RESULTS.md
+[simmc2.1_proposal]:https://drive.google.com/file/d/1_Tdl7CXm71gqlWutbOe0e8O1hhiycsQf/view

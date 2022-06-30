@@ -1,4 +1,4 @@
-# The Second Situated Interactive MultiModal Conversations (SIMMC 2.0) Challenge 2021
+# (Archive) The Second Situated Interactive MultiModal Conversations (SIMMC 2.0) Challenge 2021
 
 Welcome to the Second Situated Interactive Multimodal Conversations (SIMMC 2.0) Track page for [DSTC10][dstc10] 2021.
 
