@@ -77,7 +77,7 @@ def reformat_turn(t):
         'slots': [[s,v] for s, v in t['act_attributes']['slot_values'].items()],
         'request_slots': t['act_attributes']['request_slots'],
         'objects': t['act_attributes']['objects'],
-        'disamb_candidates': t.get('disambiguation_candidates', [])
+        'disambiguation_candidates': t.get('disambiguation_candidates', [])
     }
     return [frame]
 
@@ -324,10 +324,10 @@ def evaluate_frame(true_frame, pred_frame, strict=True):
 
     # (4) Compare Disambiguation Objects
     true_frame_disamb_candidate_values = {
-        disamb_candidate_id for disamb_candidate_id in true_frame.get("disamb_candidates", [])
+        disamb_candidate_id for disamb_candidate_id in true_frame.get("disambiguation_candidates", [])
     }
     pred_frame_disamb_candidate_values = {
-        disamb_candidate_id for disamb_candidate_id in pred_frame.get("disamb_candidates", [])
+        disamb_candidate_id for disamb_candidate_id in pred_frame.get("disambiguation_candidates", [])
     }
     # print(true_frame_disamb_candidate_values)
 

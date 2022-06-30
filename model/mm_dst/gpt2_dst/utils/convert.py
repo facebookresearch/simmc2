@@ -143,7 +143,7 @@ def convert_json_to_flattened(
                 belief_state = []
                 # for bs_per_frame in user_belief:
                 str_belief_state_per_frame = (
-                    "{act} [ {slot_values} ] ({request_slots}) < {objects} >".format(
+                    "{act} [ {slot_values} ] ({request_slots}) < {objects} > | {disamb_candidates} |".format(
                         act=user_belief.get("act", "").strip(),
                         slot_values=", ".join(
                             [
@@ -158,6 +158,9 @@ def convert_json_to_flattened(
                         ),
                         objects=", ".join(
                             [str(o) for o in user_belief.get("act_attributes", {}).get("objects", [])]
+                        ),
+                        disamb_candidates=", ".join(
+                            [str(o) for o in user_belief.get("disambiguation_candidates", [])]
                         ),
                     )
                 )
@@ -320,12 +323,13 @@ def parse_flattened_result(to_parse):
         ]  # End of a dialog
     """
     dialog_act_regex = re.compile(
-        r'([\w:?.?]*)  *\[(.*)\] *\(([^\]]*)\) *\<([^\]]*)\>'
+        r'([\w:?.?]*)  *\[(.*)\] *\(([^\]]*)\) *\<([^\]]*)\> *\|([^\]]*)\|'
     )    
     
     slot_regex = re.compile(r"([A-Za-z0-9_.-:]*)  *= (\[(.*)\]|[^,]*)")
     request_regex = re.compile(r"([A-Za-z0-9_.-:]+)")
     object_regex = re.compile(r"([A-Za-z0-9]+)")
+    disamb_candidate_regex = re.compile(r"([A-Za-z0-9]+)")
 
     belief = []
 
@@ -345,6 +349,7 @@ def parse_flattened_result(to_parse):
                     "slots": [],
                     "request_slots": [],
                     "objects": [],
+                    "disambiguation_candidates": [],
                 }
 
                 for slot in slot_regex.finditer(dialog_act.group(2)):
@@ -363,6 +368,16 @@ def parse_flattened_result(to_parse):
                     except:
                         pass
 
+                for disamb_candidate_id in disamb_candidate_regex.finditer(dialog_act.group(5)):
+                    str_disamb_candidate_id = disamb_candidate_id.group(1).strip()
+
+                    try:
+                        # disamb_candidate ID should always be <int>.
+                        int_disamb_candidate_id = int(str_disamb_candidate_id)
+                        d["disambiguation_candidates"].append(int_disamb_candidate_id)
+                    except:
+                        pass
+
                 if d != {}:
                     belief.append(d)
 
@@ -371,16 +386,26 @@ def parse_flattened_result(to_parse):
 
 if __name__ == '__main__':
     print('-')
-    to_parse = "=> Belief State : INFORM:GET [ sleeveLength = short, availableSizes = ['XXL', 'S', 'L'], pattern = leafy design ] (availableSizes, pattern) < 86, 57 > <EOB>"
+    to_parse = "=> Belief State : INFORM:GET [ sleeveLength = short, availableSizes = ['XXL', 'S', 'L'], pattern = leafy design ] (availableSizes, pattern) < 86, 57 > | 53, 24 | <EOB>"
     print(to_parse)
     print(parse_flattened_result(to_parse))
 
     print('-')
-    to_parse = "=> Belief State : INFORM:GET [ sleeveLength = short, availableSizes = ['XXL', 'S', 'L'] ] (availableSizes) < 86, 57 > <EOB>"
+    to_parse = "=> Belief State : INFORM:GET [ sleeveLength = short, availableSizes = ['XXL', 'S', 'L'] ] (availableSizes) < 86, 57 > | | <EOB>"
     print(to_parse)
     print(parse_flattened_result(to_parse))
 
     print('-')
-    to_parse = "=> Belief State : INFORM:GET [ sleeveLength = short, pattern = leafy ] (availableSizes) < 86, 57 > <EOB>"
+    to_parse = "=> Belief State : INFORM:GET [ sleeveLength = short, pattern = leafy ] (availableSizes) < > | 86, 57 | <EOB>"
+    print(to_parse)
+    print(parse_flattened_result(to_parse))
+
+    print('-')
+    to_parse = "=> Belief State : INFORM:GET [ ] () < > | 86, 57, 51, 53, 23, 42 | <EOB>"
+    print(to_parse)
+    print(parse_flattened_result(to_parse))
+
+    print('-')
+    to_parse = "=> Belief State : INFORM:GET [ ] () < > | all, dress | <EOB>"
     print(to_parse)
     print(parse_flattened_result(to_parse))
