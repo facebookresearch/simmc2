@@ -1,9 +1,9 @@
 
-# SIMMC 2.0 Dataset
+# SIMMC 2.1 Dataset
 
 ## Summary
 
-Our challenge focuses on the new SIMMC 2.0 dataset, which is grounded in an immersive virtual environment in the shopping domain: furniture and fashion.
+Our challenge focuses on the new SIMMC 2.1 dataset, which is grounded in an immersive virtual environment in the shopping domain: furniture and fashion.
 
 The dataset was collected through the multimodal dialog simulator, followed by a manual paraphrasing step.
 
@@ -36,7 +36,7 @@ We randomly split each of our SIMMC 2.0 dataset into four components:
 **NOTE**
 * **Dev** is for hyperparameter selection and other modeling choices.  
 * **Test-Dev** is the publicly available test set to measure model performance and report results outside the challenge.  
-* **Test-Std** is used as the main test set for evaluation for Challenge Phase 2 (to be released on Sept 24).
+* **Test-Std** is used as the main test set for evaluation for Challenge Phase 2 (to be released later).
 
 ## Download the Dataset
 We are hosting our datasets in this Github Repository (with [Git LFS](https://git-lfs.github.com/)).
@@ -56,7 +56,7 @@ The data are made available in the following files:
 
 ```
 [Main Data]
-- Full dialogs: ./simmc2_dials_dstc10_{train|dev|devtest|test}.json
+- Full dialogs: ./simmc2.1_dials_dstc11_{train|dev|devtest|test}.json
 - Scene images: ./simmc2_scene_images_dstc10_public.zip
 - Scene JSONs: ./simmc2_scene_jsons_dstc10_public.zip
 
@@ -74,7 +74,7 @@ For each `{train|dev|devtest}` split, the JSON data is formatted as follows:
 ```
 {
   "split": support.extract_split_from_filename(json_path),
-  "version": "simmc2_dstc10",
+  "version": "simmc2.1_dstc11",
   "year": 2021,
   "domain": FLAGS.domain,
   "dialogue_data": [
@@ -91,11 +91,15 @@ For each `{train|dev|devtest}` split, the JSON data is formatted as follows:
                 <str> slot_name : <str> slot_value, ...
               },
               "request_slots": [ <str> ],
-              "object": [ <int> ]
+              "object": [ <int> ],
           },
           “transcript”: <str>,
-          “transcript_annotated”: <dict> (same format as above),
-          “disambiguation_label”: {0, 1},
+          “transcript_annotated”: {
+	      (same format as system_transcript_annotated, plus the following)
+              “disambiguation_label”: {0, 1},
+              “disambiguation_candidates”: [ <int> ],
+              “disambiguation_candidates_raw”: [ <int> or <str> ],	      	  
+	  },
         }, // end of a turn (always sorted by turn_idx)
         ...
       ],
@@ -168,5 +172,17 @@ Each `scene_json` defines the mapping from the `local_idx` (local to each dialog
 This `local_idx` is used in `transcript_annotated` as an object slot.
 For example, given a `local_id_to_obj_id_map = {0: 123, 1: 234, 2: 345}` -- the `transcript_annotated`: `{‘act’: ‘DA:REQUEST:ADD_TO_CART’, ‘objects’: [2]}` would indicate this particular dialog act performed upon `OBJECT_2` (`2 == local_idx`), which has a canonical reference to an object with `object_id: 345`.
 We are including this information in case you want to refer to the additional information provided in the `metadata.json` file. 
-Multimodal disambiguation task is based only on the turns with the 
-`disambiguation_label`, either 0 or 1, since it is a binary classification task.
+
+**NOTES on Additional Annotations in SIMMC 2.1 (Updated from SIMMC 2.0)**
+
+The main difference is in the following fields: `object`, `disambiguation_label`, `disambiguation_candidates`, and `disambiguation_candidates_raw`, all under the `transcript_annotated` field.
+
+`disambiguation_label == 1` indicates that the specific turn has an ambiguous mention (and vice versa).
+
+`disambiguation_candidates` lists all possible <int> object IDs that could be identified given an ambiguous mention. 
+
+`disambiguation_candidates_raw` lists all individual <int> object IDs or <str> object categories that could be identified given an ambiguous mention.
+
+For instance, an utterance with an ambiguous mention "How much is this shirt", `disambiguation_candidates_raw` could be labeled as `['all', 'shirt']`, while `disambiguation_candidates = [1, 3, 4, 5, ...]` - listing all object IDs that are shirts.
+
+Please note that for turns with ambiguous mentions, `object` field is annotated as empty.   
