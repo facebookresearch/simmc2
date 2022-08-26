@@ -6,7 +6,7 @@
 **NOTE**: In general, at inference time for a given turn, participants are not allowed to use any of the ground-truth information from its future turns. For instance, for a coreference resolution task at turn `i`, models shouldn't directly make use of the mentioned object IDs from its direct Assistant response turn at `i` or any information from turn `i+1` and on -- which would essentially be regarded as "peeking into the future" and thus unfair/invalid. 
 
 
-| Key |  Subtask #1 </br>(Multimodal Disambiguation) | Subtask #2 <br>(Multimodal Coreference Resolution) | Subtask #3 <br> (MM-DST) | Subtask #4 <br> (Response Generation) | 
+| Key |  Subtask #1 </br>(Ambiguous Candidate Identification) | Subtask #2 <br>(Multimodal Coreference Resolution) | Subtask #3 <br> (MM-DST) | Subtask #4 <br> (Response Generation) | 
 |:---|:---:|:---:|:---:|:---:|
 |**Dialog JSON File (Turn Level Input Fields)**| | | |
 |`system_transcript`<br>(previous turns)|  |  |  |
@@ -29,11 +29,11 @@
 |`url` (raw image)| | | |
 |Non-visual Metadata<br>(`customerReview`,`brand`,`price`,`size`,`materials`)|  
 |Visual Metadata<br>(`assetType`,`color`,`pattern`,`sleeveLength`,`type`) | ✗ | ✗ | ✗ | ✗ |
+| `prefab_path` | ✗ | ✗ | ✗ |  |
 
 **Notes**
 
-`transcript_annotated` provides the detailed structural intents, slots and values for each USER turn. `system_transcript_annotated` provides the similar information for ASSISTANT turns.
-
-`object` field in `transcript_annotated` includes a list of object IDs referred to in each turn - each marked with a local index as defined for each scene.
-
-For more details, please refer to the full description in the [data README document](https://github.com/facebookresearch/simmc2/tree/master/data).
+* `transcript_annotated` provides the detailed structural intents, slots and values for each USER turn. `system_transcript_annotated` provides the similar information for ASSISTANT turns.
+* `object` field in `transcript_annotated` includes a list of object IDs referred to in each turn - each marked with a local index as defined for each scene.
+* You **cannot** use `prefab_path` at inference time for any task apart from response generation.
+* For more details, please refer to the full description in the [data README document](https://github.com/facebookresearch/simmc2/tree/master/data).
