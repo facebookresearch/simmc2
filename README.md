@@ -38,7 +38,7 @@ For this edition of the challenge, we focus on four sub-tasks primarily aimed at
 
 For more detailed information on the new SIMMC 2.1 dataset and the instructions, please refer to the [DSTC11 challenge proposal document][simmc2.1_proposal].
 
-| Sub-Task #1 | [Ambiguous Canaidate Identification (New)](model/mm_dst) |
+| Sub-Task #1 | [Ambiguous Candidate Identification (New)](model/ambiguous_candidates) |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------|
 | Goal | Given ambiguous object mentions, to resolve referent objects to thier canonical ID(s). |
 | Input | Current user utterance, Dialog context, Multimodal context |
@@ -136,7 +136,7 @@ SIMMC 2 is released under [CC-BY-NC-SA-4.0](https://creativecommons.org/licenses
 [simmc1]:https://github.com/facebookresearch/simmc
 [simmc2_arxiv]:https://arxiv.org/pdf/2104.08667.pdf
 [simmc_arxiv]:https://arxiv.org/abs/2006.01460
-[subtask1_results]:./model/disambiguate#performance-on-simmc-20
+[subtask1_results]:./model/ambiguous_candidates#results
 [subtask2_results]:./model/mm_dst#results
 [subtask3_results]:./model/mm_dst#results
 [subtask4_results]:./model/mm_dst#results
