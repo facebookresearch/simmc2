@@ -30,6 +30,17 @@ In this edition of the challenge, we specifically focus on the key challenge of 
 * [Task Description Paper][simmc2_arxiv] (EMNLP 2021)
 * [Data Formats](data/README.md)
 
+## Timeline
+
+**NOTE**: All deadlines are 11:59PM UTC-12:00 ("anywhere on Earth"), unless otherwise noted.
+
+| **Date** | **Milestone** |
+| :--: | :-- |
+| June 28, 2022 | Training & development data released |
+| ***Oct 21***, 2022  | Test-Std data released, End of Challenge Phase 1 |
+| ***Oct 28***, 2022 | Entry submission deadline, End of Challenge Phase 2 |
+| ***By Early November***, 2022 | Final results announced |
+
 ## Track Description
 
 ### Tasks and Metrics
@@ -92,7 +103,19 @@ $ git clone https://github.com/facebookresearch/simmc2.git
 ```
 
 * Also please feel free to check out other open-sourced repositories from the previous SIMMC 2.0 challenge [here](CHALLENGE_RESULTS.md).
- 
+
+
+## Challenge Instructions
+
+### (1) Reporting Results for Challenge Phase 1 (by Oct 21)
+* Submit your model prediction results on the `devtest` set, following the [submission instructions](./SUBMISSION_INSTRUCTIONS.md). 
+* We will release the `test-std` set (with ground-truth labels hidden).
+
+### (2) Reporting Results for Challenge Phase 2 (by Oct 28)
+* Submit your model prediction results on the `test-std` set, following the [submission instructions](./SUBMISSION_INSTRUCTIONS.md). 
+* We will evaluate the participants’ model predictions using the same evaluation script for Phase 1, and announce the results.
+
+
 
 ## Contact
 
