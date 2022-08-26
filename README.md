@@ -136,7 +136,7 @@ SIMMC 2 is released under [CC-BY-NC-SA-4.0](https://creativecommons.org/licenses
 [simmc1]:https://github.com/facebookresearch/simmc
 [simmc2_arxiv]:https://arxiv.org/pdf/2104.08667.pdf
 [simmc_arxiv]:https://arxiv.org/abs/2006.01460
-[subtask1_results]:./model/ambiguous_candidates#results
+[subtask1_results]:./model/ambiguous_candidates#performance-on-simmc-21
 [subtask2_results]:./model/mm_dst#results
 [subtask3_results]:./model/mm_dst#results
 [subtask4_results]:./model/mm_dst#results
