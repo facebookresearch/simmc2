@@ -27,9 +27,13 @@ class Dataloader:
         print("Loading: {}".format(load_path))
         with open(load_path, "r") as file_id:
             self._raw_data = json.load(file_id)
+        # Also read the source data for evaluation.
+        with open(self._raw_data["source_path"], "r") as file_id:
+            self.source_data = json.load(file_id)
+        self._data = self._raw_data["data"]
 
         self.num_utterances = 2 * args["max_turns"] + 1
-        self.num_instances = len(self._raw_data)
+        self.num_instances = len(self._data)
         self.device = torch.cuda if args["use_gpu"] else torch
 
     def get_random_batch(self, batch_size):
@@ -51,8 +55,8 @@ class Dataloader:
         object_maps = []
         for index in indices:
             # Add <USER> and <SYS> tokens.
-            dialog_datum = self._raw_data[index]
-            dialog = self._raw_data[index]["input_text"]
+            dialog_datum = self._data[index]
+            dialog = self._data[index]["input_text"]
             for turn_id, turn in enumerate(dialog):
                 if turn_id % 2 == 0:
                     dialog[turn_id] = "<USER> " + turn

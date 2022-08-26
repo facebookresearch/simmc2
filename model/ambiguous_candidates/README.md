@@ -80,10 +80,10 @@ In addition to the baselines with `bert` and `gpt2` backbones, we also experimen
 |    Baseline    | Recall | Precision |    F1    |
 | :------------: | :----: | :-------: | :------: | 
 | No Object      |   0.0  |    0.0    |    0.0   |
-| All Objects    |  88.6  |   19.8    |   32.3   |
-| Random Objects |  44.3  |   19.9    |   27.5   |
-| BERT           |  59.0  |   30.2    |   39.9   |
-| GPT-2          |  66.9  |   28.3    |   39.8   |
+| Random Objects |  48.7  |   22.0    |   30.3   |
+| All Objects    |  100.0 |   22.3    |   36.5   |
+| GPT-2          |  80.9  |   29.5    |   43.2   |
+| BERT           |  73.5  |   31.3    |   43.9   |
 
 
 [dstc9]:https://sites.google.com/dstc.community/dstc9/home

@@ -16,6 +16,8 @@ import argparse
 import collections
 import json
 import os
+import sys
+sys.path.append("..")
 from tqdm import tqdm as progressbar
 
 import torch
@@ -24,11 +26,10 @@ import transformers
 
 from dataloader import Dataloader, VisualFeatureLoader
 from ambiguous_candidate_identifier import AmbiguousCandidateIdentifier
-import utils
+from utils import ambiguous_candidates_evaluation as eval_utils
 
 
 def evaluate_model(model, loader, batch_size, save_path=None, hidden_test=False):
-    num_matches = 0
     results = collections.defaultdict(list)
     num_target_candidates = 0
     num_pred_candidates = 0
@@ -40,41 +41,29 @@ def evaluate_model(model, loader, batch_size, save_path=None, hidden_test=False)
             nz_pred = torch.nonzero(pred > 0)
             pred_list = nz_pred[:, 0].tolist()
             object_map = batch["object_map"][index]
-            pred_set = set(object_map[ii] for ii in pred_list)
-
-            # If ground truth target is available.
-            if not hidden_test:
-                nz_target = torch.nonzero(target)
-                num_target_candidates += nz_target.shape[0]
-                num_pred_candidates += nz_pred.shape[0]
-                target_set = set(nz_target[:, 0].tolist())
-                num_overlap_candidates += len(pred_set.intersection(target_set))
-
+            pred_list = [object_map[ii] for ii in pred_list]
             # Save results if need be.
-            if save_path:
-                new_instance = {
-                    "turn_id": batch["turn_id"][index],
-                    "disambiguation_candidates": list(pred_set),
-                }
-                results[batch["dialog_id"][index]].append(new_instance)
+            new_instance = {
+                "turn_id": batch["turn_id"][index],
+                "disambiguation_candidates": pred_list,
+            }
+            results[batch["dialog_id"][index]].append(new_instance)
 
     # Restructure results JSON and save.
+    results = [
+        {
+            "dialog_id": dialog_id,
+            "predictions": predictions,
+        }
+        for dialog_id, predictions in results.items()
+    ]
     if save_path:
-        results = [
-            {
-                "dialog_id": dialog_id,
-                "predictions": predictions,
-            }
-            for dialog_id, predictions in results.items()
-        ]
         print(f"Saving: {save_path}")
         with open(save_path, "w") as file_id:
             json.dump(results, file_id)
 
-    recall, precision, f1 = utils.compute_precision_recall_f1(
-        num_overlap_candidates, num_target_candidates, num_pred_candidates
-    )
-    return recall, precision, f1
+    report = eval_utils.evaluate_ambiguous_candidates(loader.source_data, results)
+    return report["recall"], report["precision"], report["f1"]
 
 
 def main(args):
@@ -169,7 +158,7 @@ def main(args):
                 save_path = None
                 if args["result_save_path"]:
                     save_path = os.path.join(
-                        args["result_save_path"], f"results_devtest_{num_iters}.json"
+                        args["result_save_path"], f"results_devtest_best.json"
                     )
                 with torch.no_grad():
                     recall, precision, f1 = evaluate_model(

@@ -95,7 +95,14 @@ def main(args):
         )
         print(f"Saving: {save_path}")
         with open(save_path, "w") as file_id:
-            json.dump(ambiguous_candidates_data, file_id)
+            json.dump(
+                {
+                    "source_path": read_path,
+                    "split": split,
+                    "data": ambiguous_candidates_data,
+                },
+                file_id
+            )
 
 
 if __name__ == "__main__":
