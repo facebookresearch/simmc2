@@ -187,18 +187,23 @@ Below are the baseline results for the GPT-2 model and Multimodal Transformer Ne
 
 We will soon update the numbers for the new version of the dataset (SIMMC 2.1) and report it here.
 
+**Subtask #1: Ambiguous Candidate Identification**
+| Baseline | Ambiguous Candidate F1 |
+| :------: | :-------: |
+| GPT2     |   0.180   |
+
 **Subtask #2: Multimodal Coreference Resolution**
 
 | Baseline | Object F1 |
 | :------: | :-------: |
-| GPT2     |   0.366   |
+| GPT2     |   0.265   |
 | [MTN-SIMMC2][mtn_simmc2] | - |
 
 **Subtask #3: Multimodal Dialog State Tracking**
 
 | Baseline | Dialog Act F1 | Slot F1 | Request Slot F1 | Joint Accuracy |
 | :------: | :-----------: | :-----: | :-------------: | :------------: |
-| GPT2     | 0.945         | 0.817   | 0.896           | 0.446          |
+| GPT2     | 0.930         | 0.735   | 0.713           | 0.366          |
 | [MTN-SIMMC2][mtn_simmc2] | 0.934 | 0.748 | 0.854     | 0.283          |
 
 **Subtask #4: Multimodal Dialog Response Generation** 
