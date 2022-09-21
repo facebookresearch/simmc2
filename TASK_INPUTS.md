@@ -17,6 +17,8 @@
 |`transcript_annotated` | ✗<br>(prediction target) | ✗<br>(prediction target) | ✗<br>(prediction target) | ✗ |
 |`turn_idx`| | | |
 |`disambiguation_label`| ✗ | ✗ | ✗ | ✗ |
+|`disambiguation_transcript` (in older data only)| ✗ | ✗ | ✗ | ✗ |
+|`disambiguation_candidates_raw`| ✗ | ✗ | ✗ | ✗ |
 |`scene_ids`|
 |**Dialog JSON File (Dialog Level Input Fields)**| | | |
 |`mentioned_object_ids` (* defined at a dialog level)| ✗ | ✗ | ✗ | ✗ |
