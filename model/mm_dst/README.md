@@ -183,14 +183,15 @@ while preparing the data.
 
 ## Results
 
-Below are the baseline results for the GPT-2 model and Multimodal Transformer Network (MTN) adapted to SIMMC 2.0 ([here][mtn_simmc2]). 
+Below are the baseline results for the GPT-2 model and Multimodal Transformer Network (MTN) adapted to SIMMC 2.1 ([here][mtn_simmc2]). 
 
-We will soon update the numbers for the new version of the dataset (SIMMC 2.1) and report it here.
 
 **Subtask #1: Ambiguous Candidate Identification**
 | Baseline | Ambiguous Candidate F1 |
 | :------: | :-------: |
-| GPT2     |   0.180   |
+| GPT2     |    0.180  |
+| GPT-2 (MM)| 	0.432  |
+| BERT (MM)	|   0.439  |
 
 **Subtask #2: Multimodal Coreference Resolution**
 
@@ -204,7 +205,8 @@ We will soon update the numbers for the new version of the dataset (SIMMC 2.1) a
 | Baseline | Dialog Act F1 | Slot F1 | Request Slot F1 | Joint Accuracy |
 | :------: | :-----------: | :-----: | :-------------: | :------------: |
 | GPT2     | 0.930         | 0.735   | 0.713           | 0.366          |
-| [MTN-SIMMC2][mtn_simmc2] | 0.934 | 0.748 | 0.854     | 0.283          |
+| [MTN-SIMMC2][mtn_simmc2] | 0.943 | 0.750 | 0.858     | 0.370          |
+
 
 **Subtask #4: Multimodal Dialog Response Generation** 
 
@@ -213,7 +215,7 @@ We will soon update the numbers for the new version of the dataset (SIMMC 2.1) a
 | Baseline |      BLEU |
 | :------: | :-------: |
 | GPT2     |   0.192   |
-| [MTN-SIMMC2][mtn_simmc2] | 0.217 |
+| [MTN-SIMMC2][mtn_simmc2] | 0.179 |
 
 
 [dstc9]:https://sites.google.com/dstc.community/dstc9/home
