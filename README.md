@@ -39,7 +39,7 @@ In this edition of the challenge, we specifically focus on the key challenge of 
 | June 28, 2022 | Training & development data released |
 | ***Oct 21***, 2022  | Test-Std data released, End of Challenge Phase 1 |
 | ***Oct 28***, 2022 | Entry submission deadline, End of Challenge Phase 2 |
-| ***By Early November***, 2022 | Final results announced |
+| ***Nov 4 (latest)***, 2022 | Final results announced |
 
 ## Track Description
 
