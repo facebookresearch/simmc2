@@ -215,7 +215,7 @@ Below are the baseline results for the GPT-2 model and Multimodal Transformer Ne
 | Baseline |      BLEU |
 | :------: | :-------: |
 | GPT2     |   0.192   |
-| [MTN-SIMMC2][mtn_simmc2] | 0.179 |
+| [MTN-SIMMC2][mtn_simmc2] | 0.210 |
 
 
 [dstc9]:https://sites.google.com/dstc.community/dstc9/home
