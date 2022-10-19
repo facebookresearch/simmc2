@@ -4,8 +4,8 @@ Below we describe how the participants can submit their results, and how the win
 
 ## Evaluation Dataset
 
-Final evaluation for the SIMMC2.1 DSTC10 track will be on the `test-std` split, different from the `devtest` split. 
-We will release the `test-std` split closer to the end of Challenge Period 1 (Oct 28). Please check this page again later for more details.
+Final evaluation for the SIMMC2.1 DSTC11 track will be on the `test-std` split, different from the `devtest` split. 
+We will release the `test-std` split closer to the end of Challenge Period 1 (Oct 21). Please check this page again later for more details.
 
 
 **NOTE**:
@@ -34,7 +34,7 @@ To be updated later.
       <td>Before Oct 21 <a href='https://git-scm.com/book/en/v2/Git-Basics-Tagging'>tag a repository commit</a> that contains both runable code and model parameter files that are the team’s entries for all sub-tasks attempted.</td>
     </tr>
     <tr>
-      <td>Tag commit with `dstc10-simmc-entry`.</td>
+      <td>Tag commit with `dstc11-simmc-entry`.</td>
     </tr>
     <tr>
       <td>Oct 21, 2022</td>
