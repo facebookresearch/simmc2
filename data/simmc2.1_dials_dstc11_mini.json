@@ -77,7 +77,7 @@
                             "objects": []
                         }
                     },
-                    "transcript": "Does the grey have good reviews?",
+                    "transcript": "What's the dress rated?",
                     "transcript_annotated": {
                         "act": "ASK:GET",
                         "act_attributes": {
@@ -94,8 +94,7 @@
                         "disambiguation_candidates_raw": [
                             36
                         ]
-                    },
-                    "disambiguation_transcript": "What's the dress rated?"
+                    }
                 },
                 {
                     "turn_idx": 3,
@@ -295,7 +294,7 @@
                             "objects": []
                         }
                     },
-                    "transcript": "What can you tell me about that black dress? How much is it? Do you have my size?",
+                    "transcript": "What can you tell me about that sleeveless dress? How much is it? Do you have my size?",
                     "transcript_annotated": {
                         "act": "ASK:GET",
                         "act_attributes": {
@@ -317,8 +316,7 @@
                             34,
                             36
                         ]
-                    },
-                    "disambiguation_transcript": "What can you tell me about that sleeveless dress? How much is it? Do you have my size?"
+                    }
                 }
             ],
             "dialogue_idx": 11564,
@@ -606,7 +604,7 @@
                             "objects": []
                         }
                     },
-                    "transcript": "Those are alright, but I'm not sure. What's the brand and ratings on those jeans?",
+                    "transcript": "Those are alright, but I'm not sure. What's the brand and ratings on that pair of jeans?",
                     "transcript_annotated": {
                         "act": "ASK:GET",
                         "act_attributes": {
@@ -630,8 +628,7 @@
                             37,
                             76
                         ]
-                    },
-                    "disambiguation_transcript": "Those are alright, but I'm not sure. What's the brand and ratings on that pair of jeans?"
+                    }
                 }
             ],
             "dialogue_idx": 11074,
@@ -732,7 +729,7 @@
                             "objects": []
                         }
                     },
-                    "transcript": "What size is the pair on the left and who makes it?",
+                    "transcript": "What size is the pair on the bottom and who makes it?",
                     "transcript_annotated": {
                         "act": "ASK:GET",
                         "act_attributes": {
@@ -751,8 +748,7 @@
                             37,
                             76
                         ]
-                    },
-                    "disambiguation_transcript": "What size is the pair on the bottom and who makes it?"
+                    }
                 },
                 {
                     "turn_idx": 3,
@@ -1024,7 +1020,7 @@
                             "objects": []
                         }
                     },
-                    "transcript": "Can you tell me who makes it and how much it costs?",
+                    "transcript": "Can you tell me the price and brand of the pants on the bottom?",
                     "transcript_annotated": {
                         "act": "ASK:GET",
                         "act_attributes": {
@@ -1049,8 +1045,7 @@
                             65,
                             87
                         ]
-                    },
-                    "disambiguation_transcript": "Can you tell me the price and brand of the pants on the bottom?"
+                    }
                 },
                 {
                     "turn_idx": 4,
@@ -1297,7 +1292,7 @@
                             "objects": []
                         }
                     },
-                    "transcript": "What's the prive of the item?",
+                    "transcript": "How mucuh does it cost?",
                     "transcript_annotated": {
                         "act": "ASK:GET",
                         "act_attributes": {
@@ -1357,8 +1352,7 @@
                             "all",
                             "items"
                         ]
-                    },
-                    "disambiguation_transcript": "How mucuh does it cost?"
+                    }
                 },
                 {
                     "turn_idx": 2,
@@ -1710,7 +1704,7 @@
                             "objects": []
                         }
                     },
-                    "transcript": "Yeah I'm having a hard time picking up on any differences between them. What sizes do those come in? And can you get a read on the customer ratings?",
+                    "transcript": "I can't really tell them apart. Can we look at the size of the black shirt instead?",
                     "transcript_annotated": {
                         "act": "ASK:GET",
                         "act_attributes": {
@@ -1732,8 +1726,7 @@
                             5,
                             10
                         ]
-                    },
-                    "disambiguation_transcript": "I can't really tell them apart. Can we look at the size of the black shirt instead?"
+                    }
                 },
                 {
                     "turn_idx": 3,
@@ -2041,7 +2034,7 @@
                             "objects": []
                         }
                     },
-                    "transcript": "What's the rating of the green hoodie, and what sizes does it come in?",
+                    "transcript": "What's the rating of the other hoodie?",
                     "transcript_annotated": {
                         "act": "ASK:GET",
                         "act_attributes": {
@@ -2060,8 +2053,7 @@
                             "all",
                             "hoodie"
                         ]
-                    },
-                    "disambiguation_transcript": "What's the rating of the other hoodie?"
+                    }
                 },
                 {
                     "turn_idx": 4,
@@ -2263,7 +2255,7 @@
                             "objects": []
                         }
                     },
-                    "transcript": "What size is that sweater anyways?",
+                    "transcript": "What sizes does the sweater come in?",
                     "transcript_annotated": {
                         "act": "ASK:GET",
                         "act_attributes": {
@@ -2280,8 +2272,7 @@
                         "disambiguation_candidates_raw": [
                             41
                         ]
-                    },
-                    "disambiguation_transcript": "What sizes does the sweater come in?"
+                    }
                 },
                 {
                     "turn_idx": 3,
@@ -2804,7 +2795,7 @@
                             "objects": []
                         }
                     },
-                    "transcript": "What's the brand and size range for that grey dress?",
+                    "transcript": "What's the brand and size range for that dress?",
                     "transcript_annotated": {
                         "act": "ASK:GET",
                         "act_attributes": {
@@ -2825,8 +2816,7 @@
                             "all",
                             "dress"
                         ]
-                    },
-                    "disambiguation_transcript": "What's the brand and size range for that dress?"
+                    }
                 },
                 {
                     "turn_idx": 8,
@@ -3138,7 +3128,7 @@
                             "objects": []
                         }
                     },
-                    "transcript": "Can you get me the available sizes and ratings of the maroon, white, and blue blouse and the light grey one?",
+                    "transcript": "Tell me about those two blouses",
                     "transcript_annotated": {
                         "act": "ASK:GET",
                         "act_attributes": {
@@ -3160,8 +3150,7 @@
                             "all",
                             "blouse"
                         ]
-                    },
-                    "disambiguation_transcript": "Tell me about those two blouses"
+                    }
                 },
                 {
                     "turn_idx": 7,
