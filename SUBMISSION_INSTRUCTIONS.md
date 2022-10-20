@@ -85,7 +85,11 @@ $ python tools/response_evaluation.py \
       <td>Each participating team should create a repository, e.g. in github.com, that can be made public under a permissive open source license (MIT License preferred). Repository doesn’t need to be publicly viewable at that time.</td>
     </tr>
     <tr>
-      <td>Before Oct 21 <a href='https://git-scm.com/book/en/v2/Git-Basics-Tagging'>tag a repository commit</a> that contains both runable code and model parameter files that are the team’s entries for all sub-tasks attempted.</td>
+      <td>
+          Before Oct 21 <a href='https://git-scm.com/book/en/v2/Git-Basics-Tagging'>tag a repository commit</a> that contains both runable code and model parameter files that are the team’s entries for all sub-tasks attempted.
+          <br>
+          * Note: This (soft) deadline is just to help participants better prepare for the final teststd submission. Minor code changes and model improvements are still allowed after this time.
+      </td>
     </tr>
     <tr>
       <td>Tag commit with `dstc11-simmc-entry`.</td>
