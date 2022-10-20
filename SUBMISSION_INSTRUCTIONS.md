@@ -47,6 +47,7 @@ Follow either original data format or line-by-line evaluation.
     ]
     ...
 ]
+```
 
 The SIMMC organizers will then evaluate them internally using the following scripts:
 
