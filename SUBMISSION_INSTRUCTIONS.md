@@ -16,8 +16,61 @@ We will release the `test-std` split closer to the end of Challenge Period 1 (Oc
 
 ## Submission Format
 
-To be updated later.
+Participants must submit the model prediction results in JSON format that can be scored with the automatic scripts provided for that sub-task. Specifically, please name your JSON output as follows:
 
+
+```
+<Subtask 1, 2 & 3>
+dstc11-simmc-teststd-pred-subtask-123.txt (line-separated output)
+or
+dstc11-simmc-teststd-pred-subtask-123.json (JSON format)
+
+<Subtask 4: >
+dstc10-simmc-teststd-pred-subtask-4.json
+```
+
+The formats are as follows:
+
+```
+<Subtask 1, 2, 3>
+Follow either original data format or line-by-line evaluation.
+
+<Subtask 4 Generation>
+[
+    "dialog_id": <dialog_id>,
+    "predictions": [
+        {
+            "turn_id": <turn_id>,
+            "response": <str; model output>,
+        }
+        ...
+    ]
+    ...
+]
+
+The SIMMC organizers will then evaluate them internally using the following scripts:
+
+```
+<Subtask 1, 2, 3>
+
+(line-by-line evaluation)
+$ python -m gpt2_dst.scripts.evaluate \
+  --input_path_target={PATH_TO_GROUNDTRUTH_TARGET} \
+  --input_path_predicted={PATH_TO_MODEL_PREDICTIONS} \
+  --output_path_report={PATH_TO_REPORT}
+
+(Or, dialog level evaluation)
+$ python -m utils.evaluate_dst \
+    --input_path_target={PATH_TO_GROUNDTRUTH_TARGET} \
+    --input_path_predicted={PATH_TO_MODEL_PREDICTIONS} \
+    --output_path_report={PATH_TO_REPORT}
+    
+<Subtask 4 Generation>
+$ python tools/response_evaluation.py \
+    --data_json_path={PATH_TO_GOLD_RESPONSES} \
+    --model_response_path={PATH_TO_MODEL_RESPONSES} \
+    --single_round_evaluation
+```
 
 ## Submission Instructions and Timeline
 
