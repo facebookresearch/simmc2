@@ -80,9 +80,14 @@ $ python tools/response_evaluation.py \
 <table>
   <tbody>
     <tr>
-      <td rowspan=3><ins>Before</ins> Oct 21, 2022</td>
-      <td rowspan=3>Each Team</td>
+      <td rowspan=4><ins>Before</ins> Oct 21, 2022</td>
+      <td rowspan=4>Each Team</td>
       <td>Each participating team should create a repository, e.g. in github.com, that can be made public under a permissive open source license (MIT License preferred). Repository doesn’t need to be publicly viewable at that time.</td>
+    </tr>
+    <tr>
+        <td>
+        In the main README.md file of your repository, please indicate the model performances on the devtest set (= output of the evaluation scripts).
+        </td>
     </tr>
     <tr>
       <td>
