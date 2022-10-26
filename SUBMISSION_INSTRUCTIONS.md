@@ -63,14 +63,16 @@ Follow either original data format or line-by-line evaluation.
 
 <Subtask 4 Generation>
 [
-    "dialog_id": <dialog_id>,
-    "predictions": [
-        {
-            "turn_id": <turn_id>,
-            "response": <str; model output>,
-        }
-        ...
-    ]
+    {
+        "dialog_id": <dialog_id>,
+        "predictions": [
+            {
+                "turn_id": <turn_id>,
+                "response": <str; model output>,
+            }
+            ...
+        ]
+    },
     ...
 ]
 ```
