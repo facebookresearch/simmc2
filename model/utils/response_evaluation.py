@@ -3,14 +3,16 @@
 Expected JSON format:
 
 [
-    "dialog_id": <dialog_id>,
-    "predictions": [
-        {
-            "turn_id": <turn_id>,
-            "response": <str; model output>,
-        }
-        ...
-    ]
+    {
+        "dialog_id": <dialog_id>,
+        "predictions": [
+            {
+                "turn_id": <turn_id>,
+                "response": <str; model output>,
+            }
+            ...
+        ]
+    },
     ...
 ]
 
