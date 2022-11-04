@@ -40,7 +40,8 @@ In this edition of the challenge, we specifically focus on the key challenge of 
 | June 28, 2022 | Training & development data released |
 | ***Oct 21***, 2022  | Test-Std data released, End of Challenge Phase 1 |
 | ***Oct 28***, 2022 | Entry submission deadline, End of Challenge Phase 2 |
-| ***Nov 4 (latest)***, 2022 | Final results announced |
+| ***Early Nov***, 2022 | Final results to be announced. We are currently finalizing our evaluation. |
+| ***Nov 18***, 2022 | Deadline for DSTC11 Workshop Paper Submission |
 
 ## Track Description
 
