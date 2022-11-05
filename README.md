@@ -11,6 +11,8 @@ Building upon the success of the previous editions of the SIMMC challenges, we p
 
 In this edition of the challenge, we specifically focus on the key challenge of *fine-grained visual disambiguation*, which adds an important skill to assistant agents studied in the previous SIMMC challenge. To accommodate for this challenge, we provide the improved version of the of the dataset, SIMMC 2.1, where we augment the SIMMC 2.0 dataset with additional annotations (i.e. identification of all possible referent candidates given ambiguous mentions) and corresponding re-paraphrases to support the study and modeling of visual disambiguation (SIMMC 2.1).
 
+On Nov 4, 2022, the SIMMC challenge has successfully ended, receiving 15 model submissions across 5 teams from universities and industry. We thank everyone for their participation in the challenge. The detailed evaluation metrics and the links to the repositories will soon be made available publicly.
+
 **Organizers**: Seungwhan Moon, Satwik Kottur, Babak Damavandi, Alborz Geramifard
 
 <figure>
@@ -21,6 +23,7 @@ In this edition of the challenge, we specifically focus on the key challenge of 
 
 ### Latest News
 
+* **[Nov 4, 2022]** Results for DSTC11-SIMMC2.1 challenge entries have been announced. 
 * **[Oct 21, 2022]** Test-std dataset (SIMMC v2.1) is released. Start of Challenge Period 2.
 * **[June 28, 2022]** DSTC11-SIMMC2.1 Challenge announcement. Training / development datasets (SIMMC v2.1) are released.
 
@@ -40,7 +43,7 @@ In this edition of the challenge, we specifically focus on the key challenge of 
 | June 28, 2022 | Training & development data released |
 | ***Oct 21***, 2022  | Test-Std data released, End of Challenge Phase 1 |
 | ***Oct 28***, 2022 | Entry submission deadline, End of Challenge Phase 2 |
-| ***Early Nov***, 2022 | Final results to be announced. We are currently finalizing our evaluation. |
+| ***Nov 4***, 2022 | Final results are announced (15 model submissions). |
 | ***Nov 18***, 2022 | Deadline for DSTC11 Workshop Paper Submission |
 
 ## Track Description
