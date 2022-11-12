@@ -11,7 +11,7 @@ Building upon the success of the previous editions of the SIMMC challenges, we p
 
 In this edition of the challenge, we specifically focus on the key challenge of *fine-grained visual disambiguation*, which adds an important skill to assistant agents studied in the previous SIMMC challenge. To accommodate for this challenge, we provide the improved version of the of the dataset, SIMMC 2.1, where we augment the SIMMC 2.0 dataset with additional annotations (i.e. identification of all possible referent candidates given ambiguous mentions) and corresponding re-paraphrases to support the study and modeling of visual disambiguation (SIMMC 2.1).
 
-On Nov 4, 2022, the SIMMC challenge has successfully ended, receiving 15 model submissions across 5 teams from universities and industry. We thank everyone for their participation in the challenge. The detailed evaluation metrics and the links to the repositories will soon be made available publicly.
+On Nov 4, 2022, the SIMMC challenge has successfully ended, receiving 15 model submissions across 5 teams from universities and industry. We thank everyone for their participation in the challenge. The detailed evaluation metrics and the links to the repositories can be found [here](./CHALLENGE_RESULTS.md).
 
 **Organizers**: Seungwhan Moon, Satwik Kottur, Babak Damavandi, Alborz Geramifard
 
